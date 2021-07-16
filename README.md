@@ -1,6 +1,8 @@
 # COINS_2.0
 Documentatie horend bij COINS 2.0 Let op, voor nieuwe projecten is COINS 2.0 niet meer actueel.
 
+__De voormailige documentatie van COINSWEB zijn in 'respec formaat' te lezen op: [https://bimloket.github.io/COINS_2.0/COINSWEB](https://bimloket.github.io/COINS_2.0/COINSWEB/)__
+
 COINS 2.0 bestaat uit 2 onderdelen:  
 
 Een ‘container’ waarin je bestanden of datasets aan elkaar linkt, zodat je de gegevens kan uitwisselen.  
