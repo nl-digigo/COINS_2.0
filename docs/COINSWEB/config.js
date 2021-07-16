@@ -86,12 +86,12 @@ var respecConfig = {
     // format: "markdown",                
   
     // The specification's "short name", which is the name used in NL_Respec URLs
-    shortName: "coins3-icdd",
+    shortName: "coins_2.0",
   
     // A YYYY-MM-DD date. The publication date of the present document. 
     // Als er geen publishDate is opgegeven, genereert ReSpec de dataum o.b.v. de laatste wijzigingen
     // Belangrijk: als publishDate niet opgegeven is, wordt bij de link "Laatst gepubliceerde versie" "geen" gezet. Anders wordt een link opgebouwd voor de laatste versie, met het formaat:
-    publishDate: "2021-03-12",
+    publishDate: "2021-07-16",
   
     // A YYYY-MM-DD date. When there is a previous release of a given specification, (W3C)
     previousPublishDate: "2020-03-05",
@@ -158,7 +158,7 @@ var respecConfig = {
         
       ],
     // The github option allows you associate your specification with a repository on GitHub.
-    github: "https://github.com/bimloket/COINS-3.0-ICDD",
+    github: "https://github.com/bimloket/COINS_2.0",
   
     // The URL of your test suite, gets included in the specification's headers.
     // testSuiteURI: "https://portaal.digikoppeling.nl/CV/home.html",
@@ -251,7 +251,7 @@ var respecConfig = {
     nl_logo: {
       //  src: "https://tools.geostandaarden.nl/respec/style/logos/OmgevingswetLogo.svg",
       src: "media/logo_BIM_Loket.jpg",
-      alt: "BIM Loket Coins3 ICDD",
+      alt: "BIM Loket Coins2",
       id: "TopLogo",
       //height: 20,
       //width: 100,
