@@ -5,3 +5,6 @@ Dit document bevat de documentatie van COINS versie 2.0. COINS 2.0 heeft plaatsg
 COINS 1.0 en COINS 2.0 (Constructieve Objecten en de INtegratie van Processen en Systemen) is een flexibele standaard voor de uitwisseling van BIM-informatie. Het biedt een uitwisselingsformaat door middel van een container voor BIM-gerelateerde informatie. COINS ondersteunt de uitwisseling van digitale informatie tussen verschillende IT-platforms en –omgevingen van partijen die betrokken zijn bij bouwprojecten. De standaard zorgt ervoor dat verschillende soorten informatie in samenhang in één database kunnen worden vastgelegd, zoals functies, eisen- en objectenbomen, GIS-data, 2D-tekeningen, 3D-modellen, IFC-modellen, en objecttype-bibliotheek.
 
 COINS vormt een aanvulling op standaarden die uitgebracht worden door buildingSMART zoals IFC, IFD Library en IDM. De kern wordt gevormd door een neutraal, software-onafhankelijk datamodel, van waaruit data in een neutraal format kunnen worden verzonden en ‘vertaald’ naar de software van verschillende projectpartners. Daarmee heeft de standaard grote invloed op BIM-processen.
+
+## Doel van dit document
+Documentatie van COINS 2.0.

@@ -94,7 +94,7 @@ var respecConfig = {
     publishDate: "2021-07-16",
   
     // A YYYY-MM-DD date. When there is a previous release of a given specification, (W3C)
-    previousPublishDate: "2020-03-05",
+    previousPublishDate: "2021-07-16",
   
     // Zie https://github.com/w3c/respec/wiki/previousMaturity. Dit moet een
     // A YYYY-MM-DD date. When a previousPublishDate is specified, this is typically required as well in order to generate the "Previous Version"
@@ -121,41 +121,15 @@ var respecConfig = {
           company:    "CROW",
           companyURL: "https://www.crow.nl"
         },
-        {
-          name:       "Niels Hoffmann",
-          company:    "Provincie Noord-Holland",
-          companyURL: "https://www.noord-holland.nl"
-        },
       ],
     // An array of person objects describing the authors of the document
     // this can be simple or more elaborated
     authors:  [
         {
-          name:       "Niels Reyngoud",
-          company:    "Provincie Gelderland",
-          companyURL: "https://www.gelderland.nl"
+          name:       "Voornaam Achternaam",
+          company:    "Organisatie",
+          companyURL: "https://www.bimloket.nl"
         },
-        {
-          name:       "Bart Bink",
-          company:    "Braindex",
-          companyURL: "http://www.braindex.nl"
-        },
-        {
-          name:       "Michel Böhms",
-          company:    "TNO",
-          companyURL: "https://www.tno.nl"
-        },
-        {
-          name:       "Benno Koehorst",
-          company:    "Rijkswaterstaat",
-          companyURL: "https://www.rws.nl"
-        },
-        {
-          name:       "Rob van de Werken",
-          company:    "Rijkswaterstaat",
-          companyURL: "https://www.rws.nl"
-        },
-        
       ],
     // The github option allows you associate your specification with a repository on GitHub.
     github: "https://github.com/bimloket/COINS_2.0",
