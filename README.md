@@ -1,7 +1,7 @@
 # COINS_2.0
 Documentatie horend bij COINS 2.0 Let op, voor nieuwe projecten is COINS 2.0 niet meer actueel.
 
-__De voormailige documentatie van COINSWEB zijn in 'respec formaat' te lezen op: [https://github.com/bimloket/COINS_2.0/tree/master/docs/COINSWEB/](https://github.com/bimloket/COINS_2.0/tree/master/docs/COINSWEB/)__
+__De voormailige documentatie van COINSWEB zijn in 'respec formaat' te lezen op: [https://github.com.io/bimloket/COINS_2.0/COINSWEB/](https://github.com.io/bimloket/COINS_2.0/COINSWEB/)__
 
 COINS 2.0 bestaat uit 2 onderdelen:  
 
