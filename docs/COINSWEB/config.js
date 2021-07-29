@@ -64,7 +64,7 @@ var respecConfig = {
     // EO: Einde ondersteuning, verouderde versie, vervangen door nieuwe versie
     // TG: Versie teruggetrokken
     // BASIS, GN-BASIS: 'geen status'
-    specStatus: "WV",
+    specStatus: "VV",
     postProcess:[changeSOTD],       //-- Deze roept de postprocessor aan
   
     // SpecType currently supported
@@ -86,7 +86,7 @@ var respecConfig = {
     // format: "markdown",                
   
     // The specification's "short name", which is the name used in NL_Respec URLs
-    shortName: "COINS_2.0/docs/coinsweb",
+    shortName: "coinsweb",
   
     // A YYYY-MM-DD date. The publication date of the present document. 
     // Als er geen publishDate is opgegeven, genereert ReSpec de dataum o.b.v. de laatste wijzigingen
@@ -94,11 +94,11 @@ var respecConfig = {
     publishDate: "2021-07-27",
   
     // A YYYY-MM-DD date. When there is a previous release of a given specification, (W3C)
-    previousPublishDate: "",
+    previousPublishDate: "2018-01-01",
   
     // Zie https://github.com/w3c/respec/wiki/previousMaturity. Dit moet een
     // A YYYY-MM-DD date. When a previousPublishDate is specified, this is typically required as well in order to generate the "Previous Version"
-    previousMaturity: "WW",
+    previousMaturity: "VV",
   
     // Link naar vorige vastgestelde versie van het document. Gedocumenteerd op https://github.com/w3c/respec/wiki/prevRecURI
     //prevRecURI: "https://www.w3.org/TR/2014/example-20140327/",
