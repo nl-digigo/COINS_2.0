@@ -68,7 +68,7 @@ Materials are now available to give a good idea of the specification of 2.0 COIN
 
 1 - Specification of COINS 2.0 core model (overview) in UML format,
 follow this link: 
-http://www.github.com/bimloket/COINS_2.0/docs/coinsweb/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf 
+https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf 
 
 1a – Specification of COINS 2.0 core model (detailed), follow this link:
 http://www.buildingbits.nl/coins/2.0/uml/
@@ -77,26 +77,26 @@ http://www.buildingbits.nl/coins/2.0/uml/
 http://www.buildingbits.nl/coins/2.0
 
 2 - Specification of COINS 2.0 core model in OWL format, follow this link: 
-http://www.github.com/bimloket/COINS_2.0/cbim-2.0.1.rdf
+https://github.com/bimloket/COINS_2.0/blob/master/cbim-2.0.1.rdf
 
 3 - Specification of Window of Autorization file in OWL format,
 follow this link: 
-http://www.github.com/bimloket/COINS_2.0/COINSWOA.rdf
+https://github.com/bimloket/COINS_2.0/blob/master/COINSWOA.rdf
 
 4 - Specification of Units Ontlogy in OWL format,
 follow this link:
-http://www.coinsweb.nl/COINS2.0/units-2.0.rdf
+https://github.com/bimloket/COINS_2.0/blob/master/units-2.0.rdf
 
 5 - Presentation sheets Introduction COINS 2.0,
 follow this link: 
-http://www.coinsweb.nl/COINS2.0/5_Introduction_COIN_ standard_V5_Nov2015.pdf
+https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/5_Introduction_COIN_ standard_V5_Nov2015.pdf
 
 6 - Starter kit COINS 2.0, Illustrative examples and exercises,
 follow this link: 
-http://www.coinsweb.nl/COINS2.0/6_Starter_kit_COINS_2.0_RC19_v0_4_UK.pdf
+https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/6_Starter_kit_COINS_2.0_RC19_v0_4_UK.pdf
 
 7 - COINS Navigator, a reference implementation to demonstrate the principles, follow this link:
-http://www.modelservers.org/public/COINS/2.0/Navigator/
+OUT OF ORDER http://www.modelservers.org/public/COINS/2.0/Navigator/
 
 8 – COINS 2.0 API Software development kit for Java and .NET, follow this link:
 https://github.com/sysunite/coins-2-sdk
