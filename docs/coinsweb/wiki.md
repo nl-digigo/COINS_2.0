@@ -1,5 +1,7 @@
 # <a>Background information</a> 
 
+## Introduction
+
 Building information modelling provides a digital technology for describing and displaying information required in the planning, design, construction and operation of constructed facilities. Increasingly, this modelling approach is expanding to encompass all aspects of the built environment, including civil infrastructure, utilities and public space and all disciplines. These are collectively referred to as construction processes. This approach to managing information brings together the diverse sets of information used during the life cycle of the built environment into a common information environment - reducing, and often eliminating, the need for the many types of paper documentation currently in use.
 This approach is commonly referred to as BIM (building information modelling, reflecting its initial application in the architectural domain), while the same acronym is used to refer to the product of the process, the information model itself, or BIM (Building Information Model).
 
@@ -9,7 +11,7 @@ This standard provides an information model and exchange format by means of a co
 
 The importance of this standard is the integration of open data based on differing standards (as well as proprietary formats, where needed), but packaged up in a way that makes explicit links between multiple representations of the same object. For example, a construction component such as a road abutment may be defined in a BIM library (as a type), linked to text specification or meta data, and include a 3D representation in a IFC file and/or a 2D representation in a GIS file.
 
-The current version is COINS 2.0
+The current version is ICDD; this document describes the previous version, COINS 2.0.
 
 ## Reader's guide
 
