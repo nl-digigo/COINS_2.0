@@ -62,7 +62,7 @@ COINS 1.0 was released in 2010. A first minor update COINS 1.1 was released in 2
 
 COINS 2.0 is a major update. In this edition the core model is even smaller and it makes more use of OWL features. The development of COINS 2.0 is finalized in January 2016. Final documentation is expected May 2016. 
 
-## materials
+## Materials: Visualisations and specifications
 
 Materials are now available to give a good idea of the specification of 2.0 COINS. This can be found in:
 
@@ -100,3 +100,9 @@ OUT OF ORDER http://www.modelservers.org/public/COINS/2.0/Navigator/
 
 8 – COINS 2.0 API Software development kit for Java and .NET, follow this link:
 https://github.com/sysunite/coins-2-sdk
+
+## Presentations from the introduction of COINS in 2016
+https://https://github.com/bimloket/COINS_2.0/tree/master/docs/coinsweb/presentaties%20introductie%20COINS%202016
+
+
+
