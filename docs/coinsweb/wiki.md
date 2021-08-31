@@ -68,7 +68,7 @@ Materials are now available to give a good idea of the specification of 2.0 COIN
 
 1 - Specification of COINS 2.0 core model (overview) in UML format,
 follow this link: 
-GitHub.com/bimloket/COINS_2.0/docs/coinsweb/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf 
+http://www.gitHub.com/bimloket/COINS_2.0/docs/coinsweb/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf 
 1a – Specification of COINS 2.0 core model (detailed), follow this link:
 http://www.buildingbits.nl/coins/2.0/uml/
 1 b – Visualization of COINS 2.0 core model based on WebVOWL, follow this link:
