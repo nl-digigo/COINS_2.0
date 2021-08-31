@@ -62,6 +62,8 @@ COINS 1.0 was released in 2010. A first minor update COINS 1.1 was released in 2
 
 COINS 2.0 is a major update. In this edition the core model is even smaller and it makes more use of OWL features. The development of COINS 2.0 is finalized in January 2016. Final documentation is expected May 2016. 
 
+## materials
+
 Materials are now available to give a good idea of the specification of 2.0 COINS. This can be found in:
 
 1 - Specification of COINS 2.0 core model (overview) in UML format,
