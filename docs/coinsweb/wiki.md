@@ -13,7 +13,7 @@ The importance of this standard is the integration of open data based on differi
 
 The current version is ICDD; this document describes the previous version, COINS 2.0.
 
-![Information exchange in the life cycle](http://www.github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/media/600px-Exchange_during_project.jpg "Information exchange in the life cycle")
+![Visualisation of information exchange in the life cycle](http://www.github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/media/600px-Exchange_during_project.jpg "Information exchange in the life cycle")
 
 ## Reader's guide
 
@@ -64,7 +64,7 @@ COINS 1.0 was released in 2010. A first minor update COINS 1.1 was released in 2
 
 COINS 2.0 is a major update. In this edition the core model is even smaller and it makes more use of OWL features. The development of COINS 2.0 is finalized in January 2016. Final documentation is expected May 2016. 
 
-## Materials: Visualisations and specifications
+## Specifications
 
 Materials are now available to give a good idea of the specification of 2.0 COINS. This can be found in:
 
@@ -103,7 +103,9 @@ http://www.https://github.com/bimloket/COINS_2.0/blob/master/COINS_2.0_Navigator
 8 – COINS 2.0 API Software development kit for Java and .NET, follow this link:
 https://github.com/sysunite/coins-2-sdk
 
-## Presentations from the introduction of COINS in 2016
+## Presentations
+
+See for presentations from the introduction of COINS in 2016
 https://https://github.com/bimloket/COINS_2.0/tree/master/docs/coinsweb/presentaties_introductie_COINS_2016
 
 
