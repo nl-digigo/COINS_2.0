@@ -1,5 +1,6 @@
 # <a>Background information</a> 
 
+
 ## Introduction
 
 Building information modelling provides a digital technology for describing and displaying information required in the planning, design, construction and operation of constructed facilities. Increasingly, this modelling approach is expanding to encompass all aspects of the built environment, including civil infrastructure, utilities and public space and all disciplines. These are collectively referred to as construction processes. This approach to managing information brings together the diverse sets of information used during the life cycle of the built environment into a common information environment - reducing, and often eliminating, the need for the many types of paper documentation currently in use.
@@ -15,11 +16,13 @@ The current version is ICDD; this document describes the previous version, COINS
 
 ![Visualisation of information exchange in the life cycle](http://www.github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/media/600px-Exchange_during_project.jpg "Information exchange in the life cycle")
 
+
 ## Reader's guide
 
 Essentials; In the Essentials section the general concepts of COINS are explained
 Core Model; The Coins 2.0 Core Model section specifies the classes and relations defined in this standard.
 Semantics; The page Semantics give some initial concepts and explaination about semantics, triples, OWL, RDF and ontologies. For more detailed information there will be links available to external resources.
+
 
 ## Mandate
 
@@ -42,6 +45,7 @@ Data Description Language (DDL); create insight in OWL, RDF, RDFS and type of se
 Coins core model; what classes have to be added to/removed from the core model.
 These findings are used as input for the definition of Coins 2.0. This definition has been presented at the 7th of April, 2016.
 
+
 ## Introduction COINS 2.0 (April 2016)
 The COINS standard provides an information model and exchange format by means of a container for BIM related data.
 
@@ -63,6 +67,7 @@ Version management - COINS offers features to record the history of the BIM
 COINS 1.0 was released in 2010. A first minor update COINS 1.1 was released in 2014. Documentation of those releases can be found by following this link: http://www.coinsweb.nl/wiki/index.php/Hoofdpagina.
 
 COINS 2.0 is a major update. In this edition the core model is even smaller and it makes more use of OWL features. The development of COINS 2.0 is finalized in January 2016. Final documentation is expected May 2016. 
+
 
 ## Specifications
 
@@ -102,6 +107,7 @@ http://www.https://github.com/bimloket/COINS_2.0/blob/master/COINS_2.0_Navigator
 
 8 – COINS 2.0 API Software development kit for Java and .NET, follow this link:
 https://github.com/sysunite/coins-2-sdk
+
 
 ## Presentations
 
