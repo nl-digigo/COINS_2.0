@@ -89,20 +89,20 @@ https://github.com/bimloket/COINS_2.0/blob/master/units-2.0.rdf
 
 5 - Presentation sheets Introduction COINS 2.0,
 follow this link: 
-https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/5_Introduction_COIN_ standard_V5_Nov2015.pdf
+https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/5_Introduction_COIN_standard_V5_Nov2015.pdf
 
 6 - Starter kit COINS 2.0, Illustrative examples and exercises,
 follow this link: 
 https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/6_Starter_kit_COINS_2.0_RC19_v0_4_UK.pdf
 
 7 - COINS Navigator, a reference implementation to demonstrate the principles, follow this link:
-OUT OF ORDER http://www.modelservers.org/public/COINS/2.0/Navigator/
+http://www.https://github.com/bimloket/COINS_2.0/blob/master/COINS_2.0_Navigator.jar
 
 8 – COINS 2.0 API Software development kit for Java and .NET, follow this link:
 https://github.com/sysunite/coins-2-sdk
 
 ## Presentations from the introduction of COINS in 2016
-https://https://github.com/bimloket/COINS_2.0/tree/master/docs/coinsweb/presentaties%20introductie%20COINS%202016
+https://https://github.com/bimloket/COINS_2.0/tree/master/docs/coinsweb/presentaties_introductie_COINS_2016
 
 
 
