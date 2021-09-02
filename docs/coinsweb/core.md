@@ -19,7 +19,7 @@ https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/UML_Cbim-2.0_DEF
 
 ## Overview
 
-COINS is characterized by a flexible schema architecture, based on RDF(S) and OWL.
+[COINS](https://bimloket.github.io/COINS_2.0/coinsweb/#dfn-coins is characterized by a flexible schema architecture, based on RDF(S)) and OWL.
 
 The Coins Core Model is an extension of the OWL Ontology Structure and is formally represented in a COINS entity model, expressed in RDF/XML. The model can be serialised in XML, JSON, NTriples or CSV.
 
