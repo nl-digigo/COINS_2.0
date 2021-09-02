@@ -25,7 +25,7 @@ De nieuwste versie van COINS is sinds 7 april 2016 beschikbaar. Naast de documen
 De belangrijkste karakteristieken van COINS 2.0 zijn:
 
 Een klein kernmodel toepasbaar voor vele doeleinden
-Gebaseerd op <a>OWL<a> Ontology Web Language – W3C standard.
+Gebaseerd op <a>OWL</a> Ontology Web Language – W3C standard.
 Uitbreidbaarheid – het kernmodel kan uitgebreid worden met gespecialiseerde modellen (referentiekaders) voor verschillende disciplines. Deze sub-modellen kunnen toepassingen betreffen op bedrijfsniveau, bouwsector niveau of nationaal, en kunnen indien relevant als semi standaarden uitgegeven worden.
 Dynamische semantiek doordat COINS het gebruik van object type bibliotheken mogelijk maakt.
 Integratie van document georienteerde informatie met object georienteerde informatie – De grens tussen deze gebieden kan verschuiven in de tijd; daarmee wordt een evolutionair pad geboden om te groeien in BIM-volwassenheid.
