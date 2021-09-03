@@ -1,4 +1,35 @@
-# <a>changelog1.1-2.0</a> 
+# <a>Versions and differences</a> 
+
+
+## COINS 2.0
+Coins 2.0 is major update of the Coins standard. It was first presented on the 7th of April, 2016.
+
+Coins 2.0 replaces COINS 1.1.
+
+### Mandate
+
+Since it's first publication in 2010, the Coins standard was tested and implemented in medium and large scale infrastructural projects.
+Based on these experiences, the standard was evaluated in workpackage3 “Rethinking the standard” of 'Projectplan COINS' by the Dutch "Bouw Informatie Raad" (14th of January, 2014).
+
+This resulted in a specification for Coins 2.0. It has been documented in "Rethinking COINS" (15th of June, 2014) The important specifications are:
+
+Coins 2.0 should not impose a working method, it must focus on exchange of information
+In Coins 1.0 it was possible to create just one type of relations between objects. With Coins 2.0 multiple relations between objects can be created.
+The concept of information exchange must not be limited to the maintain phase of a project. It mus be used through the whole life-cycle (design, built, operate and maintain, demolish)
+The implementation of Coins 2.0 must be simplified. Besides, Coins must be independent of language and sustainable
+The 'core model' of Coins 2.0 must be configurable and extensible (e.g. by using Reference Frameworks), without changing the core itself
+The definition (semantics) of the exchanged information must be unambiguously by using references to Reference Frameworks or accepted objecttype libraries.
+The document "Rethinking COINS" resulted in a number of reports:
+
+Concepts of collaboration; principles of how and when we want to exchange information.
+Versionmanagement; what kind of versionmanagement will be supported by Coins 2.0.
+Data Description Language (DDL); create insight in OWL, RDF, RDFS and type of serialisations.
+Coins core model; what classes have to be added to/removed from the core model.
+These findings are used as input for the definition of Coins 2.0. This definition has been presented at the 7th of April, 2016.
+
+### 
+
+Differences in the COINS 2.0 Core Model compared to COINS 1.1
 
 </p>
 <table class="wikitable" style="text-align:left; valign:top">
@@ -326,4 +357,6 @@
 </table>
 <p><br />
 </p>
+
+
 
