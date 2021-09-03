@@ -12,7 +12,7 @@ properties; the purple area on the bottom right of the UML-schema shows the defi
 document references; the blue area on the bottom-left of the UML-schema shows the different documenttypes that can be used within COINS.
 location; this green area describes the relations and classes needed for modelling the location of an object.
 
-![UML-scheme of the COINS CORE model](https://www.https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/media/600px-UML-schema_1280x888.jpg "UML-scheme of the COINS CORE model")
+![UML-scheme of the COINS CORE model](*/media/600px-UML-schema_1280x888.jpg "UML-scheme of the COINS CORE model")
 
 Or follow this link: 
 https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf
