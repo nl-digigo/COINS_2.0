@@ -27,7 +27,7 @@ Data Description Language (DDL); create insight in OWL, RDF, RDFS and type of se
 Coins core model; what classes have to be added to/removed from the core model.
 These findings are used as input for the definition of Coins 2.0. This definition has been presented at the 7th of April, 2016.
 
-### 
+### Version 1.1 versus 1.2
 
 Differences in the COINS 2.0 Core Model compared to COINS 1.1
 
