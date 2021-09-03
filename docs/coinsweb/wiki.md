@@ -14,7 +14,7 @@ The importance of this standard is the integration of open data based on differi
 
 The current version is ICDD; this document describes the previous version, COINS 2.0.
 
-![Visualisation of information exchange in the life cycle](https://www.github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/media/600px-Exchange_during_project.jpg "Information exchange in the life cycle")
+![Visualisation of information exchange in the life cycle]("./media/600px-Exchange_during_project.jpg "Information exchange in the life cycle")
 
 
 ## Reader's guide
