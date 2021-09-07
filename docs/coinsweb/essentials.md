@@ -10,7 +10,7 @@ COINS is an open BIM standard for the exchange of information.
 
 COINS is a formal way of first structuring information and then exchanging this information to another organisation. If you want to exchange information between parties, you have to agree upon what data will be exchanged. This agreement is defined in a neutral model. Then you are able to design a mapping from your own system to this neutral standard and visa versa. COINS is developed according to this simple principle and therefore defines this neutral system in a clear and unambiguously way, called the COINS core model.
 
-![Visualisation of information exchange between organisations]("./media/600px-Exchangeinformation.jpg "Information exchange between organisations")
+![Visualisation of information exchange between organisations](https://bimloket.github.io/coinsweb/media/600px-Exchangeinformation.jpg "Information exchange between organisations")
 
 COINS is a standard that is able to exchange information in a structured way. Besides COINS is able to maintain the relations to other standards, documents and models through the whole lifecycle of a building and construction project (from feasability study till the maintain and operate phase).
 
@@ -22,14 +22,14 @@ This standard supports the exchange of information between parties within a buil
 
 So for instance you have selected a Hectometre sign. It has some values describing this object in COINS. Also, COINS knows which object this is in GML (this red dot) or IFC (this 3D object in e.g. Revit). And which text fragment is related to it in the requirement specifications document. So, COINS brings these connections together and maintains them during all project phases.
 
-![Visualisation of the Exchange of information about a Hectometre sign]("./media/600px-IFC-GML-PDF_and_COINS.jpg "Exchange of information about a Hectometre sign")
+![Visualisation of the Exchange of information about a Hectometre sign](https://bimloket.github.io/coinsweb/media/600px-IFC-GML-PDF_and_COINS.jpg "Exchange of information about a Hectometre sign")
 
 
 ## COINS architecture
 
 The architecture of COINS makes it possible to add extra features and functionalities to this standard. In fact, the core of the model has been defined in such a way that this can be extended. These extensions are called Reference Frameworks. For instance, one could add activities to COINS via a Reference Framework. Some Frameworks are designed already and will be explained later.
 
-![Architecture concept of COINS Core and Reference Frameworks]("./media/Architecture.jpg "Architecture concept of COINS Core and Reference frameworks")
+![Architecture concept of COINS Core and Reference Frameworks](https://bimloket.github.io/coinsweb/media/Architecture.jpg "Architecture concept of COINS Core and Reference frameworks")
 
 
 ## COINS 2.0 concept
