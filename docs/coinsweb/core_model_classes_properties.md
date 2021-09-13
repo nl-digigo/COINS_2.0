@@ -106,7 +106,7 @@ The nextTrunkVersion is restricted to one other individual of Assembly.
 
 This image shows the informative representation of the Assembly class.
 
-![Informative representation of Assembly in UML](https://bimloket.github.io/coinsweb/media/600px-Core-Assembly_Class.png "Informative representation in UML")
+![Informative representation of Assembly in UML](*/coinsweb/media/600px-Core-Assembly_Class.png "Informative representation in UML")
 
 
 **Attributes**
@@ -119,8 +119,8 @@ This image shows the informative representation of the Assembly class.
 <th> Description
 </th></tr>
 <tr>
-<td> <a href="/wiki2/index.php/CoinsCore:hasContainsRelation_Property" title="CoinsCore:hasContainsRelation Property">hasContainsRelation</a> </td>
-<td> <a href="/wiki2/index.php/CoinsCore:ContainsRelation_Class" title="CoinsCore:ContainsRelation Class">ContainsRelation</a> </td>
+<td> <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#hasContainsRelation">hasContainsRelation</a> </td>
+<td> <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#containsrelation" title="CoinsCore:ContainsRelation Class">ContainsRelation</a> </td>
 <td> Reference to ContainsRelations
 </td></tr>
 </table>
@@ -269,9 +269,181 @@ This image shows the informative representation of the Assembly class.
 ### UriProperty
 
 
-
 ### Vector
 
 
 
 ### VersionObject
+
+
+
+## Core model properties
+
+
+
+### belongsToAssembly
+
+
+
+### checksumFile
+
+
+
+### checksumFileAlgorithm
+
+
+
+### checksumUri
+
+
+
+### checksumUriAlgorithm
+
+
+
+### coordinate
+
+
+
+### creationDate
+
+
+
+### creator
+
+
+
+### datatypeValue
+
+
+
+### description
+
+
+
+### documentFragment
+
+
+
+
+### documentMimeType
+
+
+
+### documentType
+
+
+
+### documentUri
+
+
+
+### filePath
+
+
+
+### fromObject
+
+
+
+### groupedBy
+
+
+
+### groups
+
+
+
+### hasAssembly
+### hasConnectedObjects
+
+
+
+
+### hasConnections
+
+
+
+
+### hasContainsRelation
+
+
+
+### hasIncomingConnections
+
+
+
+### hasOutgoingConnections
+
+
+
+
+### hasPart
+
+
+
+### hasProperties
+
+
+
+
+### IDFieldname
+
+
+
+### modificationDate
+
+
+
+### modifier
+
+
+
+### name
+
+
+
+### nextTrunkVersion
+
+
+
+### objectValue
+
+
+
+### partOf
+
+
+
+
+### primaryOrientation
+
+
+
+### propertyBelongsTo
+
+
+
+### secundaryOrientation
+
+
+
+### toObject
+
+
+
+### translation
+
+
+
+### unit
+
+
+### userID
+
+
+
+### VersionID
+
+
+
