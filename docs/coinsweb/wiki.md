@@ -14,7 +14,7 @@ The importance of this standard is the integration of open data based on differi
 
 The current version is ICDD; this document describes the previous version, COINS 2.0.
 
-![Visualisation of information exchange in the life cycle](https://bimloket.github.io/coinsweb/media/600px-Exchange_during_project.jpg "Information exchange in the life cycle")
+![Visualisation of information exchange in the life cycle](https://bimloket.github.io/docs/coinsweb/media/600px-Exchange_during_project.jpg "Information exchange in the life cycle")
 
 
 ## Reader's guide
@@ -64,7 +64,7 @@ Integrating adjacent standards - COINS delegates specific modelling areas to exi
 Library model - The COINS 2.0 library model is fully OWL-class based and in line with standard OWL modeling features
 Integration with off-line transaction-based information exchange - COINS information exchange can be integrated with transaction-based information exchange as for instance supported by the IDM part 2 standard for process modelling
 Version management - COINS offers features to record the history of the BIM
-COINS 1.0 was released in 2010. A first minor update COINS 1.1 was released in 2014. Documentation of those releases can be found by following this link: http://www.coinsweb.nl/wiki/index.php/Hoofdpagina.
+COINS 1.0 was released in 2010. A first minor update COINS 1.1 was released in 2014. Documentation of those releases can be found [here](./coinsarchive)
 
 COINS 2.0 is a major update. In this edition the core model is even smaller and it makes more use of OWL features. The development of COINS 2.0 is finalized in January 2016. Final documentation is expected May 2016. 
 
