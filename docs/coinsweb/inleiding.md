@@ -1,7 +1,7 @@
 # Background
 
 
-## Status <a>COINS</a> 2.0
+## Status COINS 2.0
 COINS 2.0 has been replaced by the international norm ISO 21597 <a>Information Container for Data Delivery</a> (ICDD) and the Dutch norm NEN 2660. COINS 2.0 is still in use in the Netherlands, as ICDD has not been fully implemented yet in all ontology's or applications.
 
 ## COINS version 2.0
