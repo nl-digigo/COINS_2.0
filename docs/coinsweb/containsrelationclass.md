@@ -30,7 +30,8 @@ This image shows the informative representation of the ContainsRelation class.
 | hasPart | Part | Reference to exactly 1 instance of Part
 | groupedBy | ContainsRelationGroup | ContainsRelations can be grouped in ContainsRelationGroup
 
-##Formal Representation in RDF/XML
+
+## Formal Representation in RDF/XML
 
  <code> <owl:Class rdf:ID="ContainsRelation">
 
@@ -70,5 +71,5 @@ This image shows the informative representation of the ContainsRelation class.
    <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
    <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
 
- </owl:Class>
+ </owl:Class> </code>
 
