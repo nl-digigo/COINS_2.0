@@ -18,7 +18,7 @@ History
 
 This image shows the informative representation of the ContainsRelation class.
 
-![ContainsRelation class in UML](http://www.github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/media/600px-Core-ContainsRelation_Class.png "Informative representation of ContainsRelation in UML")
+![ContainsRelation class in UML](./media/600px-Core-ContainsRelation_Class.png "Informative representation of ContainsRelation in UML")
 
 
 
