@@ -1,8 +1,9 @@
 # Core Model Classes and Properties
-
+Description of core model Classes and Properties
 
 
 ## Core Model Classes
+Description of core model Classes 
 
 
 ### Assembly
@@ -14,12 +15,14 @@
 <b>History</b><br />* New in COINS
 </p><p><br />
 </p>
-<h2><span class="mw-headline" id="Informative_representation_in_UML">Informative representation in UML</span></h2>
-<p>This image shows the informative representation of the Assembly class.
+<b>Informative representation in UML</b><br />
+
+<p>This image shows the informative representation of the Assembly class.</p>
+
 ![Informative representation of Assembly in UML](./media/600px-Core-Assembly_Class.png "Informative representation in UML")
-</p><p><br />
-</p>
-<h2><span class="mw-headline" id="Attributes">Attributes</span></h2>
+
+<b>Attributes</b><br />
+
 <table class="wikitable">
 <tr>
 <th> Name
@@ -36,7 +39,7 @@
 </table>
 <p><br />
 </p>
-<h2><span class="mw-headline" id="Formal_Representation_in_RDF.2FXML">Formal Representation in RDF/XML</span></h2>
+<b>Formal Representation in RDF/XML</b><br />
 <pre> &lt;owl:Class rdf:ID="Assembly"&gt;
 
    &lt;rdfs:label xml:lang="en-GB"&gt;Assembly&lt;/rdfs:label&gt;
@@ -74,12 +77,12 @@
 </p><p><b>History</b><br />* New in COINS 2.0
 </p><p><br /> 
 </p>
-<h2><span class="mw-headline" id="Informative_representation_in_UML">Informative representation in UML</span></h2>
+</p><p><b>Informative representation in UML</b><br /> 
 <div class="thumb tright"><div class="thumbinner" style="width:251px;"><a href="/wiki2/index.php/Bestand:Core-BooleanProperty_Class.png" class="image"><img alt="" src="/wiki2/images/c/c7/Core-BooleanProperty_Class.png" width="249" height="254" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki2/index.php/Bestand:Core-BooleanProperty_Class.png" class="internal" title="Vergroten"></a></div>Informative representation of BooleanProperty in UML</div></div></div>
 <p>This image shows the informative representation of the BooleanProperty class.
 </p><p><br />
 </p>
-<h2><span class="mw-headline" id="Attributes">Attributes</span></h2>
+</p><p><b>Attributes</b><br />
 <table class="wikitable">
 <tr>
 <th> Name
@@ -89,14 +92,14 @@
 <th> Description
 </th></tr>
 <tr>
-<td> <a href="/wiki2/index.php/CoinsCore:datatypeValue_Property" title="CoinsCore:datatypeValue Property">datatypeValue</a> </td>
+<td> <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#datatypevalue" title="CoinsCore:datatypeValue Property">datatypeValue</a> </td>
 <td> xsd:boolean </td>
 <td> Exactly one Boolean value. Empty value not allowed.
 </td></tr>
 </table>
 <p><br />
 </p>
-<h2><span class="mw-headline" id="Formal_Representation_in_RDF.2FXML">Formal Representation in RDF/XML</span></h2>
+</p><p><b>Formal Representation in RDF/XML</b><br />
 <pre> &lt;owl:Class rdf:ID="BooleanProperty"&gt;
 
    &lt;rdfs:label xml:lang="en-GB"&gt;BooleanProperty&lt;/rdfs:label&gt;
@@ -144,29 +147,6 @@
 
  &lt;/owl:Class&gt;
 </pre>
-<!-- 
-NewPP limit report
-Cached time: 20210913092422
-Cache expiry: 86400
-Dynamic content: false
-CPU time usage: 0.044 seconds
-Real time usage: 0.083 seconds
-Preprocessor visited node count: 11/1000000
-Preprocessor generated node count: 20/1000000
-Post‐expand include size: 0/2097152 bytes
-Template argument size: 0/2097152 bytes
-Highest expansion depth: 2/40
-Expensive parser function count: 0/100
--->
-
-<!-- 
-Transclusion expansion time report (%,ms,calls,template)
-100.00%    0.000      1 - -total
--->
-
-<!-- Saved in parser cache with key coinsweb-COINS2:pcache:idhash:101-0!*!0!!*!5!* and timestamp 20210913092422 and revision id 1093
- -->
-</div>					<div class="printfooter">
 
 
 ### CartesianLocator
@@ -390,6 +370,7 @@ This image shows the informative representation of the ContainsRelation class.
 
 
 ## Core model properties
+Description of core model Properties
 
 
 
