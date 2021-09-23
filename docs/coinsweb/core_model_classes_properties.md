@@ -493,18 +493,68 @@ Concept is the common superclass for all other COINS classes.
 
 
 ### Connection
+Connection is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#entity" title="CoinsCore:Entity">Entity</a>. The Connection class enables the functional connection between two Objects. Therefore it holds references to exactly 2 Objects. The relation is undirected, meaning there is no source and target of the relationship; both Objects are considered equal.
+
+Connection is not an abstract class; it can be instantiated directly.
+
+The Connection class is extendable; in the Coins Core Model it is extended to <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#directedconnection" title="CoinsCore:DirectedConnection Class">DirectedConnection</a> for defining a directed relationship.
+
+The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" title="CoinsCore:nextTrunkVersion Property">nextTrunkVersion</a> is restricted to one other individual of Connection.
+
    
 **History**
-
+* Modified in COINS 2.0; it is no longer for terminal objects only.
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+![Representation in UML](./media/300px-Core-Connection_Class.png "Representation in UML")
    
 **Attributes**
-
+<table class="wikitable">
+<tr>
+<th> Name
+</th>
+<th> Type
+</th>
+<th> Description
+</th></tr>
+<tr>
+<td> <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#hasconnectedobjects" title="CoinsCore:hasConnectedObjects Property">hasConnectedObjects</a> </td>
+<td> <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#object" title="CoinsCore:Object Class">Object</a> </td>
+<td> Reference to an other element
+</td></tr>
+</table>
 
 **Formal representation in RDF/XML**
 
+<code><owl:Class rdf:ID="Connection">
+
+   <rdfs:label xml:lang="en-GB">Connection</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">undirected Connection between Objects</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#Entity"/>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#hasConnectedObjects"/>
+       <owl:cardinality rdf:datatype="xsd:nonNegativeInteger">2</owl:cardinality>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#Connection"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+   </owl:Class></code>
 
 
 ### ContainsRelation
