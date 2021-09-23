@@ -1,10 +1,6 @@
 # Essentials
 
 
-## COINS introduction
-
-COINS is an open BIM standard for the exchange of information.
-
 
 ## Exchange information
 
