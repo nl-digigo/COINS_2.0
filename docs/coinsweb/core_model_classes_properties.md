@@ -71,12 +71,13 @@ Description of core model Classes
 </p><p><b>History</b><br />* New in COINS 2.0
 </p><p><br /> 
 </p>
-</p><p><b>Informative representation in UML</b><br /> 
+**Informative representation in UML**
+   
+This image shows the informative representation of the BooleanProperty class
+ 
 ![Informative representation of Assembly in UML](./media/Core-BooleanProperty_Class.png "Informative representation in UML")
-<p>This image shows the informative representation of the BooleanProperty class.
-</p><p><br />
-</p>
-</p><p><b>Attributes</b><br />
+ 
+**Attributes**
 <table class="wikitable">
 <tr>
 <th> Name
@@ -150,7 +151,10 @@ The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" ti
 * New in COINS 2.0; replaces <a href="https://bimloket.github.io/COINS_2.0/coinsarchive/#cbimlocator" title="Cbim:Locator">nextTrunkVersion</a>Cbim:Locator
    
 **Informative representation in UML**
-![Representation in UML](./media/300px-Core-CartesianLocator_Class "Representation in UML")
+   
+ This image shows the informative representation of the CartesianLocator class.
+   
+![Representation in UML](./media/300px-Core-CartesianLocator_Class.png "Representation in UML")
    
 **Attributes**
 <table class="wikitable">
@@ -162,18 +166,18 @@ The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" ti
 <th> Description
 </th></tr>
 <tr>
-<td> <a https://bimloket.github.io/COINS_2.0/coinsweb/#primaryorientation" title="CoinsCore:primaryOrientation Property">primaryOrientation</a> </td>
-<td> <a https://bimloket.github.io/COINS_2.0/coinsweb/#vector" title="CoinsCore:Vector Class">Vector</a> </td>
+<td> <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#primaryorientation" title="CoinsCore:primaryOrientation Property">primaryOrientation</a> </td>
+<td> <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#vector" title="CoinsCore:Vector Class">Vector</a> </td>
 <td> 0..1 Vector for primary orientation.
 </td></tr>
 <tr>
-<td> <a https://bimloket.github.io/COINS_2.0/coinsweb/#secundaryorientation" title="CoinsCore:secundaryOrientation Property">secundaryorientation</a> </td>
+<td> <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#secundaryorientation" title="CoinsCore:secundaryOrientation Property">secundaryorientation</a> </td>
 <td> <a https://bimloket.github.io/COINS_2.0/coinsweb/#vector" title="CoinsCore:Vector Class">Vector</a> </td>
 <td> 0..1 Vector for secundary orientation.
 </td></tr>
 <tr>
-<td> <a https://bimloket.github.io/COINS_2.0/coinsweb/#translationproperty" title="CoinsCore:translation Property">translation</a> </td>
-<td> <a https://bimloket.github.io/COINS_2.0/coinsweb/#vector "title="CoinsCore:Vector Class">Vector</a> </td>
+<td> <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#translationproperty" title="CoinsCore:translation Property">translation</a> </td>
+<td> <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#vector" "title="CoinsCore:Vector Class">Vector</a> </td>
 <td> 0..1 Vector for translation.
 </td></tr>
 </table>
@@ -231,47 +235,180 @@ The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" ti
    
 
 ### CataloguePart
+**CataloguePart** is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#concept" title="CoinsCore:Concept Class">Concept</a>. CatalogueParts are for aligning of external Object Type Libraries.
 
+CataloguePart is not abstract; it can be instantiated.
+
+The CataloguePart class can be extended to other classes.
+
+The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" title="CoinsCore:nextTrunkVersion Property">nextTrunkVersion</a> is restricted to one other individual of CataloguePart.
    
 **History**
-
+* Unchanged in COINS 2.0
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+This image shows the informative representation of the CataloguePart class.
    
-**Attributes**
-
+![Representation in UML](./media/Core-CataloguePart_Class.png "Representation in UML")
+   
 
 **Formal representation in RDF/XML**
+<code>
+<owl:Class rdf:ID="CataloguePart">
+
+   <rdfs:label xml:lang="en-GB">Cataloguepart</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Generic catalogue part for alignement of external ObjectTypeLibraries.</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#Concept"/>
+
+   <rdfs:subClassOf>
+     <owl:Class>
+       <owl:intersectionOf rdf:parseType="Collection">
+         <rdf:Description rdf:ID="Concept"/>
+         <rdf:Description rdf:ID="Entity"/>
+       </owl:intersectionOf>
+     </owl:Class>
+   </rdfs:subClassOf>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#CataloguePart"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+   </owl:Class>
+   </code>
 
 
 ### CoinsContainerObject
-   
-**History**
+CoinsContainerObject is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#concept" title="CoinsCore:Concept Class">Concept</a>. It contains all individuals that are placed in a Coins Container.
 
+CoinsContainerObject is not an abstract class; it can be instantiated.
+
+The CoinsContainerObject class can be extended to other classes.
+
+
+The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" title="CoinsCore:nextTrunkVersion Property">nextTrunkVersion</a> is restricted to one other individual of CoinsContainerObject.
+
+This CoinsContainerObject acts as a kind of placeholder for all objects within this container. So, when you import this information into your own system you are able to identify which objects have been sent to you in what container.
+ 
+**History**
+* New in COINS 2.0
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+
+   This image shows the informative representation of the CoinsContainerObject class.
    
-**Attributes**
+![Representation in UML](./media/Core-CoinsContainerObject_Class.png "Representation in UML")
+   
 
 
 **Formal representation in RDF/XML**
+<code><owl:Class rdf:ID="CoinsContainerObject">
+
+   <rdfs:label xml:lang="en-GB">CoinsContainerObject</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">CoinsContainerObject</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#Concept"/>
+
+   <rdfs:subClassOf rdf:resource="#Entity"/>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#CoinsContainerObject"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+   </owl:Class></code>
 
 
 ### ComplexProperty
-   
-**History**
 
+ComplexProperty is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#entityproperty" title="CoinsCore:EntityProperty">EntityProperty</a>. It is the superclass of all property classes that hold exactly one single reference to an ComplexPropertyValue.
+
+Where SimpleProperty refers to a simple value, ComplexProperty refers to an ComplexPropertyValue: an object instance. Therefore ComplexProperty is disjoined with SimpleProperty.
+
+ComplexProperty is not an abstract class; can be instantiated directly.
+
+The ComplexProperty class can be extended; in the COINS Core Model it is extended to DocumentProperty and LocatorProperty.
+
+The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" title="CoinsCore:nextTrunkVersion Property">nextTrunkVersion</a> is restricted to one other instance of ComplexProperty.
+   
+
+**History**
+* New in COINS 2.0
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+
+This image shows the informative representation of the ComplexProperty class.
+
+![Representation in UML](./media/300px-Core-ComplexProperty_Class.png "Representation in UML")
    
 **Attributes**
-
+<table class="wikitable">
+<tr>
+<th> Name
+</th>
+<th> Type
+</th>
+<th> Description
+</th></tr>
+<tr>
+<td> <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#objectvalue" title="CoinsCore:ObjectValue Property">objectValue</a> </td>
+<td> <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#complexpropertyvalue" title="CoinsCore:ComplexPropertyValue">ComplexPropertyValue</a> </td>
+<td> Reference to an other element
+</td></tr>
+</table>
 
 **Formal representation in RDF/XML**
+   
+<code><owl:Class rdf:ID="ComplexProperty">
 
+   <rdfs:label xml:lang="en-GB">Complex Property</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Complex property</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#EntityProperty"/>
+
+   <owl:disjointWith rdf:resource="#SimpleProperty"/>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#ComplexPropertyValue"/>
+       <owl:cardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:cardinality>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#ComplexProperty"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+   </owl:Class></code>
 
 ### ComplexPropertyValue
    
