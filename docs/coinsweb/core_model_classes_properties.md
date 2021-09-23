@@ -72,7 +72,7 @@ Description of core model Classes
 </p><p><br /> 
 </p>
 </p><p><b>Informative representation in UML</b><br /> 
-<div class="thumb tright"><div class="thumbinner" style="width:251px;"><a href="/wiki2/index.php/Bestand:Core-BooleanProperty_Class.png" class="image"><img alt="" src="/wiki2/images/c/c7/Core-BooleanProperty_Class.png" width="249" height="254" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki2/index.php/Bestand:Core-BooleanProperty_Class.png" class="internal" title="Vergroten"></a></div>Informative representation of BooleanProperty in UML</div></div></div>
+![Informative representation of Assembly in UML](./media/Core-BooleanProperty_Class.png "Informative representation in UML")
 <p>This image shows the informative representation of the BooleanProperty class.
 </p><p><br />
 </p>
@@ -95,17 +95,13 @@ Description of core model Classes
 </p>
 </p><p><b>Formal Representation in RDF/XML</b><br />
 <pre> &lt;owl:Class rdf:ID="BooleanProperty"&gt;
-
    &lt;rdfs:label xml:lang="en-GB"&gt;BooleanProperty&lt;/rdfs:label&gt;
    &lt;rdfs:comment xml:lang="en-GB"&gt;BooleanProperty&lt;/rdfs:comment&gt;
-
    &lt;rdfs:subClassOf rdf:resource="#SimpleProperty"/&gt;
-
    &lt;owl:disjointWith rdf:resource="#StringProperty"/&gt;
    &lt;owl:disjointWith rdf:resource="#NumericProperty"/&gt;
    &lt;owl:disjointWith rdf:resource="#DateTimeProperty"/&gt;
    &lt;owl:disjointWith rdf:resource="#UriProperty"/&gt;
-
    &lt;owl:equivalentClass&gt;
      &lt;owl:Class&gt;
        &lt;owl:intersectionOf rdf:parseType="Collection"&gt;
@@ -117,28 +113,23 @@ Description of core model Classes
        &lt;/owl:intersectionOf&gt;
      &lt;/owl:Class&gt;
    &lt;/owl:equivalentClass&gt;
-
    &lt;rdfs:subClassOf&gt;
      &lt;owl:Restriction&gt;
        &lt;owl:onProperty rdf:resource="#datatypeValue"/&gt;
        &lt;owl:allValuesFrom rdf:resource="xsd:boolean"/&gt;
      &lt;/owl:Restriction&gt;
    &lt;/rdfs:subClassOf&gt;
-
    &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;false&lt;/isClassAbstract&gt;
    &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
-
    &lt;rdfs:subClassOf&gt;
      &lt;owl:Restriction&gt;
        &lt;owl:onProperty rdf:resource="#nextTrunkVersion"/&gt;
        &lt;owl:allValuesFrom rdf:resource="#BooleanProperty"/&gt;
      &lt;/owl:Restriction&gt;
    &lt;/rdfs:subClassOf&gt;
-
    &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
    &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
    &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
-
  &lt;/owl:Class&gt;
 </pre>
 
