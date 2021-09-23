@@ -14,17 +14,14 @@ The importance of this standard is the integration of open data based on differi
 
 The current version is ICDD; this document describes the previous version, COINS 2.0.
 
-![Visualisation of information exchange in the life cycle](https://bimloket.github.io/docs/coinsweb/media/600px-Exchange_during_project.jpg "Information exchange in the life cycle")
+![Visualisation of information exchange in the life cycle](./media/600px-Exchange_during_project.jpg "Information exchange in the life cycle")
 
 
-## Reader's guide
+## History
 
-Essentials; In the Essentials section the general concepts of COINS are explained
-Core Model; The Coins 2.0 Core Model section specifies the classes and relations defined in this standard.
-Semantics; The page Semantics give some initial concepts and explaination about semantics, triples, OWL, RDF and ontologies. For more detailed information there will be links available to external resources.
+COINS 1.0 was released in 2010. A first minor update COINS 1.1 was released in 2014. Documentation of those releases can be found [here](./coinsarchive)
 
-
-## Mandate
+COINS 2.0 is a major update. In this edition the core model is even smaller and it makes more use of OWL features.  
 
 Since it's first publication in 2010, the Coins standard was tested and implemented in medium and large scale infrastructural projects.
 Based on these experiences, the standard was evaluated in workpackage3 “Rethinking the standard” of 'Projectplan COINS' by the Dutch "Bouw Informatie Raad" (14th of January, 2014).
@@ -39,11 +36,11 @@ The 'core model' of Coins 2.0 must be configurable and extensible (e.g. by using
 The definition (semantics) of the exchanged information must be unambiguously by using references to Reference Frameworks or accepted objecttype libraries.
 The document "Rethinking COINS" resulted in a number of reports:
 
-Concepts of collaboration; principles of how and when we want to exchange information.
-Versionmanagement; what kind of versionmanagement will be supported by Coins 2.0.
-Data Description Language (DDL); create insight in OWL, RDF, RDFS and type of serialisations.
-Coins core model; what classes have to be added to/removed from the core model.
-These findings are used as input for the definition of Coins 2.0. This definition has been presented at the 7th of April, 2016.
+* Concepts of collaboration; principles of how and when we want to exchange information.
+* Versionmanagement; what kind of versionmanagement will be supported by Coins 2.0.
+* Data Description Language (DDL); create insight in OWL, RDF, RDFS and type of serialisations.
+* Coins core model; what classes have to be added to/removed from the core model.
+* These findings are used as input for the definition of Coins 2.0. This definition has been presented at the 7th of April, 2016.
 
 
 ## Introduction COINS 2.0 (April 2016)
@@ -55,18 +52,15 @@ The importance of this standard is the integration of open data based on differi
 
 Its main characteristics are summarized:
 
-A small core model -  Applicable for many purposes
-Based on OWL (Ontology Web Language - W3C standard)
-Extendibility - The core model can be can be extended with specialized models (reference frameworks) for various disciplines. These sub-models may address various areas of interest (company-wide, building sector, national) and therefore can be applied as semi-standards in itself
-Dynamic semantics - Semantics are typically recorded in libraries forming a dynamic means to add semantics to instance models. Since version 1.0 library structuring mechanisms form an integral part of COINS
-Integrating document oriented information with object oriented information - The boundary between document oriented information and object oriented information areas can be moved over time. Offering parties an evolutionary path to develop in BIM maturity level.
-Integrating adjacent standards - COINS delegates specific modelling areas to existing standards as GML (GIS data) and IFC (3D building data). More general every relevant standard (open or not) may be used if parties involved agree mutually on using it in data exchanges
-Library model - The COINS 2.0 library model is fully OWL-class based and in line with standard OWL modeling features
-Integration with off-line transaction-based information exchange - COINS information exchange can be integrated with transaction-based information exchange as for instance supported by the IDM part 2 standard for process modelling
-Version management - COINS offers features to record the history of the BIM
-COINS 1.0 was released in 2010. A first minor update COINS 1.1 was released in 2014. Documentation of those releases can be found [here](./coinsarchive)
-
-COINS 2.0 is a major update. In this edition the core model is even smaller and it makes more use of OWL features. The development of COINS 2.0 is finalized in January 2016. Final documentation is expected May 2016. 
+**A small core model** -  Applicable for many purposes
+**Based on <a>OWL</a>** (Ontology Web Language - W3C standard)
+**Extendibility** - The core model can be can be extended with specialized models (reference frameworks) for various disciplines. These sub-models may address various areas of interest (company-wide, building sector, national) and therefore can be applied as semi-standards in itself
+**Dynamic semantics** - Semantics are typically recorded in libraries forming a dynamic means to add semantics to instance models. Since version 1.0 library structuring mechanisms form an integral part of COINS
+**Integrating document oriented information with object oriented information** - The boundary between document oriented information and object oriented information areas can be moved over time. Offering parties an evolutionary path to develop in BIM maturity level.
+**Integrating adjacent standards** - COINS delegates specific modelling areas to existing standards as GML (GIS data) and IFC (3D building data). More general every relevant standard (open or not) may be used if parties involved agree mutually on using it in data exchanges
+**Library model** - The COINS 2.0 library model is fully OWL-class based and in line with standard OWL modeling features
+**Integration with off-line transaction-based information exchange** - COINS information exchange can be integrated with transaction-based information exchange as for instance supported by the IDM part 2 standard for process modelling
+**Version management** - COINS offers features to record the history of the BIM
 
 
 ## Specifications
