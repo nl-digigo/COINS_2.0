@@ -41,26 +41,20 @@ Description of core model Classes
 </p>
 <b>Formal Representation in RDF/XML</b><br />
 <pre> &lt;owl:Class rdf:ID="Assembly"&gt;
-
    &lt;rdfs:label xml:lang="en-GB"&gt;Assembly&lt;/rdfs:label&gt;
    &lt;rdfs:comment xml:lang="en-GB"&gt;Parent&lt;/rdfs:comment&gt;
-
    &lt;rdfs:subClassOf rdf:resource="#Entity"/&gt;
-
    &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;true&lt;/isClassAbstract&gt;
    &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
-
    &lt;rdfs:subClassOf&gt;
      &lt;owl:Restriction&gt;
        &lt;owl:onProperty rdf:resource="#nextTrunkVersion"/&gt;
        &lt;owl:allValuesFrom rdf:resource="#Assembly"/&gt;
      &lt;/owl:Restriction&gt;
    &lt;/rdfs:subClassOf&gt;
-
    &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
    &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
    &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
-
  &lt;/owl:Class&gt;
 </pre>
 
