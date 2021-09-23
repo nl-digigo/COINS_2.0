@@ -135,7 +135,19 @@ Description of core model Classes
 
 
 ### CartesianLocator
+   <b>CartesianLocator</b> is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#locator" title="CoinsCore:CartesianLocator Class">Locatory</a>. It specifies the position and orientation of an Object using a 3D Euclidean space for relative placement of shape representations. Therefore it holds references to Vectors for its primary and secondary Orientation, plus a Vector for the translation.
 
+CartesianLocator is disjoint with Party, EntityProperty and Vector.
+
+CartesianLocator is not an abstract class; it can be instantiated directly.
+
+The CartesianLocator class is extendable.
+
+The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" title="CoinsCore:nextTrunkVersion Property">nextTrunkVersion</a> is restricted to one other instance of CartesianLocator.
+
+
+**History**
+* New in COINS 2.0; replaces <a href="https://bimloket.github.io/COINS_2.0/coinsarchive/#cbimlocator" title="Cbim:Locator">nextTrunkVersion</a>Cbim:Locator
 
 ### CataloguePart
 
