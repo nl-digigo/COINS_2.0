@@ -135,25 +135,185 @@ Description of core model Classes
 
 
 ### CartesianLocator
+   <b>CartesianLocator</b> is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#locator" title="CoinsCore:CartesianLocator Class">Locatory</a>. It specifies the position and orientation of an Object using a 3D Euclidean space for relative placement of shape representations. Therefore it holds references to Vectors for its primary and secondary Orientation, plus a Vector for the translation.
 
+CartesianLocator is disjoint with Party, EntityProperty and Vector.
+
+CartesianLocator is not an abstract class; it can be instantiated directly.
+
+The CartesianLocator class is extendable.
+
+The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" title="CoinsCore:nextTrunkVersion Property">nextTrunkVersion</a> is restricted to one other instance of CartesianLocator.
+
+
+**History**
+* New in COINS 2.0; replaces <a href="https://bimloket.github.io/COINS_2.0/coinsarchive/#cbimlocator" title="Cbim:Locator">nextTrunkVersion</a>Cbim:Locator
+   
+**Informative representation in UML**
+![Representation in UML](./media/300px-Core-CartesianLocator_Class "Representation in UML")
+   
+**Attributes**
+<table class="wikitable">
+<tr>
+<th> Name
+</th>
+<th> Type
+</th>
+<th> Description
+</th></tr>
+<tr>
+<td> <a https://bimloket.github.io/COINS_2.0/coinsweb/#primaryorientation" title="CoinsCore:primaryOrientation Property">primaryOrientation</a> </td>
+<td> <a https://bimloket.github.io/COINS_2.0/coinsweb/#vector" title="CoinsCore:Vector Class">Vector</a> </td>
+<td> 0..1 Vector for primary orientation.
+</td></tr>
+<tr>
+<td> <a https://bimloket.github.io/COINS_2.0/coinsweb/#secundaryorientation" title="CoinsCore:secundaryOrientation Property">secundaryorientation</a> </td>
+<td> <a https://bimloket.github.io/COINS_2.0/coinsweb/#vector" title="CoinsCore:Vector Class">Vector</a> </td>
+<td> 0..1 Vector for secundary orientation.
+</td></tr>
+<tr>
+<td> <a https://bimloket.github.io/COINS_2.0/coinsweb/#translationproperty" title="CoinsCore:translation Property">translation</a> </td>
+<td> <a https://bimloket.github.io/COINS_2.0/coinsweb/#vector "title="CoinsCore:Vector Class">Vector</a> </td>
+<td> 0..1 Vector for translation.
+</td></tr>
+</table>
+
+**Formal representation in RDF/XML**
+<code>
+ <owl:Class rdf:ID="CartesianLocator">
+
+   <rdfs:label xml:lang="en-GB">CartesianLocator</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Specifier for position and orientation using a 3D Euclidean space for relative placement of shaperepresentations.</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#Locator"/>
+
+   <owl:disjointWith rdf:resource="#EntityProperty"/>
+   <owl:disjointWith rdf:resource="#Vector"/>
+   <owl:disjointWith rdf:resource="#Party"/>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#primaryOrientation"/>
+       <owl:maxCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxCardinality>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#secondaryOrientation"/>
+       <owl:maxCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxCardinality>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#translation"/>
+       <owl:maxCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxCardinality>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#CartesianLocator"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+ </owl:Class>
+   </code>
+   
 
 ### CataloguePart
 
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
+
 
 ### CoinsContainerObject
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 ### ComplexProperty
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 ### ComplexPropertyValue
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 ### Concept
 
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
+
 
 
 ### Connection
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
@@ -181,7 +341,7 @@ This image shows the informative representation of the ContainsRelation class.
 
 
 
-## Attributes
+**Attributes**
 | Col1 | Col2 | Col3 |
 | :--- | :--- | :--- |
 | Name | Type |	Description |
@@ -190,7 +350,7 @@ This image shows the informative representation of the ContainsRelation class.
 | groupedBy | ContainsRelationGroup | ContainsRelations can be grouped in ContainsRelationGroup
 
 
-## Formal Representation in RDF/XML
+**Formal Representation in RDF/XML**
 
  <code> <owl:Class rdf:ID="ContainsRelation">
 
@@ -236,121 +396,452 @@ This image shows the informative representation of the ContainsRelation class.
 
 
 ### ContainsRelationGroup
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### DateTimeProperty
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### DirectedConnection
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### DocumentProperty
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### DocumentReference
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### Entity
+ 
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### EntityProperty
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### ExpiredEntity
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### ExternalDocumentReference
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### FloatProperty
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### IntegerProperty
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### InternalDocumentReference
+   
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### Locator
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### LocatorProperty
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### NumericProperty
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### Object
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### Organisation
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### Part
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### Party
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### Person
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### SecuredDocumentReference
+ 
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### SecuredExternalDocumentReference
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### SecuredInternalDocumentReference
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### ShapeRepresentation
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### ShapeRepresentationProperty
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### SimpleProperty
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### StringProperty
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### UriProperty
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 ### Vector
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### VersionObject
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
@@ -360,170 +851,593 @@ Description of core model Properties
 
 
 ### belongsToAssembly
+ 
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### checksumFile
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### checksumFileAlgorithm
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### checksumUri
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### checksumUriAlgorithm
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### coordinate
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### creationDate
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### creator
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### datatypeValue
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### description
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### documentFragment
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 
 ### documentMimeType
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### documentType
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### documentUri
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### filePath
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### fromObject
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### groupedBy
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### groups
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### hasAssembly
    
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
+   
    
 ### hasConnectedObjects
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 
 ### hasConnections
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 
 ### hasContainsRelation
 
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
+
 
 
 ### hasIncomingConnections
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### hasOutgoingConnections
 
+ **History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
 ### hasPart
 
+**History**
 
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 ### hasProperties
 
+**History**
 
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 ### IDFieldname
 
+**History**
 
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
+   
 
 ### modificationDate
 
+**History**
 
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 ### modifier
 
+**History**
 
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 ### name
 
+**History**
 
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 ### nextTrunkVersion
 
+**History**
 
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 ### objectValue
 
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 ### partOf
 
+**History**
 
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 ### primaryOrientation
 
+**History**
 
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 ### propertyBelongsTo
 
+**History**
 
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 ### secundaryOrientation
 
+**History**
 
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 ### toObject
 
+**History**
 
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 ### translation
 
+**History**
 
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 ### unit
 
+**History**
 
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
+   
+   
 ### userID
 
+**History**
 
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
+   
 
 ### VersionID
+   
+**History**
+
+   
+**Informative representation in UML**
+![Representation in UML](./media/ "Representation in UML")
+   
+**Attributes**
+
+
+**Formal representation in RDF/XML**
 
 
 
