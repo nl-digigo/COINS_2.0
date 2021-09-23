@@ -67,12 +67,13 @@ Description of core model Classes
 <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#uriproperty" title="CoinsCore:UriProperty Class">UriProperty</a>.
 </p><p>BooleanProperty is not an abstract class; it can be instantiated directly. 
 </p><p>The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" title="CoinsCore:nextTrunkVersion Property">nextTrunkVersion</a> is restricted to one other instance of BooleanProperty.
-</p><p><br />
-</p><p><b>History</b><br />* New in COINS 2.0
-</p><p><br /> 
 </p>
-**Informative representation in UML**
+**History*
+   * New in COINS 2.0
+
    
+**Informative representation in UML**
+ 
 This image shows the informative representation of the BooleanProperty class
  
 ![Informative representation of Assembly in UML](./media/Core-BooleanProperty_Class.png "Informative representation in UML")
@@ -148,7 +149,7 @@ The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" ti
 
 
 **History**
-* New in COINS 2.0; replaces <a href="https://bimloket.github.io/COINS_2.0/coinsarchive/#cbimlocator" title="Cbim:Locator">nextTrunkVersion</a>Cbim:Locator
+* New in COINS 2.0; replaces <a href="https://bimloket.github.io/COINS_2.0/coinsarchive/#cbimlocator" title="Cbim:Locator">Cbim:Locator</a>
    
 **Informative representation in UML**
    
@@ -411,32 +412,84 @@ This image shows the informative representation of the ComplexProperty class.
    </owl:Class></code>
 
 ### ComplexPropertyValue
+ComplexPropertyValue is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#entity" title="CoinsCore:Entity">Entity</a>. It has no further attributes of itself, but all <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#complexproperty" title="CoinsCore:ComplexProperty">ComplexProperties</a> refer to a value of ComplexPropertyValue or specialization thereof. An instance of ComplexPropertyValue can not exist by itself.
+
+ComplexPropertyValue is not an abstract class; it can be instantiated directly.
+
+ComplexPropertyValue is extendable; in the Coins Core Model, it is extended to <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#documentreference" title="CoinsCore:DocumentReference">DocumentReference</a>, <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#locator title="CoinsCore:Locator">Locator</a> and <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#vector" title="CoinsCore:Vector">Vector</a>.
+
+
+The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" title="CoinsCore:nextTrunkVersion Property">nextTrunkVersion</a> is restricted to one other instance of ComplexPropertyValue. 
+
    
 **History**
-
+* New in COINS 2.0
+   
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
 
+This image shows the informative representation of the ComplexPropertyValue class.
+
+![Representation in UML](./media/300px-Core-ComplexPropertyValue_Class.png "Representation in UML")
+   
 
 **Formal representation in RDF/XML**
+   
+<code><owl:Class rdf:ID="ComplexPropertyValue">
 
+   <rdfs:label xml:lang="en-GB">ComplexPropertyValue</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">ComplexPropertyValue</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#Entity"/>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#ComplexPropertyValue"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+   </owl:Class></code>
 
 ### Concept
-
+**Concept** is a subclass of [owl:Thing](http://www.w3.org/2002/07/owl#"). Concept serves as superclass of all classes in a COINS model.
+It is without any properties or references.
+Concept acts an abstract class; it can not be instantiated directly. Individuals belong indirectly to this class.
+Concept is not extendable; in the Coins Core Model it is extended to The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#entity" title="CoinsCore:Entity Class">Entity</a>, The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#versionobject" title="CoinsCore:VersionObject Class">VersionObject</a>, The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#expiredentity" title="CoinsCore:ExpiredEntity Class">ExpiredEntity</a>, The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#cataloguepart" title="CoinsCore:CataloguePart Class">CataloguePart</a> and The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#coinscontainerobject" title="CoinsCore:CoinsContainerObject Class">CoinsContainerObject</a>.
+Concept is the common superclass for all other COINS classes.
+   
+   
 **History**
-
+* New in COINS 2.0 - replaces <a href="https://bimloket.github.io/COINS_2.0/coinsarchive/#cbimobject" title="Cbim:Object">Cbim:Object</a>
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+![Representation in UML](./media/300px-Core_-_Concept_Class.png "Representation in UML")
    
-**Attributes**
-
 
 **Formal representation in RDF/XML**
 
+<code><owl:Class rdf:ID="Concept">
+
+   <rdfs:label xml:lang="en-GB">CbimEntity</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Abstract superclass for all Cbim classes. This class is without any properties or relations</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="owl:Thing"/>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">true</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">false</isClassExtendable>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+   </owl:Class></code>
 
 
 ### Connection
