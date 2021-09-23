@@ -24,8 +24,7 @@ As stated before under version management control an information object is never
 
 
 ### Representing a modified object
-Figure 2: A CBIM representation of an object before and after the value of its attribute “a” is changed from “0” to “1”.
-![Representing a modified object](./media/VersionManagementFigure02.png "Representing a modified object")
+![Representing a modified object](./media/VersionManagementFigure02.png "Figure 2: A CBIM representation of an object before and after the value of its attribute “a” is changed from “0” to “1”.")
 After an information object has been changed the original object instance points with its nextVersion property to the newly created object instance. The ID's of both objects will be the same. However, because two or more object instances cannot be represented with identical ID's in the same model the version number is added to the identical logical ID's to create different physical ID's. Logical ID and version number are separated by a dot character. Therefore the physical ID of a CBIM object is put together from the logical ID followed by a dot character followed by the version number: <physical ID> ::= <logical ID>.<version number>. By convention the first version (with version number = 0) may be skipped, so a physical ID without a “trailing dot plus integer number” shall be treated as <logical ID>.0.
 
   
@@ -142,7 +141,46 @@ A verification will generally be associated to a certain baseline, which offers 
 
 ![Verifications panel in the COINS Navigator.](./media/Verifications.png "Verifications panel in the COINS Navigator.")
 
+## Topological Relations
 
+### Introduction
+The COINS Building information model (CBIM) is primarily structured around an object tree. Function fulfillers are organized according the decomposition principle, i.e. part-of relationships between an assembly object (parent) and its constituting part objects (children). A part object in its turn may act as an assembly object for even smaller part objects, etcetera until atomic part objects (the leaves of the decomposition tree) are reached. Leaf objects are the basic building stones of this structure: we know either how to produce them or how to obtain from a third party (supply company). It is perfectly acceptable to restrict the backbone structure to this object tree. However, certain applications need more information then just decomposition. E.g. structural analysis or energy transmission calculations need also access to the topological structure: which part is connected to which other parts. The primary connections are defined between leaf objects on the lowest decomposition layer, although in a more abstract sense assembly objects in more higher layers could also specify connections. Because of this topological relationships can be viewed as the horizontal structuring in contrast with the vertical structuring of decomposition.
+
+
+### Topological classes
+![Figure 1: UML diagram for topological relationships](./media/Expliciete_connectiviteitsrelaties.png "Figure 1: UML diagram for topological relationships")
+Figure 1 shows a simplified UML diagram of the topological classes and relationships of CBIM (It should be emphasized that the formal CBIM definition is in OWL. UML diagrams cannot show all particulars of the OWL specification and should only be used to get a general idea of the model architecture). A physical object (or more general a function fulfiller) may have zero or more terminals. A terminal is a surface part that potentially may link to another terminal of another physical object. If the link is deliberately established this fact is acknowledged by a connection. Connections are only allowed between physical Objects in the same decomposition layer, though they need not share the same parent object.
+
+![Figure 2: Example of a column-beam connection](./media/Column_beam_connection.png "Figure 2: Example of a column-beam connection")
+Of course, topological relationships typically have also a geometrical aspect. As the owner physical object may refer to location and shape data its terminals may also refer to locations and shapes. Yet certain restrictions should be obeyed.
+
+The locator of a terminal should be treated as relative to the locator of the owning physical object.
+The locations and primary orientations of two terminals should be the same and in line to be able to be connected. The primary orientation should be read as the normal vector on the surface. Under certain circumstances the secondary orientation (rotation around the normal vector) could be of interest. In that case the secondary orientations should also match.
+The (surface) shape representation of a terminal should lie on the surface contour of the owning physical object.
+The shape representations of two connected terminals should match, i.e. they are co-planar or typically refer to the same shape representation.
+Connections situated on higher decomposition levels should match with the topological structure on the lowest decomposition layer. E.g. if a higher level connection is specified between two assembly objects but the child objects of those assemblies do not appear to have any branch crossing connection then this is a certainly a contradicting situation (although this may easily occur during the construction of the BIM: the requirement should therefore only be enforced on a stable state of the model). In principle higher level connections can be derived from lower level connections.
+
+
+### Spatial topology
+Though most applications will be interested in physical (tangible) connections, spatial topology (topological relations between two spaces and even between a physical object and a space) are also possible. Early architectural design may already specify which spaces will be adjacent to a specific space. Energy calculations may be interested to know which walls delimit a certain space and finally configuration management may need knowledge about which physical objects are situated in which space. This last topological relation is established with the situates/isSituatedIn relation between spaces and physical objects.
+
+	
+## Object Tree
+
+### Introduction
+The COINS Building information model (CBIM) is primarily structured around an object tree. function fulfillers are organized according the decomposition principle, i.e. part-of relationships between an assembly object (parent) and its constituting part objects (children). A part object in its turn may act as an assembly object for even smaller part objects, etcetera until atomic part objects (the leaves of the decomposition tree) are reached. Leaf objects are the basic building stones of this structure: we know either how to produce them or how to obtain from a third party (supply company).
+
+
+### Object tree classes
+Figure 1 shows the UML representation of the object tree data structure. Since Function Fulfiller is an abstract class (no instances) the actual object tree contains physical objects or spaces.
+
+![Figure 1: Object tree classes.](./media/UML-ObjectTree-1.png "Figure 1: Object tree classes.")
+
+These function fulfiller types cannot be mixed, i.e. a physical object cannot decompose into spaces and vice versa. This is explicitly specified in the supproperties physicalChild/physicalParent and spatialChild/spatialParent of the child/parent relations.
+The interconnection between a physical object tree and a space tree can be specified with the isSituatedIn/situates relation.
+
+
+![UML](./media/UML-ObjectTree-2.png "Figure 2: A parent object and its immediate child objects should reside in adjacent layers. The parent layer index and the child layer index differ exactly one") 
 
 
 ## COINS 1.0 Classes
@@ -269,7 +307,44 @@ cbim:locator
 **[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**: cbim:document
   
 ![UML](./media/Document-1.1.png "UML")
+	
+### Physical Object
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**: Tangible function fulfiller.
 
+**[rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)**:
+* [Object Tree](./#objecttree)
+* [TopologicalRelations](./topologicalrelations)
+
+**[owl:Class]**(http://www.w3.org/2000/01/rdf-schema#Class) 
+
+**[rdfs:subClassOf](http://www.w3.org/2000/01/rdf-schema#subClassOf)**
+
+**[owl:equivalentClass](http://www.w3.org/2002/07/owl#equivalentClass)**
+
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+
+![UML](./media/.png "UML") 
+ 
+### Funtion Fulfiller
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
+
+**[rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)**
+
+**[owl:Class]**(http://www.w3.org/2000/01/rdf-schema#Class) 
+
+**[rdfs:subClassOf](http://www.w3.org/2000/01/rdf-schema#subClassOf)**
+
+**[owl:equivalentClass](http://www.w3.org/2002/07/owl#equivalentClass)**
+
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+
+![UML](./media/.png "UML") 
+  
+	
 ### class x
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
 
