@@ -118,7 +118,7 @@ var respecConfig = {
     editors: [
         {
           name:       "Elisabeth Klören",
-          company:    "CROW",
+          company:    "BIM loket",
           companyURL: "https://www.crow.nl"
         },
       ],
@@ -126,9 +126,13 @@ var respecConfig = {
     // this can be simple or more elaborated
     authors:  [
         {
-          name:       "Voornaam Achternaam",
-          company:    "Organisatie",
+          name:       "Henk Schaap",
+          company:    "BIM loket",
           companyURL: "https://www.bimloket.nl"
+        },      {
+          name:       "Hans Schevers",
+          company:    "Building Bits",
+          companyURL: "https://www.buildingbits.nl"
         },
       ],
     // The github option allows you associate your specification with a repository on GitHub.
