@@ -178,7 +178,7 @@ cbim:locator
 ![UML](./media/Locator-1.1.png "UML")
 
 
-### CBIMObject 1.1 Class
+### CBIMObject
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**: Abstract supertype of all C-BIM classes.
 
 **[rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)**: [Version Management](https://bimloket.github.io/COINS_2.0/coinsarchive/#versionmanagement)
@@ -188,16 +188,87 @@ cbim:locator
 **[rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)**:[Systems Engineering Layering](https://bimloket.github.io/COINS_2.0/coinsarchive/#systemsengineeringlayering)
 
 
-**[owl:Class]**(http://www.w3.org/2000/01/rdf-schema#Class) 
+**[owl:Class](http://www.w3.org/2000/01/rdf-schema#Class)**:
+* cbim:Baseline
+* cbim:CbimObject
+* cbim:Connection
+* cbim:Document
+* cbim:Function
+* cbim:FunctionFulfiller
+* cbim:Locator
+* cbim:Parameter
+* cbim:Performance
+* cbim:PersonOrOrganisation
+* cbim:PropertyType
+* cbim:PropertyValue
+* cbim:Requirement
+* cbim:State
+* cbim:Task
+* cbim:Terminal
+* cbim:Vector
+* cbim:Verification 
 
-**[rdfs:subClassOf](http://www.w3.org/2000/01/rdf-schema#subClassOf)**
+**[rdfs:subClassOf](http://www.w3.org/2000/01/rdf-schema#subClassOf)**: owl:Thing
 
-**[owl:equivalentClass](http://www.w3.org/2002/07/owl#equivalentClass)**
+**[owl:equivalentClass](http://www.w3.org/2002/07/owl#equivalentClass)**:
+	
+* cbim:baseline owl:maxCardinality 1
+* cbim:creator owl:maxCardinality 1
+* cbim:modifier owl:maxCardinality 1
+* cbim:nextVersion owl:maxCardinality 1
 
 **[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+* cbim:baseline
+* cbim:changelog
+* cbim:creationDate
+* cbim:creator
+* cbim:description
+* cbim:document
+* cbim:expired
+* cbim:layerIndex
+* cbim:modificationDate
+* cbim:modifier
+* cbim:name
+* cbim:nextVersion
+* cbim:releaseDate
+* cbim:releaseStatus
+* cbim:userID
 
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**:
+* cbim:baselineObject
+* cbim:nextVersion
+  
+![UML](./media/CbimObject-1.1.png "UML")
+
+### cbim:Document
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**: General document link object.
+
+
+**[owl:Class](http://www.w3.org/2000/01/rdf-schema#Class)**: cbim:Document
+
+**[rdfs:subClassOf](http://www.w3.org/2000/01/rdf-schema#subClassOf)**: 	
+[CbimObject](https://bimloket.github.io/COINS_2.0/coinsarchive/#cbimobject)
+
+
+**[owl:equivalentClass](http://www.w3.org/2002/07/owl#equivalentClass)**:
+* cbim:nextVersion
+* owl:allValuesFrom](http://www.w3.org/2002/07/owl#allValuesFrom)
+* cbim:Document
+
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+* cbim:documentUri 
+* cbim:checksumUri
+* cbim:checksumUriAlgorithm
+* cbim:documentAliasFilePath
+* cbim:documentFragment
+* cbim:checksumFile
+* cbim:checksumFileAlgorithm
+* cbim:documentType
+
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**: cbim:document
+  
+![UML](./media/Document-1.1.png "UML")
 
 ### class x
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
@@ -214,6 +285,8 @@ cbim:locator
 
 **[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
 
+![UML](./media/.png "UML") 
+  
 
 ## COINS 1.0 Relations
 The Relations in Version 1.1 
