@@ -10,21 +10,25 @@ Description of core model Classes
 
 ### Assembly
 
-<b>Assembly</b> is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#entity" title="CoinsCore:Entity Class">Entity</a>.
-</p><p>Assembly is an abstract class; it can not be instantiated directly. Members of intantiatable subclasses of Entity can additionally be typed as Assembly.
-</p><p>The Assembly class is extendable.
-</p><p>The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" title="CoinsCore:nextTrunkVersion Property">nextTrunkVersion</a> is restricted to one other individual of Assembly.
-</p><p><br />
-<b>History</b><br />* New in COINS
-</p><p><br />
-</p>
-<b>Informative representation in UML</b><br />
+**Assembly** is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#entity" title="CoinsCore:Entity Class">Entity</a>.
+Assembly is an abstract class; it can not be instantiated directly. Members of intantiatable subclasses of Entity can additionally be typed as Assembly.
 
-<p>This image shows the informative representation of the Assembly class.</p>
+The Assembly class is extendable.
+
+The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" title="CoinsCore:nextTrunkVersion Property">nextTrunkVersion</a> is restricted to one other individual of Assembly.
+
+
+**History**
+
+* New in COINS
+
+**Informative representation in UML**
+
+This image shows the informative representation of the Assembly class.
 
 ![Informative representation of Assembly in UML](./media/600px-Core-Assembly_Class.png "Informative representation in UML")
 
-<b>Attributes</b><br />
+**Attributes**
 
 <table class="wikitable">
 <tr>
@@ -40,10 +44,11 @@ Description of core model Classes
 <td> Reference to ContainsRelations
 </td></tr>
 </table>
-<p><br />
-</p>
-<b>Formal Representation in RDF/XML</b><br />
-<pre> &lt;owl:Class rdf:ID="Assembly"&gt;
+
+
+**Formal Representation in RDF/XML**
+
+<code> &lt;owl:Class rdf:ID="Assembly"&gt;
    &lt;rdfs:label xml:lang="en-GB"&gt;Assembly&lt;/rdfs:label&gt;
    &lt;rdfs:comment xml:lang="en-GB"&gt;Parent&lt;/rdfs:comment&gt;
    &lt;rdfs:subClassOf rdf:resource="#Entity"/&gt;
@@ -59,18 +64,20 @@ Description of core model Classes
    &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
    &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
  &lt;/owl:Class&gt;
-</pre>
+</code>
 
 
 ### BooleanProperty
 
-</p><p>BooleanProperty is disjoined with <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#stringproperty"CoinsCore:StringProperty Class">StringProperty</a>, 
+**BooleanProperty** is disjoined with <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#stringproperty"CoinsCore:StringProperty Class">StringProperty</a>, 
 <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#numericproperty" title="CoinsCore:NumericProperty Class">NumericProperty</a>, 
 <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#datetimeproperty" title="CoinsCore:DateTimeProperty Class">DateTimeProperty</a> and 
 <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#uriproperty" title="CoinsCore:UriProperty Class">UriProperty</a>.
-</p><p>BooleanProperty is not an abstract class; it can be instantiated directly. 
-</p><p>The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" title="CoinsCore:nextTrunkVersion Property">nextTrunkVersion</a> is restricted to one other instance of BooleanProperty.
-</p>
+
+BooleanProperty is not an abstract class; it can be instantiated directly. 
+
+The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" title="CoinsCore:nextTrunkVersion Property">nextTrunkVersion</a> is restricted to one other instance of BooleanProperty.
+
    
 **History**
    * New in COINS 2.0
@@ -151,7 +158,7 @@ This image shows the informative representation of the BooleanProperty class
 
 ### CartesianLocator
 	
-<b>CartesianLocator</b> is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#locator" title="CoinsCore:CartesianLocator Class">Locatory</a>. It specifies the position and orientation of an Object using a 3D Euclidean space for relative placement of shape representations. Therefore it holds references to Vectors for its primary and secondary Orientation, plus a Vector for the translation.
+**CartesianLocator** is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#locator" title="CoinsCore:CartesianLocator Class">Locatory</a>. It specifies the position and orientation of an Object using a 3D Euclidean space for relative placement of shape representations. Therefore it holds references to Vectors for its primary and secondary Orientation, plus a Vector for the translation.
 
 CartesianLocator is disjoint with Party, EntityProperty and Vector.
 
