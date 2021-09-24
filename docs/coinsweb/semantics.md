@@ -106,24 +106,24 @@ This chapter describes the validations that can executed using the COINS-Lite Pr
 
 It is now possible to validatie the information in a COINS 2.0 container if it complies with the COINS core model and other models such as OTL-ontologies and other extending ontologies.
 
-download
-The validator can be downloaded here (Bestand:ValidatorV1.zip). This zip contains the validator.jar, the latest Pro-File, an example coins container (with errors so that the validator can find them) and a batch file to run the validator.
+### download
+The validator can be downloaded [Here](https://github.com/bimloket/COINS_2.0/tree/master/ValidatorV1/validator). This zip contains the validator.jar, the latest Pro-File, an example coins container (with errors so that the validator can find them) and a batch file to run the validator.
 
 To run this software it is necessary to have:
 
-1) a recent Java version [[4]] installed on your computer (JDK >1.6)
-2) GraphDB [[5]] triplestore running on your computer.
+1) a recent Java version installed on your computer (JDK >1.6)
+2) GraphDB triplestore running on your computer.
 
-The older release of the validator can be found on the Semantics page. Also more information how validation is performed can be found here.
+The older release of the validator can be found on the Semantics chapter. Also more information how validation is performed can be found here.
 
-install
+### install
 1) Firstly make sure that Java is installed. You can test this by running "java -version" in a commandshell.
 2) Secondly make sure that GraphDB is running. A default configuration of GraphDB can be accessed using a webbrowser using portnumber 7200 of your localhost. (http://localhost:7200).
-3) Thirdly you can run the validator by unzipping the zip and by running runVC_CardinalityCheck.bat. The batch file starts the validator using the VC_CardinalityCheck.ccr container. The validator should produce the following html page ([[6]])
+3) Thirdly you can run the validator by unzipping the zip and by running runVC_CardinalityCheck.bat. The batch file starts the validator using the VC_CardinalityCheck.ccr container. The validator should produce the following [html page](https://www.buildingbits.nl/coins2/exampleReport.html)
 
 The validator uses the following input:
 1) yml file containing various configuration options for the validator
-2) Pro-File containing inference and validation queries. (more information can be found on the [[Semantics] page)
+2) Pro-File containing inference and validation queries. (more information can be found in the Semantics chapter)
 
 to run the validator you can use the following command:
 java -Xmx8G -jar coins-validator.jar -l run config.yml yourContainer.ccr
@@ -133,7 +133,7 @@ yml configuration
 The yml contains a reference to the GraphDB sparql endpoint. The default yml file points to http://localhost:7200 as default sparql endpoint which corresponds with the default endpoint for GraphDB. When your graphDB uses another endpoint then you will need to change the yml accordingly.
 The yml also contains a reference to the Pro-File. The validator comes with a default Pro-File named 'COINSLite.xml'. The yml points to this file. If you would like to use another Pro-File then you change the yml file to point to the other Pro-File.
 The validator can export the results in JSON,xml and in HTML. The following snippet can be addes to the yml file to produce json and xml reports:
- - type: json 
+ <- type: json 
 
    location: 
 
@@ -147,5 +147,5 @@ The validator can export the results in JSON,xml and in HTML. The following snip
 
      type: file
 
-     path: report.xml
+     path: report.xml>
 
