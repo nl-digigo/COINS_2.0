@@ -674,8 +674,8 @@ This concept gives you the possibility to manage different options of object dec
 | Col1 | Col2 | Col3 |
 | :--- | :--- | :--- |
 | Name | Type |	Description |
-| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#belongstoassembly" title="CoinsCore:belongsToAssembly Property"belongsToAssembly</a> |	a href="https://bimloket.github.io/COINS_2.0/coinsweb/#assembly" title="CoinsCore:Assembly Class">Assembly</a> |	Reference to exactly 1 instance of Assembly |
-| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#hasassembly" title="CoinsCore:hasPart Property">hasAssembly</a> |  a href="https://bimloket.github.io/COINS_2.0/coinsweb/#groups" title="CoinsCore:groups Property">groups</a> |  a href="https://bimloket.github.io/COINS_2.0/coinsweb/#containsrelation" title="CoinsCore:ContainsRelation Class">ContainsRelation</a> | Reference to exactly 1 instance of Part
+| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#belongstoassembly" title="CoinsCore:belongsToAssembly Property">belongsToAssembly</a> |	<a href="https://bimloket.github.io/COINS_2.0/coinsweb/#assembly" title="CoinsCore:Assembly Class">Assembly</a> | Reference to exactly 1 instance of Assembly |
+| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#hasassembly" title="CoinsCore:hasPart Property">hasAssembly</a> |  <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#groups" title="CoinsCore:groups Property">groups</a> |  <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#containsrelation" title="CoinsCore:ContainsRelation Class">ContainsRelation</a> | Reference to exactly 1 instance of Part
 
 
 **Formal representation in RDF/XML**
@@ -1116,9 +1116,11 @@ EntityProperty is not extendable; in the Coins Core Model it is extended to Simp
 The nextTrunkVersion is restricted to one other instance of EntityProperty.
    
 **History**
+
 * New in COINS 2.0
    
 **Informative representation in UML**
+
 This image shows the informative representation of the EntityProperty class.
 ![Representation in UML](./media/300px-Core-EntityProperty_Class.png "Representation in UML")
    
@@ -1432,7 +1434,7 @@ The nextTrunkVersion is restricted to one other instance of InternalDocumentRefe
 | Col1 | Col2 | Col3 |
 | :--- | :--- | :--- |
 | Name | Type |	Description |
-| filePath | StringProperty |	The filepath for the internal stored copy of the document in the doc directory within the COINS Container. |
+| filePath | StringProperty | The filepath for the internal stored copy of the document in the doc directory within the COINS Container. |
 
 **Formal representation in RDF/XML**
 
@@ -1646,7 +1648,7 @@ The nextTrunkVersion is restricted to one other instance of NumericProperty.
 
 ### Object
 
-Object is a subclass of Entity. An Object instance in a COINS Container is always a member of CoinsContainerObject and can simultaneously be a CataloguePart.
+**Object** is a subclass of Entity. An Object instance in a COINS Container is always a member of CoinsContainerObject and can simultaneously be a CataloguePart.
 
 Object is not abstract; it can be instantiated directly.
 
@@ -1754,199 +1756,773 @@ This image shows the informative representation of the Organisation class.
 
 ### Part
    
-**History**
+**Part** is a subclass of Entity.
 
+Part is an abstract class; it can not be instantiated directly. Members of intantiatable subclasses of Entity can additionally be typed as Part. Individuals typed as a Part, need not be associated (through a ContainsRelation) with an Assembly.
+
+The Part class is extendable.
+
+**History**
+* New in COINS 2.0
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+This image shows the informative representation of the Part class.
+![Representation in UML](./media/Core-Part_Class_v2.png "Representation in UML")
    
 **Attributes**
-
+| Col1 | Col2 | Col3 |
+| :--- | :--- | :--- |
+| Name | Type |	Description |
+| partOf | ContainsRelation | Reference to 0, 1 ore more ContainsRelation |
 
 **Formal representation in RDF/XML**
 
+<code><owl:Class rdf:ID="Part">
+
+   <rdfs:label xml:lang="en-GB">Part</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Parent</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#Entity"/>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">true</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+ </owl:Class></code>
 
 
 ### Party
+
+**Party** is a subclass of Entity. It defines all legal entities (Persons and Organisations) involved.
+It is an abstract class; it can not be instantiated directly. It’s members have to be members of an extended class (Person or Organisation)
+Party can not be extended; in the Core Model it is the superclass of Person and Organisation.
+The nextTrunkVersion is restricted to one other instance of Party.
+Party is referenced as creator of individuals of owl:Ontology and Entity and as creator and modifier of individuals of VersionObject.
+
+
    
 **History**
+* New in COINS 2.0 - replaces <a href="https://bimloket.github.io/COINS_2.0/coinsarchive/#personororganisation" title="Cbim:Object">Cbim:PersonOrOrganisation</a>
 
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+This image shows the informative representation of the COINS core Party-class.
+![Representation in UML](./media/600px-Core-Party.png "Representation in UML")
 
 
 **Formal representation in RDF/XML**
-
+<code><owl:Class rdf:ID="Party">
+ 
+   <rdfs:label xml:lang="en-GB">Party</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Abstract reference to a LegalEntity.</rdfs:comment>
+ 
+   <rdfs:subClassOf rdf:resource="#Entity"/>
+ 
+   <rdfs:subClassOf>
+     <owl:Class>
+       <owl:unionOf rdf:parseType="Collection">
+         <rdf:Description rdf:ID="Organisation"/>
+         <rdf:Description rdf:ID="Person"/>
+       </owl:unionOf>
+     </owl:Class>
+   </rdfs:subClassOf>
+ 
+   <isClassAbstract rdf:datatype="xsd:boolean">true</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">false</isClassExtendable>
+ 
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#Party"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+ 
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+ 
+ </owl:Class></code>
 
 
 ### Person
+**Person** is a subclass of Party.
+
+Person is not an abstract class; it can be instantiated directly. The Person class can be extended.
+
+The nextTrunkVersion is restricted to one other instance of Person.
    
 **History**
-
+* New in COINS 2.0
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+This image shows the informative representation of the Person class.
+![Representation in UML](./media/Core-Person_Class.png "Representation in UML")
    
-**Attributes**
-
 
 **Formal representation in RDF/XML**
+<code><owl:Class rdf:ID="Person">
+
+   <rdfs:label xml:lang="en-GB">Person</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Person</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#Party"/>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#Person"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+ </owl:Class></code>
 
 
 
 ### SecuredDocumentReference
- 
-**History**
 
+**SecuredDocumentReference** is a subclass of DocumentReference. It specifies secured documents and the corresponding checksum information.
+
+SecuredDocumentReference is an abstract class; it can not be instantiated directly. It’s groups members of SecuredInternalDocumentReferences and SecuredExternalDocumentReference.
+
+The SecuredDocumentReference class is extendable; in the Coins Core Model it is extended to SecuredInternalDocumentReference and SecuredExternalDocumentReference.
+SecuredInternalDocumentReference and SecuredExternalDocumentReference are disjoint.
+
+The nextTrunkVersion is restricted to one other instance of SecuredDocumentReference. 
+
+
+**History**
+* New in COINS 2.0
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+This image shows the informative representation of the SecuredDocumentReference class.
+![Representation in UML](./media/Core-SecuredDocumentReference_Class.png "Representation in UML")
    
-**Attributes**
-
 
 **Formal representation in RDF/XML**
+<code><owl:Class rdf:ID="SecuredDocumentReference">
+   <rdfs:label xml:lang="en-GB">Secured document reference</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Secured document reference</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#DocumentReference"/>
+
+   <rdfs:subClassOf>
+     <owl:Class>
+       <owl:unionOf rdf:parseType="Collection">
+         <rdf:Description rdf:ID="SecuredExternalDocumentReference"/>
+         <rdf:Description rdf:ID="SecuredInternalDocumentReference"/>
+       </owl:unionOf>
+     </owl:Class>
+   </rdfs:subClassOf>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">true</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#SecuredDocumentReference"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+ </owl:Class></code>
 
 
 
 ### SecuredExternalDocumentReference
-   
-**History**
+
+**SecuredExternalDocumentReference** is a subclass of SecuredDocumentReference. It specifies secured external documents and the corresponding checksum information.
+
+SecuredExternalDocumentReference is not an abstract class; it can be instantiated directly.
+
+The SecuredExternalDocumentReference class can be extended.
+
+The nextTrunkVersion is restricted to one other instance of SecuredExternalDocumentReference.
 
    
+**History**
+* New in COINS 2.0
+   
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+
+This image shows the informative representation of the SecuredExternalDocumentReference class.
+
+![Representation in UML](./media/600px-Core-SecuredExternalDocumentReference_Class_v2.png "Representation in UML")
    
 **Attributes**
 
+| Col1 | Col2 | Col3 |
+| :--- | :--- | :--- |
+| Name | Type |	Description |
+| checksumUri | UriProperty | Checksum hash of the URI of the linked document. |
+| checksumUriAlgorithm | StringProperty | The checksum algorithm (e.g. SHA1, MD5, ...) that was used to generate the checksum of the URI of the linked document. |
+
 
 **Formal representation in RDF/XML**
+<code> <owl:Class rdf:ID="SecuredExternalDocumentReference">
 
+   <rdfs:label xml:lang="en-GB">External secured document reference</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Exernal secured document reference residing outside the COINS Container</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#SecuredDocumentReference"/>
+
+   <rdfs:subClassOf>
+     <owl:Class>
+       <owl:intersectionOf rdf:parseType="Collection">
+         <rdf:Description rdf:ID="ExternalDocumentReference"/>
+         <rdf:Description rdf:ID="SecuredDocumentReference"/>
+       </owl:intersectionOf>
+     </owl:Class>
+   </rdfs:subClassOf>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:cardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:cardinality>
+       <owl:onProperty rdf:resource="#checksumUri"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:cardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:cardinality>
+       <owl:onProperty rdf:resource="#checksumUriAlgorithm"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#SecuredExternalDocumentReference"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+ </owl:Class></code>
 
 
 ### SecuredInternalDocumentReference
+
+**SecuredInternalDocumentReference** is a subclass of SecuredDocumentReference. It specifies secured internal documents and the corresponding checksum information.
+
+SecuredInternalDocumentReference is not an abstract class; it can be instantiated directly.
+
+The SecuredInternalDocumentReference class can be extended.
+
+The nextTrunkVersion is restricted to one other instance of SecuredInternalDocumentReference.
    
 **History**
-
+* New in COINS 2.0
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+
+This image shows the informative representation of the SecuredInternalDocumentReference class.
+
+![Representation in UML](./media/600px-Core-SecuredInternalDocumentReference_Class.png "Representation in UML")
    
 **Attributes**
 
+| Col1 | Col2 | Col3 |
+| :--- | :--- | :--- |
+| Name | Type |	Description |
+| checksumFile | StringProperty | Checksum hash of the attached file. |
+| checksumFileAlgorithm | StringProperty | The checksum algorithm (e.g. SHA1, MD5, ...) that was used to generate the checksum of the attached file. |
+
 
 **Formal representation in RDF/XML**
+<code><owl:Class rdf:ID="SecuredInternalDocumentReference">
 
+   <rdfs:label xml:lang="en-GB">Secured intern document referentie</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Reference to a secured document within this COINSContainer</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#SecuredDocumentReference"/>
+
+   <rdfs:subClassOf>
+     <owl:Class>
+       <owl:intersectionOf rdf:parseType="Collection">
+         <rdf:Description rdf:ID="InternalDocumentReference"/>
+         <rdf:Description rdf:ID="SecuredDocumentReference"/>
+       </owl:intersectionOf>
+     </owl:Class>
+   </rdfs:subClassOf>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#checksumFile"/>
+       <owl:cardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:cardinality>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#checksumFileAlgorithm"/>
+       <owl:cardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:cardinality>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#SecuredInternalDocumentReference"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+ </owl:Class></code>
 
 
 ### ShapeRepresentation
+
+**ShapeRepresentation** is a subclass of DocumentReference. It specifies object property values that refer to a shape.
+
+ShapeRepresentation is not an abstract class; can be instantiated directly.
+
+The ShapeRepresentation class can be extended.
+
+The nextTrunkVersion is restricted to one other instance of ShapeRepresentation.
    
 **History**
-
+* New in COINS 2.0; replaces <a href="https://bimloket.github.io/COINS_2.0/coinsarchive/#explicit3drepresentation" title="Cbim:Object">Cbim:Explicit3DRepresentation</a>
    
 **Informative representation in UML**
+
 ![Representation in UML](./media/ "Representation in UML")
    
 **Attributes**
-
+| Col1 | Col2 | Col3 |
+| :--- | :--- | :--- |
+| Name | Type |	Description |
+| IDFieldname | StringProperty | Fieldname (or column name) where the ID of the shape/feature can be found. |
 
 **Formal representation in RDF/XML**
 
+<code><owl:Class rdf:ID="ShapeRepresentation">
+
+   <rdfs:label xml:lang="en-GB">Shaperepresentation</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Shape document link object.</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#DocumentReference"/>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#ShapeRepresentation"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+ </owl:Class></code>
 
 
 ### ShapeRepresentationProperty
+
+**ShapeRepresentationProperty** is a subclass of DocumentProperty. Since it is a property that refers to a ShapeRepresentation, the inherited reference for objectValue is overridden to refer to an instance of ShapeRepresentation.
+
+ShapeRepresentationProperty is not an abstract class; it can be instantiated directly.
+
+The ShapeRepresentationProperty class can be extended.
+
+The nextTrunkVersion is restricted to one other instance of ShapeRepresentationProperty.
    
 **History**
-
+* New in COINS 2.0
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+
+This image shows the informative representation of the ShapeRepresentation class.
+
+![Representation in UML](./media/Core-ShapeRepresentation_Class.png "Representation in UML")
    
 **Attributes**
-
+| Col1 | Col2 | Col3 |
+| :--- | :--- | :--- |
+| Name | Type |	Description |
+| objectValue | ShapeRepresentation | Reference to an instance of ShapeRepresentation. |
 
 **Formal representation in RDF/XML**
 
+<code><owl:Class rdf:ID="ShapeRepresentationProperty">
+
+   <rdfs:label xml:lang="en-GB">HasShapeRepresentation</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">HasShapeRepresentation</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#DocumentProperty"/>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#objectValue"/>
+       <owl:allValuesFrom rdf:resource="#ShapeRepresentation"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <owl:equivalentClass>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#objectValue"/>
+       <owl:allValuesFrom rdf:resource="#ShapeRepresentation"/>
+     </owl:Restriction>
+   </owl:equivalentClass>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+ </owl:Class></code>
 
 
 ### SimpleProperty
+
+**SimpleProperty** is a subclass of EntityProperty. The SimplePropery class serves as a generalisation of all property classes that hold exactly one single value; as opposed to ComplexProperty that refer to more complex elements. Therefore SimpleProperty is disjoined with ComplexProperty.
+
+SimpleProperty is not an abstract class; it can be instantiated directly.
+
+The SimpleProperty class can be extended; in the Coins Core Model it is extended to StringProperty, NumericProperty, BooleanProperty, DateTimeProperty and UriProperty.
+
+
+The nextTrunkVersion is restricted to one other instance of SimpleProperty.
    
 **History**
-
+* New in COINS 2.0
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+
+This image shows the informative representation of the SimpleProperty class.
+
+![Representation in UML](./media/600px-Core-SimpleProperty_Class.png "Representation in UML")
    
 **Attributes**
 
+| Col1 | Col2 | Col3 |
+| :--- | :--- | :--- |
+| Name | Type |	Description |
+| datatypeValue | xsd:anySimpleType | Exactly one value of any simple type (overridable in extended classes) |
 
 **Formal representation in RDF/XML**
+
+<code><owl:Class rdf:ID="SimpleProperty">
+
+   <rdfs:label xml:lang="en-GB">SimpleProperty</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Simple Property</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#EntityProperty"/>
+
+   <owl:disjointWith rdf:resource="#ComplexProperty"/>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#datatypeValue"/>
+       <owl:cardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:cardinality>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#SimpleProperty"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+ </owl:Class></code>
 
 
 
 ### StringProperty
+
+**StringProperty** is a subclass of SimpleProperty. The datatypeValue of SimpleProperty is overridden by xsd:string, restricting instances of StringProperty to hold a single string-value. All characters are allowed and the number of characters in the string is not limited, but empty strings are not allowed.
+
+StringProperty is disjoined with NumericProperty, BooleanProperty, DateTimeProperty and UriProperty.
+
+StringProperty is not an abstract class; it can be instantiated directly.
+
+The StringProperty class is extendable.
+
+The nextTrunkVersion is restricted to one other instance of StringProperty.
    
 **History**
-
+* New in COINS 2.0
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+
+This image shows the informative representation of the StringProperty class.
+
+![Representation in UML](./media/Core-StringProperty_Class.png "Representation in UML")
    
 **Attributes**
-
+| Col1 | Col2 | Col3 |
+| :--- | :--- | :--- |
+| Name | Type |	Description |
+| datatypeValue | xsd:String | Exactly one string value. Empty string not allowed. |
 
 **Formal representation in RDF/XML**
 
+<code><owl:Class rdf:ID="StringProperty">
+
+   <rdfs:label xml:lang="en-GB">String Property</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">String Property</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#SimpleProperty"/>
+
+   <owl:disjointWith rdf:resource="#NumericProperty"/>
+   <owl:disjointWith rdf:resource="#BooleanProperty"/>
+   <owl:disjointWith rdf:resource="#DateTimeProperty"/>
+   <owl:disjointWith rdf:resource="#UriProperty"/>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#datatypeValue"/>
+       <owl:allValuesFrom rdf:resource="xsd:string"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <owl:equivalentClass>
+     <owl:Class>
+       <owl:intersectionOf rdf:parseType="Collection">
+         <rdf:Description rdf:ID="SimpleProperty"/>
+         <owl:Restriction>
+           <owl:onProperty rdf:resource="#datatypeValue"/>
+           <owl:allValuesFrom rdf:resource="xsd:string"/>
+         </owl:Restriction>
+       </owl:intersectionOf>
+     </owl:Class>
+   </owl:equivalentClass>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#StringProperty"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.000</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+ </owl:Class></code>
 
 
 ### UriProperty
+
+**UriProperty** is a subclass of SimpleProperty. The inherited datatypeValue of SimpleProperty is overridden by xsd:anyUri, restricting instances of UriProperty hold a single URI. An empty value (nil) is allowed.
+
+UriProperty is disjoined with StringProperty, NumericProperty, BooleanProperty and DateTimeProperty.
+
+UriProperty is not an abstract class; it can be instantiated directly.
+
+The UriProperty class is extendable.
+
+The nextTrunkVersion is restricted to one other instance of UriProperty.
    
 **History**
 
+* New in COINS 2.0
+
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+
+![Representation in UML](./media/Core-UriProperty_Class.png "Representation in UML")
    
 **Attributes**
+| Col1 | Col2 | Col3 |
+| :--- | :--- | :--- |
+| Name | Type |	Description |
+| datatypeValue | xsd:Uri | Exactly one URI. Empty value not allowed. |
 
 
 **Formal representation in RDF/XML**
 
+<code><owl:Class rdf:ID="UriProperty">
+
+   <rdfs:label xml:lang="en-GB">UriProperty</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Uri Property</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#SimpleProperty"/>
+
+   <owl:disjointWith rdf:resource="#StringProperty"/>
+   <owl:disjointWith rdf:resource="#NumericProperty"/>
+   <owl:disjointWith rdf:resource="#BooleanProperty"/>
+   <owl:disjointWith rdf:resource="#DateTimeProperty"/>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#datatypeValue"/>
+       <owl:allValuesFrom rdf:resource="xsd:anyURI"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <owl:equivalentClass>
+     <owl:Class>
+       <owl:intersectionOf rdf:parseType="Collection">
+         <rdf:Description rdf:ID="SimpleProperty"/>
+         <owl:Restriction>
+           <owl:onProperty rdf:resource="#datatypeValue"/>
+           <owl:allValuesFrom rdf:resource="xsd:anyURI"/>
+         </owl:Restriction>
+       </owl:intersectionOf>
+     </owl:Class>
+   </owl:equivalentClass>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#UriProperty"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.000</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+ </owl:Class></code>
 
 ### Vector
+
+Vector is a subclass of ComplexPropertyValue. It serves as specifier for a vector, therefore it has 3 attributes for a X-, Y- and Z-coordinate. These attributes must hold a value; they can not be empty.
+
+Vector is disjoined with Locator, EntityProperty and Party.
+
+Vector is not an abstract class; it can be instantiated, but since it is a ComplexPropertyValue, it can not exist by itself. In the Coins Core Model it has to be referred to by a CartesianLocator or subclass thereof.
+
+The Vector class can be extended.
+
+The nextTrunkVersion is restricted to one other instance of Vector.
    
 **History**
 
+* New in COINS 2.0
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+![Representation in UML](./media/Core-Vector_Class.png "Representation in UML")
    
 **Attributes**
+| Col1 | Col2 | Col3 |
+| :--- | :--- | :--- |
+| Name | Type |	Description |
+| xCoordinate | FloatProperty | Exactly one value representing the X-coordinate. | 
+| yCoordinate | FloatProperty | Exactly one value representing the Y-coordinate. | 
+| zCoordinate | FloatProperty | Exactly one value representing the Z-coordinate. | 
 
 
 **Formal representation in RDF/XML**
 
+<code> <owl:Class rdf:ID="Vector">
+
+   <rdfs:label xml:lang="en-GB">Vector</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">3D Vector specifier.</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#ObjectPropertyValue"/>
+
+   <owl:disjointWith rdf:resource="#CartesianLocator"/>
+   <owl:disjointWith rdf:resource="#Party"/>
+   <owl:disjointWith rdf:resource="#CbimProperty"/>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#Vector"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.000</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+ </owl:Class></code>
 
 
 ### VersionObject
+
+VersionObject is a subclass of Concept. It enables individuals to reference to one other individual as their successive trunk version.
+
+Individuals of VersionObject have a creation date, a modification date and an integer version ID. They have references to a creator and modifier (both Party) and optionally a reference to a nextTrunkVersion.
+
+VersionObject is not an abstract class; it can be instantiated.
+The VersionObject class can be extended.
    
 **History**
-
+* New in COINS 2.0
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
+![Representation in UML](./media/Core-VersionObject_Class.png "Representation in UML")
    
 **Attributes**
-
+| Col1 | Col2 | Col3 |
+| :--- | :--- | :--- |
+| Name | Type |	Description |
+| creationDate | xsd:dateTime	
+| modificationDate | xsd:dateTime |  | 
+| VersionID | xsd:int |  | 	
+| creator | Party | Exactly 1 party that created this version | 
+| modifier | Party | 0 .. 1 Party that modified this version | 
+| nextTrunkVersion | VersionObject	0..1 reference to the succesive versio | 
 
 **Formal representation in RDF/XML**
 
+<code><owl:Class rdf:ID="VersionObject">
+
+   <rdfs:label xml:lang="en-GB">VersionObject</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">VersionObject enables individuals to specificy their next version.</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#Entity"/>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">true</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.000</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+ </owl:Class></code>
 
 
 ## Core model properties
+
 Description of core model Properties
 
 

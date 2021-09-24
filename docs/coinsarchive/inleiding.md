@@ -343,7 +343,27 @@ cbim:locator
 **[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
 
 ![UML](./media/.png "UML") 
-  
+
+
+### Explicit3DRepresentation  
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**:  Shape document link object.
+
+
+**[owl:Class]**(http://www.w3.org/2000/01/rdf-schema#Class): cbim:Explicit3DRepresentation
+
+**[rdfs:subClassOf](http://www.w3.org/2000/01/rdf-schema#subClassOf)**: cbim:Document
+
+**[owl:equivalentClass](http://www.w3.org/2002/07/owl#equivalentClass)**:
+	
+* cbim:firstParameter owl:maxCardinality 1
+* cbim:nextVersion owl:allValues
+* From cbim:Explicit3DRepresentation
+
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**: cbim:firstParameter
+
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**: cbim:shape
+
+![UML](./media/Explicit3DRepresentation-1.1.png "UML") 
 	
 ### class x
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
@@ -361,6 +381,32 @@ cbim:locator
 **[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
 
 ![UML](./media/.png "UML") 
+
+### PersonOrOrganisation
+
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**: Reference to the responsible person or organisation.	
+
+**[owl:Class]**(http://www.w3.org/2000/01/rdf-schema#Class): cbim:PersonOrOrganisation
+
+**[rdfs:subClassOf](http://www.w3.org/2000/01/rdf-schema#subClassOf)**: cbim:CbimObject
+
+**[owl:equivalentClass](http://www.w3.org/2002/07/owl#equivalentClass)**:
+* cbim:nextVersion owl:allValues
+* From cbim:PersonOrOrganisation
+
+
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**:
+
+* cbim:creator
+* cbim:modifier
+* cbim:verificationPerformer
+
+![UML](./media/PersonOrOrganisation-1.1.png "UML") 
+
+* cbimfs:authorizedBy
+* cbimfs:plannedVerificationPerformer
+
+![UML](./media/CbimfsPersonOrOrganisation-1.1.png "UML") 
   
 
 ## COINS 1.0 Relations
