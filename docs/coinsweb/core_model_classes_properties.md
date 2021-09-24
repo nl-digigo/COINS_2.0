@@ -101,7 +101,8 @@ This image shows the informative representation of the BooleanProperty class
 </p>
 </p><p><b>Formal Representation in RDF/XML</b><br />
 
-	<code> &lt;owl:Class rdf:ID="BooleanProperty"&gt;
+<code> 
+   &lt;owl:Class rdf:ID="BooleanProperty"&gt;
    &lt;rdfs:label xml:lang="en-GB"&gt;BooleanProperty&lt;/rdfs:label&gt;
    &lt;rdfs:comment xml:lang="en-GB"&gt;BooleanProperty&lt;/rdfs:comment&gt;
    &lt;rdfs:subClassOf rdf:resource="#SimpleProperty"/&gt;
