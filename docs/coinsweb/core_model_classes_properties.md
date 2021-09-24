@@ -101,8 +101,7 @@ This image shows the informative representation of the BooleanProperty class
 	
 **Formal Representation in RDF/XML**
 
-<code> 
- <owl:Class rdf:ID="BooleanProperty">
+<code><owl:Class rdf:ID="BooleanProperty">
 
    <rdfs:label xml:lang="en-GB">BooleanProperty</rdfs:label>
    <rdfs:comment xml:lang="en-GB">BooleanProperty</rdfs:comment>
@@ -147,8 +146,7 @@ This image shows the informative representation of the BooleanProperty class
    <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
    <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
 
- </owl:Class>
-</code>
+ </owl:Class></code>
 
 
 ### CartesianLocator
@@ -1268,6 +1266,7 @@ The nextTrunkVersion is restricted to one other instance of InternalDocumentRefe
 
 
 ### FloatProperty
+
 FloatProperty is a subclass of NumericProperty. The inherited datatypeValue of SimpleProperty is overridden by xsd:float, restricting instances of FloatProperty to hold a single float-value, where values range from –infinite to +infinite. The number of decimals is infinite. An empty value (nil) is not allowed.
 
 FloatProperty is disjoined with IntegerProperty.
@@ -1285,6 +1284,7 @@ The nextTrunkVersion is restricted to one other instance of FloatProperty.
 ![Representation in UML](./media/Core-FloatProperty_Class.png "This image shows the informative representation of the FloatProperty class.")
    
 **Attributes**
+
 | Col1 | Col2 | Col3 |
 | :--- | :--- | :--- |
 | Name | Type |	Description |
@@ -1534,7 +1534,7 @@ The nextTrunkVersion is restricted to one other instance of LocatorProperty.
 | Col1 | Col2 | Col3 |
 | :--- | :--- | :--- |
 | Name | Type |	Description |
-| objectValue | Locator |	Reference to an instance of Locator. |
+| objectValue | Locator | Reference to an instance of Locator. |
 
 **Formal representation in RDF/XML**
 
@@ -1665,25 +1665,91 @@ The nextTrunkVersion is restricted to one other individual of Object.
 ![Representation in UML](./media/ "Representation in UML")
    
 **Attributes**
-
+| Col1 | Col2 | Col3 |
+| :--- | :--- | :--- |
+| Name | Type |	Description |
+| hasConnections | Connection |	Reference to (undirected) connections with other objects |
+| hasIncomingConnections | Directed Connection | Reference to incoming directed connections from other objects |
+| hasOutgoingConnections | Directed Connection | Reference to outgoing directed connections to other objects |
 
 **Formal representation in RDF/XML**
 
+<code> <owl:Class rdf:ID="Object">
+
+   <rdfs:label xml:lang="en-GB">Object</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Object</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#CbimObject"/>
+
+   <rdfs:subClassOf>
+     <owl:Class>
+       <owl:unionOf rdf:parseType="Collection">
+         <rdf:Description rdf:ID="CoinsContainerObject"/>
+         <rdf:Description rdf:ID="CataloguePart"/>
+       </owl:unionOf>
+     </owl:Class>
+   </rdfs:subClassOf>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#Object"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+ </owl:Class>(/code>
 
 
 ### Organisation
+
+**Organisation** is a subclass of Party.
+
+Organisation is not an abstract class; it can be instantiated directly. The Organisation class can be extended.
+
+The nextTrunkVersion is restricted to one other instance of Organisation.
    
 **History**
-
+* New in COINS 2.0
    
 **Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
 
+This image shows the informative representation of the Organisation class.
+![Representation in UML](./media/Core-Organisation_Class.png "Representation in UML")
+  
 
 **Formal representation in RDF/XML**
 
+<code><owl:Class rdf:ID="Organisation">
+
+   <rdfs:label xml:lang="en-GB">Organisation</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Organisation</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#Party"/>
+
+   <owl:disjointWith rdf:resource="#Person"/>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#Organisation"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+	</owl:Class></code>
 
 
 ### Part
