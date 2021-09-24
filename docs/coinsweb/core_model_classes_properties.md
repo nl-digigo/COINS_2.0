@@ -1,12 +1,15 @@
 # Core Model Classes and Properties
+
 Description of core model Classes and Properties
 
 
 ## Core Model Classes
+
 Description of core model Classes 
 
 
 ### Assembly
+
 <b>Assembly</b> is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#entity" title="CoinsCore:Entity Class">Entity</a>.
 </p><p>Assembly is an abstract class; it can not be instantiated directly. Members of intantiatable subclasses of Entity can additionally be typed as Assembly.
 </p><p>The Assembly class is extendable.
@@ -97,7 +100,8 @@ This image shows the informative representation of the BooleanProperty class
 <p><br />
 </p>
 </p><p><b>Formal Representation in RDF/XML</b><br />
-<pre> &lt;owl:Class rdf:ID="BooleanProperty"&gt;
+
+	<code> &lt;owl:Class rdf:ID="BooleanProperty"&gt;
    &lt;rdfs:label xml:lang="en-GB"&gt;BooleanProperty&lt;/rdfs:label&gt;
    &lt;rdfs:comment xml:lang="en-GB"&gt;BooleanProperty&lt;/rdfs:comment&gt;
    &lt;rdfs:subClassOf rdf:resource="#SimpleProperty"/&gt;
@@ -134,11 +138,12 @@ This image shows the informative representation of the BooleanProperty class
    &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
    &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
  &lt;/owl:Class&gt;
-</pre>
+</code>
 
 
 ### CartesianLocator
-   <b>CartesianLocator</b> is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#locator" title="CoinsCore:CartesianLocator Class">Locatory</a>. It specifies the position and orientation of an Object using a 3D Euclidean space for relative placement of shape representations. Therefore it holds references to Vectors for its primary and secondary Orientation, plus a Vector for the translation.
+	
+<b>CartesianLocator</b> is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#locator" title="CoinsCore:CartesianLocator Class">Locatory</a>. It specifies the position and orientation of an Object using a 3D Euclidean space for relative placement of shape representations. Therefore it holds references to Vectors for its primary and secondary Orientation, plus a Vector for the translation.
 
 CartesianLocator is disjoint with Party, EntityProperty and Vector.
 
@@ -150,6 +155,7 @@ The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" ti
 
 
 **History**
+	
 * New in COINS 2.0; <a href="https://bimloket.github.io/COINS_2.0/coinsarchive/#cbimlocator" title="Cbim:Locator">Cbim:Locator</a>
    
 **Informative representation in UML**
@@ -184,7 +190,9 @@ The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" ti
 </td></tr>
 </table>
 
+	
 **Formal representation in RDF/XML**
+	
 <code>
  <owl:Class rdf:ID="CartesianLocator">
 
@@ -237,6 +245,7 @@ The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" ti
    
 
 ### CataloguePart
+	
 **CataloguePart** is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#concept" title="CoinsCore:Concept Class">Concept</a>. CatalogueParts are for aligning of external Object Type Libraries.
 
 CataloguePart is not abstract; it can be instantiated.
@@ -291,6 +300,7 @@ This image shows the informative representation of the CataloguePart class.
 
 
 ### CoinsContainerObject
+	
 CoinsContainerObject is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#concept" title="CoinsCore:Concept Class">Concept</a>. It contains all individuals that are placed in a Coins Container.
 
 CoinsContainerObject is not an abstract class; it can be instantiated.
@@ -312,8 +322,8 @@ This CoinsContainerObject acts as a kind of placeholder for all objects within t
 ![Representation in UML](./media/Core-CoinsContainerObject_Class.png "Representation in UML")
    
 
-
 **Formal representation in RDF/XML**
+	
 <code><owl:Class rdf:ID="CoinsContainerObject">
 
    <rdfs:label xml:lang="en-GB">CoinsContainerObject</rdfs:label>
@@ -413,6 +423,7 @@ This image shows the informative representation of the ComplexProperty class.
    </owl:Class></code>
 
 ### ComplexPropertyValue
+	
 ComplexPropertyValue is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#entity" title="CoinsCore:Entity">Entity</a>. It has no further attributes of itself, but all <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#complexproperty" title="CoinsCore:ComplexProperty">ComplexProperties</a> refer to a value of ComplexPropertyValue or specialization thereof. An instance of ComplexPropertyValue can not exist by itself.
 
 ComplexPropertyValue is not an abstract class; it can be instantiated directly.
@@ -460,6 +471,7 @@ This image shows the informative representation of the ComplexPropertyValue clas
    </owl:Class></code>
 
 ### Concept
+	
 **Concept** is a subclass of [owl:Thing](http://www.w3.org/2002/07/owl#"). Concept serves as superclass of all classes in a COINS model.
 It is without any properties or references.
 Concept acts an abstract class; it can not be instantiated directly. Individuals belong indirectly to this class.
@@ -494,6 +506,7 @@ Concept is the common superclass for all other COINS classes.
 
 
 ### Connection
+	
 Connection is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#entity" title="CoinsCore:Entity">Entity</a>. The Connection class enables the functional connection between two Objects. Therefore it holds references to exactly 2 Objects. The relation is undirected, meaning there is no source and target of the relationship; both Objects are considered equal.
 
 Connection is not an abstract class; it can be instantiated directly.
@@ -575,12 +588,9 @@ The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" ti
 
 **Informative representation in UML**
 
-
 This image shows the informative representation of the ContainsRelation class.
 
 ![ContainsRelation class in UML](./media/600px-Core-ContainsRelation_Class.png "Informative representation of ContainsRelation in UML")
-
-
 
 **Attributes**
    
@@ -589,7 +599,7 @@ This image shows the informative representation of the ContainsRelation class.
 | Name | Type |	Description |
 | <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#hasassembly" title="CoinsCore:hasAssembly Property">hasAssembly</a> |	a href="https://bimloket.github.io/COINS_2.0/coinsweb/#assembly" title="CoinsCore:Assembly Class">Assembly</a> |	Reference to exactly 1 instance of Assembly |
 | <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#hasassembly" title="CoinsCore:hasPart Property">hasAssembly</a> |  a href="https://bimloket.github.io/COINS_2.0/coinsweb/#haspart" title="CoinsCore:hasPart Property">hasPart</a> |  a href="https://bimloket.github.io/COINS_2.0/coinsweb/#part" title="CoinsCore:Part Class">Part</a> | Reference to exactly 1 instance of Part
-| a href="https://bimloket.github.io/COINS_2.0/coinsweb/#groupedby" title="CoinsCore:groupedBy Property">groupedBy</a> | a href="https://bimloket.github.io/COINS_2.0/coinsweb/#containsrelationgroup" title="CoinsCore:ContainsRelationGroup Class">ContainsRelationGroup</a> | ContainsRelations can be grouped in ContainsRelationGroup
+| a href="https://bimloket.github.io/COINS_2.0/coinsweb/#groupedby" title="CoinsCore:groupedBy Property">groupedBy</a> | a href="https://bimloket.github.io/COINS_2.0/coinsweb/#containsrelationgroup" title="CoinsCore:ContainsRelationGroup Class">ContainsRelationGroup</a> | ContainsRelations can be grouped in ContainsRelationGroup |
 
 
 **Formal Representation in RDF/XML**
@@ -635,9 +645,8 @@ This image shows the informative representation of the ContainsRelation class.
  </owl:Class> </code>
 
 
-
-
 ### ContainsRelationGroup
+
 ContainsRelationGroup is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#entity" title="CoinsCore:Entity Class">Entity</a>. It belongs to a exactly 1 Assembly and holds references to 0, 1 or more ContainsRelations.
 
 ContainsRelationGroup can be instantiated and extended.
@@ -653,6 +662,7 @@ This concept gives you the possibility to manage different options of object dec
 
    
 **Attributes**
+
 | Col1 | Col2 | Col3 |
 | :--- | :--- | :--- |
 | Name | Type |	Description |
@@ -694,6 +704,7 @@ This concept gives you the possibility to manage different options of object dec
 
 
 ### DateTimeProperty
+
 DateTimeProperty is a subclass of The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#simpleproperty" title="CoinsCore:SimpleProperty Class">SimpleProperty</a>. The inherited datatypeValue of SimpleProperty is overridden by xsd:dateTime, restricting instances of DateTimeProperty to hold a single DateTime-value; an empty value (nil) is not allowed.
 DateTime-values are integer-valued year, month, day, hour and minute properties, a decimal-valued second property, and an optional timezoned property in the format:
 
@@ -773,6 +784,7 @@ The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" ti
 
 
 ### DirectedConnection
+
 **DirectedConnection** is a subclass of Connection. The DirectedConnection enables a directed functional relationships between two Objects, meaning there is exactly one source Object and exactly one target Object, where the source Object delivers a function to the target Object.
 
 DirectedConnection is not an abstract class; it can be instantiated directly.
@@ -836,6 +848,7 @@ The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" ti
 
 
 ### DocumentProperty
+
 **DocumentProperty** is a subclass of The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#complexproperty" title="CoinsCore:ComplexProperty Class">ComplexProperty</a>. Since it is a property that refers to a Document, the inherited reference for objectValue is overridden to refer to an instance of DocumentReference.
 
 DocumentProperty is not an abstract class; it can be instantiated directly.
@@ -897,6 +910,7 @@ This image shows the informative representation of the DocumentProperty class.
 
 
 ### DocumentReference
+
 **DocumentReference** is a subclass of <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#complexpropertyvalue" title="CoinsCore:ComplexPropertyValue Class">ComplexPropertyValue</a>. Individuals of this class refer to Documents; therefor this class has references to StringProperties for documentType, documentMimeType and documentFragment. These attributes facilitate deeplinking to information inside the referred document.
 
 DocumentReference is not an abstract class; it can be instantiated directly.
@@ -959,6 +973,7 @@ This image shows the informative representation of the DocumentReference class.
 
 
 ### Entity
+
 **Entity** is a subclass of Concept. It serves as superclass of Object, EntityProperty, ComplexPropertyValue, Party, Connection and ContainsRelation.
 Assembly, Part and ContainsRelationGroup are also subclasses of Entity.
 Entity can also be a subclass of VersionObject, thus allowing it’s members to have versions.
@@ -1081,6 +1096,7 @@ name |
 
 
 ### EntityProperty
+
 **EntityProperty** is a subclass of Entity. EntityProperty is used to describe a feature of an Object; therefore, each EntityProperty can not exist by itself but belongs to one or more Entities or extended classes thereof.
 
 Each EntityProperty holds a value as measure of the feature. This value is either a single value (for a SimpleProperty) or complex value (for a ComplexProperty).
@@ -1147,6 +1163,7 @@ This image shows the informative representation of the EntityProperty class.
 
 
 ### ExpiredEntity
+
 ExpiredEntity is a subclass of Concept. It contains individuals that are expired.
 
 ExpiredEntity is not an abstract class; it can be instantiated.
@@ -1182,6 +1199,7 @@ This image shows the informative representation of the ExpiredEntity class.
 
 
 ### ExternalDocumentReference
+
 **ExternalDocumentReference** is a subclass of DocumentReference. It specifies a document that not inside the CoinsContainer but somewhere on the web; therefore it holds exactly 1 reference to an URI where the document can be found.
 
 A document can not be both Internal and external; therefore ExternalDocumentReference is disjoint with InternalDocumentReference.
@@ -1311,6 +1329,7 @@ The nextTrunkVersion is restricted to one other instance of FloatProperty.
 
 
 ### IntegerProperty
+
 **IntegerProperty** is a subclass of NumericProperty. The inherited datatypeValue of SimpleProperty is overridden by xsd:integer, restricting instances of IntegerProperty to hold a single integer-value, where values range from –infinite to +infinite. Decimals are not allowed, nor is an empty value (nil) allowed.
 
 IntegerProperty is not disjoint with FloatProperty, since an integer value is also an float value.
@@ -1382,6 +1401,7 @@ The nextTrunkVersion is restricted to one other instance of IntegerProperty.
 
 
 ### InternalDocumentReference
+
 InternalDocumentReference is a subclass of DocumentReference. It specifies a document in the CoinsContainer; therefore it has the filePath property that holds exactly 1 reference to the filepath where in the Coins Container the document can be found.
 
 A document can not be both internal and external; therefore InternalDocumentReference is disjoint with ExternalDocumentReference.
@@ -1440,6 +1460,7 @@ The nextTrunkVersion is restricted to one other instance of InternalDocumentRefe
 
 
 ### Locator
+
 Locator is a subclass of ComplexPropertyValue.
 
 Locator is not an abstract class; it can be instantiated directly.
@@ -1483,6 +1504,7 @@ The nextTrunkVersion is restricted to one other instance of Locator.
 
 
 ### LocatorProperty
+
 LocatorProperty is a subclass of ComplexProperty. Since it is a property that refers to a Locator, the inherited reference for objectValue is overridden to refer to an instance of Locator.
 
 LocatorProperty is not an abstract class; it can be instantiated directly.
@@ -1538,6 +1560,7 @@ The nextTrunkVersion is restricted to one other instance of LocatorProperty.
 
 
 ### NumericProperty
+
 NumericProperty is a subclass of SimpleProperty. It is the superclass of properties holding a single numeric value and a unit. The Unit-attribute is an owl:ObjectProperty of type rdfs:Resource.
 
 A Reference Framework for Units is available from www.coinsweb.nl/wiki. This Framework is recommended, but not part of the standard.
@@ -1612,6 +1635,7 @@ The nextTrunkVersion is restricted to one other instance of NumericProperty.
 
 
 ### Object
+
 Object is a subclass of Entity. An Object instance in a COINS Container is always a member of CoinsContainerObject and can simultaneously be a CataloguePart.
 
 Object is not abstract; it can be instantiated directly.
