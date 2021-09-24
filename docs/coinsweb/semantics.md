@@ -20,7 +20,7 @@ java -Xmx8G -jar coins-cli-1.1.603-jar-with-dependencies.jar validate -p "COINS 
 ## Background information on RDF/OWL semantics
 Semantics tells you about the meaning of something. You can define something by adding a relationship. When you implement this concept in computerlanguage the computer is able to interpret this. This concept, called a Triple, contains 2 resources that are related to eachother via a predicate. A predicate tells something about the relationship between the resources, like "has a property", "has a part".
 
-<code>Triple: <Resource> <Predicate> <Resource></code>
+<code>Triple: Resource Predicate Resource</code>
 
 ## Semantic web technologies
 * These triples are used in RDF (Resource Description Framework).
@@ -65,7 +65,7 @@ For data-exchange purposes COINS 2.0 adopts the following principles:
 - Closed World Assumptions (CWA)
 - Unique naming assumption (UNA) 
 
-RDF/OWL uses an Open World Assumption (OWA)[3] while COINS 2 assumes a Closed World Assumption (CWA). CWA assumes that what is not known is false where the OWA states that a lack of information does not mean it is false. Using the CWA RDF/OWL cardinality constraints can be used to test the data and 'missing data' (e.g. objects that do not fulfill these constraints as they miss the necessary information) can be reported.
+RDF/OWL uses an Open World Assumption (OWA) while COINS 2 assumes a Closed World Assumption (CWA). CWA assumes that what is not known is false where the OWA states that a lack of information does not mean it is false. Using the CWA RDF/OWL cardinality constraints can be used to test the data and 'missing data' (e.g. objects that do not fulfill these constraints as they miss the necessary information) can be reported.
 
 COINS 2 adopts Unique naming assumption meaning that each individual is unique as truth. Consequenlty entailment that two individuals are the same is not part of the COINS2 entailments.
 
@@ -118,8 +118,8 @@ The older release of the validator can be found on the Semantics chapter. Also m
 
 ### install
 1) Firstly make sure that Java is installed. You can test this by running "java -version" in a commandshell.
-2) Secondly make sure that GraphDB is running. A default configuration of GraphDB can be accessed using a webbrowser using portnumber 7200 of your localhost. (http://localhost:7200).
-3) Thirdly you can run the validator by unzipping the zip and by running runVC_CardinalityCheck.bat. The batch file starts the validator using the VC_CardinalityCheck.ccr container. The validator should produce the following [html page](https://www.buildingbits.nl/coins2/exampleReport.html)
+2) Secondly make sure that GraphDB is running. A default configuration of GraphDB can be accessed using a webbrowser using portnumber 7200 of your localhost [//localhost:7200](http://localhost:7200)
+3) Thirdly you can run the validator by unzipping the zip and by running runVC_CardinalityCheck.bat. The batch file starts the validator using the VC_CardinalityCheck.ccr container. The validator should produce the following [Example Report](https://www.buildingbits.nl/coins2/exampleReport.html)
 
 The validator uses the following input:
 1) yml file containing various configuration options for the validator
@@ -130,22 +130,22 @@ java -Xmx8G -jar coins-validator.jar -l run config.yml yourContainer.ccr
 This command uses java to run the coins-validator. the -Xmx8G argument specifies that java can use 8Gigabytes of Ram. The '-l' argument specifies that the validator produces a log file. The run config.yml points to the yml file. The yml file can specify a Coinscontainer. This can be overriden by specifying a container in the command. In this case the 'yourContainer.ccr' will be validated.
 
 yml configuration
-The yml contains a reference to the GraphDB sparql endpoint. The default yml file points to http://localhost:7200 as default sparql endpoint which corresponds with the default endpoint for GraphDB. When your graphDB uses another endpoint then you will need to change the yml accordingly.
+The yml contains a reference to the GraphDB sparql endpoint. The default yml file points to [http://localhost:7200](http://localhost:7200) as default sparql endpoint which corresponds with the default endpoint for GraphDB. When your graphDB uses another endpoint then you will need to change the yml accordingly.
 The yml also contains a reference to the Pro-File. The validator comes with a default Pro-File named 'COINSLite.xml'. The yml points to this file. If you would like to use another Pro-File then you change the yml file to point to the other Pro-File.
 The validator can export the results in JSON,xml and in HTML. The following snippet can be addes to the yml file to produce json and xml reports:
- <- type: json 
+* type: json 
 
-   location: 
+ location: 
 
      type: file 
 
      path: report.json
 
- - type: xml
+* type: xml
 
-   location:
+location
 
      type: file
 
-     path: report.xml>
+     path: report.xml
 
