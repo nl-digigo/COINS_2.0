@@ -83,6 +83,7 @@ This image shows the informative representation of the BooleanProperty class
 ![Informative representation of Assembly in UML](./media/Core-BooleanProperty_Class.png "Informative representation in UML")
  
 **Attributes**
+	
 <table class="wikitable">
 <tr>
 <th> Name
@@ -97,48 +98,56 @@ This image shows the informative representation of the BooleanProperty class
 <td> Exactly one Boolean value. Empty value not allowed.
 </td></tr>
 </table>
-<p><br />
-</p>
-</p><p><b>Formal Representation in RDF/XML</b><br />
+	
+**Formal Representation in RDF/XML**
 
 <code> 
-   &lt;owl:Class rdf:ID="BooleanProperty"&gt;
-   &lt;rdfs:label xml:lang="en-GB"&gt;BooleanProperty&lt;/rdfs:label&gt;
-   &lt;rdfs:comment xml:lang="en-GB"&gt;BooleanProperty&lt;/rdfs:comment&gt;
-   &lt;rdfs:subClassOf rdf:resource="#SimpleProperty"/&gt;
-   &lt;owl:disjointWith rdf:resource="#StringProperty"/&gt;
-   &lt;owl:disjointWith rdf:resource="#NumericProperty"/&gt;
-   &lt;owl:disjointWith rdf:resource="#DateTimeProperty"/&gt;
-   &lt;owl:disjointWith rdf:resource="#UriProperty"/&gt;
-   &lt;owl:equivalentClass&gt;
-     &lt;owl:Class&gt;
-       &lt;owl:intersectionOf rdf:parseType="Collection"&gt;
-         &lt;rdf:Description rdf:ID="SimpleProperty"/&gt;
-         &lt;owl:Restriction&gt;
-           &lt;owl:onProperty rdf:resource="#datatypeValue"/&gt;
-           &lt;owl:allValuesFrom rdf:resource="xsd:boolean"/&gt;
-         &lt;/owl:Restriction&gt;
-       &lt;/owl:intersectionOf&gt;
-     &lt;/owl:Class&gt;
-   &lt;/owl:equivalentClass&gt;
-   &lt;rdfs:subClassOf&gt;
-     &lt;owl:Restriction&gt;
-       &lt;owl:onProperty rdf:resource="#datatypeValue"/&gt;
-       &lt;owl:allValuesFrom rdf:resource="xsd:boolean"/&gt;
-     &lt;/owl:Restriction&gt;
-   &lt;/rdfs:subClassOf&gt;
-   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;false&lt;/isClassAbstract&gt;
-   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
-   &lt;rdfs:subClassOf&gt;
-     &lt;owl:Restriction&gt;
-       &lt;owl:onProperty rdf:resource="#nextTrunkVersion"/&gt;
-       &lt;owl:allValuesFrom rdf:resource="#BooleanProperty"/&gt;
-     &lt;/owl:Restriction&gt;
-   &lt;/rdfs:subClassOf&gt;
-   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
-   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
-   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
- &lt;/owl:Class&gt;
+ <owl:Class rdf:ID="BooleanProperty">
+
+   <rdfs:label xml:lang="en-GB">BooleanProperty</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">BooleanProperty</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#SimpleProperty"/>
+
+   <owl:disjointWith rdf:resource="#StringProperty"/>
+   <owl:disjointWith rdf:resource="#NumericProperty"/>
+   <owl:disjointWith rdf:resource="#DateTimeProperty"/>
+   <owl:disjointWith rdf:resource="#UriProperty"/>
+
+   <owl:equivalentClass>
+     <owl:Class>
+       <owl:intersectionOf rdf:parseType="Collection">
+         <rdf:Description rdf:ID="SimpleProperty"/>
+         <owl:Restriction>
+           <owl:onProperty rdf:resource="#datatypeValue"/>
+           <owl:allValuesFrom rdf:resource="xsd:boolean"/>
+         </owl:Restriction>
+       </owl:intersectionOf>
+     </owl:Class>
+   </owl:equivalentClass>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#datatypeValue"/>
+       <owl:allValuesFrom rdf:resource="xsd:boolean"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#BooleanProperty"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+
+ </owl:Class>
 </code>
 
 
