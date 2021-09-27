@@ -29,15 +29,16 @@ From a technical point of view, a Reference Framework is a file containing the a
 
 In the following example, the Reference Frameworks “Units-2.0.rdf” and “COINSWOA.rdf” are included:
 
-<code><rdf:RDF
+<pre>&lt;rdf:RDF
 
-  <rdf:Description rdf:about="">
-    <rdf:type rdf:resource="owl:Ontology"/>
-    <owl:imports rdf:resource="http://www.coinsweb.nl/units-2.0.rdf"/>
-    <owl:imports rdf:resource="http://www.coinsweb.nl/COINSWOA.rdf"/>
-  </rdf:Description>
+  &lt;rdf:Description rdf:about=""&gt;
+    &lt;rdf:type rdf:resource="owl:Ontology"/&gt;
+    &lt;owl:imports rdf:resource="<a rel="nofollow" class="external free" href="http://www.coinsweb.nl/units-2.0.rdf">http://www.coinsweb.nl/units-2.0.rdf</a>"/&gt;
+    &lt;owl:imports rdf:resource="<a rel="nofollow" class="external free" href="http://www.coinsweb.nl/COINSWOA.rdf">http://www.coinsweb.nl/COINSWOA.rdf</a>"/&gt;
+  &lt;/rdf:Description&gt;
 
-</rdf:RDF>
+&lt;/rdf:RDF&gt;
+</pre>
 
 
 ## Available Frameworks
