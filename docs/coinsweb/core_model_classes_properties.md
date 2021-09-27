@@ -108,7 +108,8 @@ This image shows the informative representation of the BooleanProperty class
 	
 **Formal Representation in RDF/XML**
 
-<code><owl:Class rdf:ID="BooleanProperty">
+<code>
+<owl:Class rdf:ID="BooleanProperty">
 
    <rdfs:label xml:lang="en-GB">BooleanProperty</rdfs:label>
    <rdfs:comment xml:lang="en-GB">BooleanProperty</rdfs:comment>
@@ -152,8 +153,8 @@ This image shows the informative representation of the BooleanProperty class
    <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
    <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
    <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
-
- </owl:Class></code>
+ </owl:Class>
+	</code>
 
 
 ### CartesianLocator
