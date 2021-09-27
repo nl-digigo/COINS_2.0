@@ -83,11 +83,11 @@ For a quick start use the following tutorial based on the COINS 2.0 Starter kit.
 
 * Start the COINS Navigator 2 application.
 
-![Start the COINS Navigator 2 application.](./media/CN2-Start.PNG "Start the COINS Navigator 2 application.")
+![Start the COINS Navigator 2 application.](./media/CN2-Start.png "Start the COINS Navigator 2 application.")
 
 * Open a new container form.
 
-![Open a new container form.](./media/CN2-OpenNewContainerForm.PNG "Open a new container form.")
+![Open a new container form.](./media/CN2-OpenNewContainerForm.png "Open a new container form.")
 
 * Give the model a name (no spaces).
 
@@ -243,7 +243,7 @@ Result container
 
 * Start the COINS Navigator 2 application.
 
-![Start the COINS Navigator 2 application.](./media/CN2-Start.PNG "Start the COINS Navigator 2 application.")
+![Start the COINS Navigator 2 application.](./media/CN2-Start.png "Start the COINS Navigator 2 application.")
 
 * Start a new model ...
 
@@ -478,7 +478,7 @@ Optionally, a unit can be specified.
 
 * Start the COINS Navigator 2 application.
 
-![Start the COINS Navigator 2 application.](./media/CN2-Start.PNG "Start the COINS Navigator 2 application.")
+![Start the COINS Navigator 2 application.](./media/CN2-Start.png "Start the COINS Navigator 2 application.")
 
 * Start a new model ...
 
