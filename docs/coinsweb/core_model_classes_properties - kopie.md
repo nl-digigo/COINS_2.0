@@ -2536,47 +2536,72 @@ Description of core model Properties
 
 
 ### belongsToAssembly
- 
+**belongsToAssembly** is a Functional Property of ContainsRelationGroup. It is a ObjectProperty holding a reference to an instance of Assembly.
+
+
 **History**
-
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+* New in COINS 2.0.
 
 
-**Formal representation in RDF/XML**
+**Formal Representation in RDF/XML**
+	<code>
+ <owl:FunctionalProperty rdf:ID="belongsToAssembly">
+   <rdfs:label xml:lang="en-GB">belongsToAssembly</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">belongsToAssembly</rdfs:comment>
+   <rdfs:domain rdf:resource="#ContainsRelationGroup"/>
+   <rdf:type rdf:resource="owl:ObjectProperty"/>
+   <rdfs:range rdf:resource="#Assembly"/>
+ </owl:FunctionalProperty>
+	</code>
 
 
 
 ### checksumFile
    
+**checksumFile** is a Functional Property of Secured Internal DocumentReference. It is a Object Property holding a reference to a StringProperty holding the checksum hash of the document file.
+
+checksumFile is a subProperty of hasProperties.
+
+
 **History**
-
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+* New in COINS 1.0.
 
 
-**Formal representation in RDF/XML**
-
+**Formal Representation in RDF/XML**
+	<code>
+ <owl:ObjectProperty rdf:ID="checksumFile">
+   <rdfs:label xml:lang="en-GB">checksum file</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Checksum hash of the attached file.</rdfs:comment>
+   <rdfs:domain rdf:resource="#SecuredInternalDocumentReference"/>
+   <rdf:type rdf:resource="owl:FunctionalProperty"/>
+   <rdfs:subPropertyOf rdf:resource="#hasProperties"/>
+   <rdfs:range rdf:resource="#StringProperty"/>
+ </owl:ObjectProperty>
+	</code>
 
 
 ### checksumFileAlgorithm
    
+**checksumFileAlgorithm** is a Functional Property of Secured Internal DocumentReference. It is a Object Property holding a reference to a StringProperty holding the checksum algorithm (e.g. SHA1, MD5, ...) that was used to generate the checksum of the attached file.
+
+checksumFileAlgorithm is a subProperty of hasProperties.
+
+
 **History**
-
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+* New in COINS 1.0.
 
 
-**Formal representation in RDF/XML**
+**Formal Representation in RDF/XML**
+	<code>
+ <owl:ObjectProperty rdf:ID="checksumFileAlgorithm">
+   <rdfs:label xml:lang="en-GB">checksum file algorithm</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">The checksum algorithm (e.g. SHA1, MD5, ...) that was used to generate the checksum of the attached file.</rdfs:comment>
+   <rdfs:domain rdf:resource="#SecuredInternalDocumentReference"/>
+   <rdf:type rdf:resource="owl:FunctionalProperty"/>
+   <rdfs:subPropertyOf rdf:resource="#hasProperties"/>
+   <rdfs:range rdf:resource="#StringProperty"/>
+ </owl:ObjectProperty>
+	</code>
 
 
 
