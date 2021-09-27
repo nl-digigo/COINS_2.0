@@ -53,13 +53,21 @@ The importance of this standard is the integration of open data based on differi
 Its main characteristics are summarized:
 
 **A small core model** -  Applicable for many purposes
+
 **Based on <a>OWL</a>** (Ontology Web Language - W3C standard)
+
 **Extendibility** - The core model can be can be extended with specialized models (reference frameworks) for various disciplines. These sub-models may address various areas of interest (company-wide, building sector, national) and therefore can be applied as semi-standards in itself
+
 **Dynamic semantics** - Semantics are typically recorded in libraries forming a dynamic means to add semantics to instance models. Since version 1.0 library structuring mechanisms form an integral part of COINS
+
 **Integrating document oriented information with object oriented information** - The boundary between document oriented information and object oriented information areas can be moved over time. Offering parties an evolutionary path to develop in BIM maturity level.
+
 **Integrating adjacent standards** - COINS delegates specific modelling areas to existing standards as GML (GIS data) and IFC (3D building data). More general every relevant standard (open or not) may be used if parties involved agree mutually on using it in data exchanges
+
 **Library model** - The COINS 2.0 library model is fully OWL-class based and in line with standard OWL modeling features
+
 **Integration with off-line transaction-based information exchange** - COINS information exchange can be integrated with transaction-based information exchange as for instance supported by the IDM part 2 standard for process modelling
+
 **Version management** - COINS offers features to record the history of the BIM
 
 
