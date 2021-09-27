@@ -2544,6 +2544,7 @@ Description of core model Properties
 
 
 **Formal Representation in RDF/XML**
+
 	<code>
  <owl:FunctionalProperty rdf:ID="belongsToAssembly">
    <rdfs:label xml:lang="en-GB">belongsToAssembly</rdfs:label>
@@ -2568,6 +2569,7 @@ checksumFile is a subProperty of hasProperties.
 
 
 **Formal Representation in RDF/XML**
+
 	<code>
  <owl:ObjectProperty rdf:ID="checksumFile">
    <rdfs:label xml:lang="en-GB">checksum file</rdfs:label>
@@ -2592,6 +2594,7 @@ checksumFileAlgorithm is a subProperty of hasProperties.
 
 
 **Formal Representation in RDF/XML**
+
 	<code>
  <owl:ObjectProperty rdf:ID="checksumFileAlgorithm">
    <rdfs:label xml:lang="en-GB">checksum file algorithm</rdfs:label>
@@ -2607,273 +2610,442 @@ checksumFileAlgorithm is a subProperty of hasProperties.
 
 ### checksumUri
    
+**checksumUri** is a Functional Property of Secured External DocumentReference. It is a Object Property holding a reference to a StringProperty holding the checksum hash of the URI of the document.
+
+checksumFile is a subProperty of hasProperties.
+
+
 **History**
-
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+* New in COINS 1.0.
 
 
-**Formal representation in RDF/XML**
+**Formal Representation in RDF/XML**
 
+<code> <owl:ObjectProperty rdf:ID="checksumUri">
+   <rdfs:label xml:lang="en-GB">checksumUri</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">Checksum hash of the URI linked document.</rdfs:comment>
+   <rdfs:domain rdf:resource="#SecuredExternalDocumentReference"/>
+   <rdf:type rdf:resource="owl:FunctionalProperty"/>
+   <rdfs:subPropertyOf rdf:resource="#hasProperties"/>
+   <rdfs:range rdf:resource="#UriProperty"/>
+ </owl:ObjectProperty>
+</code>
 
 
 ### checksumUriAlgorithm
    
+**ChecksumUriAlgorithm** is a Functional Property of Secured External DocumentReference. It is a Object Property holding a reference to a StringProperty holding the checksum algorithm (e.g. SHA1, MD5, ...) that was used to generate the checksum of the Uri of the linked document.
+
+ChecksumUriAlgorithm is a subProperty of hasProperties.
+
+
 **History**
-
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+* New in COINS 1.0.
 
 
-**Formal representation in RDF/XML**
+Formal Representation in RDF/XML
 
+<code>
+ <owl:FunctionalProperty rdf:ID="checksumUriAlgorithm">
+   <rdfs:label xml:lang="en-GB">checksum URI algorithm</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">The checksum algorithm (e.g. SHA1, MD5, ...) that was used to generate the checksum of the URI linked document.</rdfs:comment>
+   <rdfs:domain rdf:resource="#SecuredExternalDocumentReference"/>
+   <rdf:type rdf:resource="owl:ObjectProperty"/>
+   <rdfs:subPropertyOf rdf:resource="#hasProperties"/>
+   <rdfs:range rdf:resource="#StringProperty"/>
+ </owl:FunctionalProperty> 
+</code>
 
 
 ### coordinate
    
+**coordinate** is a Functional Property of Vector. It is a Datatype Property holding a float-value, representing a coordinate of a the vector.
+A vector consists of an x-, y- and z-coordinate.
+
+
 **History**
-
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+* New in COINS 1.0
 
 
-**Formal representation in RDF/XML**
+**Formal Representation in RDF/XML**
+
+<code>
+ <owl:DatatypeProperty rdf:ID="Coordinate">
+   <rdfs:label xml:lang="EN-gb">coordinate</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">coordinate of the vector.</rdfs:comment>
+   <rdfs:domain rdf:resource="#Vector"/>
+   <rdf:type rdf:resource="owl:FunctionalProperty"/>
+   <rdfs:range rdf:resource="xsd:float"/>
+ </owl:DatatypeProperty> </code>
 
 
 
 ### creationDate
    
+**creationDate** is a Functional Property of VersionObject. It is a Datatype Property holding a dateTime-value, representing the date and time the object was created.
+
+
 **History**
-
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+* New in COINS 1.0
 
 
-**Formal representation in RDF/XML**
+**Formal Representation in RDF/XML**
+
+<code>
+ <owl:DatatypeProperty rdf:ID="creationDate">
+   <rdfs:label xml:lang="en-GB">creation date</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">The creation date of the object.</rdfs:comment>
+   <rdfs:domain>
+     <owl:Class>
+       <owl:unionOf rdf:parseType="Collection">
+         <rdf:Description rdf:ID="VersionObject"/>
+         <rdf:Description rdf:about="owl:Ontology"/>
+       </owl:unionOf>
+     </owl:Class>
+   </rdfs:domain>
+   <rdf:type rdf:resource="owl:FunctionalProperty"/>
+   <rdfs:range rdf:resource="xsd:dateTime"/>
+ </owl:DatatypeProperty></code>
 
 
 
 ### creator
    
+**creatorV is a Functional Property of Entity and VersionObject. It is an ObjectProperty holding a reference to the instance of Party representing the Person or Organisation that created the object.
+
+
 **History**
-
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+* New in COINS 1.0
+* Modified in COINS 2.0 to refer to Party.
 
 
-**Formal representation in RDF/XML**
+**Formal Representation in RDF/XML**
+
+<code>
+ <owl:ObjectProperty rdf:ID="creator">
+   <rdfs:label xml:lang="en-GB">creator</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">The person or organisation that created the object.</rdfs:comment>
+   <rdfs:domain>
+     <owl:Class>
+       <owl:unionOf rdf:parseType="Collection">
+         <rdf:Description rdf:ID="VersionObject"/>
+         <rdf:Description rdf:about="owl:Ontology"/>
+         <rdf:Description rdf:ID="Entity"/>
+       </owl:unionOf>
+     </owl:Class>
+   </rdfs:domain>
+   <rdf:type rdf:resource="owl:FunctionalProperty"/>
+   <rdfs:range rdf:resource="#Party"/>
+ </owl:ObjectProperty>
+</code>
 
 
 
 ### datatypeValue
    
+**datatypeValue** is a Functional Property of EntityProperty. It is a DatatypeProperty holding a reference to a simple data value.
+
+
 **History**
-
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+* New in COINS 2.0.
 
 
-**Formal representation in RDF/XML**
+**Formal Representation in RDF/XML**
+
+<code>
+ <owl:FunctionalProperty rdf:ID="datatypeValue">
+   <rdfs:label xml:lang="EN-gb">Simple property</rdfs:label>
+   <rdfs:comment xml:lang="EN-gb">Simple datatype property</rdfs:comment>
+   <rdf:type rdf:resource="owl:DatatypeProperty"/>
+   <rdfs:domain rdf:resource="#SimpleProperty"/>
+ </owl:FunctionalProperty>
+</code>
 
 
 
 ### description
    
+**description** is a Functional Property of Entity. It is a Datatype Property holding a string-value, describing the entity.
+
+
 **History**
-
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+* New in COINS 1.0
 
 
-**Formal representation in RDF/XML**
+**Formal Representation in RDF/XML**
+
+<code>
+ <owl:DatatypeProperty rdf:ID="description">
+   <rdfs:label xml:lang="en-GB">description</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">The description of the Entity.</rdfs:comment>
+   <rdfs:domain>
+     <owl:Class>
+       <owl:unionOf rdf:parseType="Collection">
+         <rdf:Description rdf:ID="Entity"/>
+         <rdf:Description rdf:about="owl:Ontology"/>
+       </owl:unionOf>
+     </owl:Class>
+   </rdfs:domain>
+   <rdf:type rdf:resource="owl:FunctionalProperty"/>
+   <rdfs:range rdf:resource="xsd:string"/>
+ </owl:DatatypeProperty>
+</code>
 
 
 
 ### documentFragment
    
+**documentFragment** is a Functional Property of DocumentReference. It is an Object Property holding a reference to a StringProperty, refering to a fragment or location inside the document.
+
+documentFragment is a subProperty of hasProperties.
+
+
 **History**
-
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+* New in COINS 1.0
 
 
-**Formal representation in RDF/XML**
+**Formal Representation in RDF/XML**
+
+<pre> &lt;owl:FunctionalProperty rdf:ID="documentFragment"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;document fragment&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;The fragment addresses a specific location in the document.&lt;/rdfs:comment&gt;
+   &lt;rdfs:domain rdf:resource="#DocumentReference"/&gt;
+   &lt;rdf:type rdf:resource="owl:ObjectProperty"/&gt;
+   &lt;rdfs:subPropertyOf rdf:resource="#hasProperties"/&gt;
+   &lt;rdfs:range rdf:resource="#StringProperty"/&gt;
+ &lt;/owl:FunctionalProperty&gt;
+</pre>
 
 
 
 
 ### documentMimeType
    
-**History**
+**documentMimeType** is a Functional Property of DocumentReference. It is a Object Property holding a reference to a StringProperty, representing the mimetype of the document. The mimetype is a two-part identifier for file formats and format contents transmitted on the Internet. See wikipedia - Media type.
 
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+documentMimeType is a subProperty of hasProperties.
+
+
+**History**
+* New in COINS 2.0
 
 
 **Formal representation in RDF/XML**
 
+<pre> &lt;owl:FunctionalProperty rdf:ID="documentMimeType"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;document mimetype&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;The mimetype of the document.&lt;/rdfs:comment&gt;
+   &lt;rdfs:domain rdf:resource="#DocumentReference"/&gt;
+   &lt;rdf:type rdf:resource="owl:ObjectProperty"/&gt;
+   &lt;rdfs:subPropertyOf rdf:resource="#hasProperties"/&gt;
+   &lt;rdfs:range rdf:resource="#StringProperty"/&gt;
+ &lt;/owl:FunctionalProperty&gt;
+</pre>
 
 
 ### documentType
    
-**History**
+**documentType** is a Functional Property of DocumentReference. It is a Object Property holding a reference to a StringProperty, representing the type of the document.
 
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+documentType is a subProperty of hasProperties.
+
+
+**History**
+* New in COINS 1.0
 
 
 **Formal representation in RDF/XML**
-
+<pre> &lt;owl:FunctionalProperty rdf:ID="documentType"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;document type&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;The type of the document.&lt;/rdfs:comment&gt;
+   &lt;rdfs:domain rdf:resource="#DocumentReference"/&gt;
+   &lt;rdf:type rdf:resource="owl:ObjectProperty"/&gt;
+   &lt;rdfs:subPropertyOf rdf:resource="#hasProperties"/&gt;
+   &lt;rdfs:range rdf:resource="#StringProperty"/&gt;
+ &lt;/owl:FunctionalProperty&gt;
+</pre>
 
 
 ### documentUri
    
-**History**
+**documentUri** is a Functional Property of External DocumentReference. It is a Object Property holding a reference to a UriProperty holding the URI of the external document.
 
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+documentUri is a subProperty of hasProperties.
+
+
+**History**
+* New in COINS 1.0.
 
 
 **Formal representation in RDF/XML**
 
+<pre> &lt;owl:ObjectProperty rdf:ID="documentUri"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;document URI&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;The URI of the document or identifiable object inside the document.&lt;/rdfs:comment&gt;
+   &lt;rdfs:domain rdf:resource="#ExternalDocumentReference"/&gt;
+   &lt;rdf:type rdf:resource="owl:FunctionalProperty"/&gt;
+   &lt;rdfs:subPropertyOf rdf:resource="#hasProperties"/&gt;
+   &lt;rdfs:range rdf:resource="#UriProperty"/&gt;
+ &lt;/owl:ObjectProperty&gt;
+</pre>
 
 
 ### filePath
    
-**History**
+**filePath** is a Functional Property of Internal DocumentReference. It is a Object Property holding a reference to a StringProperty holding the filepath for the internal stored copy of the document in the doc directory within the COINS Container.
 
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+filePath is a subProperty of hasProperties.
+
+
+**History**
+* New in COINS 2.0. Replaces Cbim:DocumentAliasFilePath.
+
+
 
 
 **Formal representation in RDF/XML**
 
+<pre> &lt;owl:FunctionalProperty rdf:ID="filePath"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;filepath&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;The filepath for the internal stored copy of the document in the doc directory within the COINS Container.&lt;/rdfs:comment&gt;
+   &lt;rdfs:domain rdf:resource="#InternalDocumentReference"/&gt;
+   &lt;rdf:type rdf:resource="owl:ObjectProperty"/&gt;
+   &lt;rdfs:subPropertyOf rdf:resource="#hasProperties"/&gt;
+   &lt;rdfs:range rdf:resource="#StringProperty"/&gt;
+ &lt;/owl:FunctionalProperty&gt;
+</pre>
 
 
 ### fromObject
    
-**History**
+**fromObject** is a Functional Property of DirectedConnection. It is a ObjectProperty holding a reference to an instance of Object the DirectedConnection is initiated from.
 
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+fromObject is a subProperty of hasConnectedObjects.
+
+
+**History**
+* New in COINS 2.0.
 
 
 **Formal representation in RDF/XML**
 
+<pre> &lt;owl:ObjectProperty rdf:ID="fromObject"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;from Object&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;from Object&lt;/rdfs:comment&gt;
+   &lt;rdfs:domain rdf:resource="#DirectedConnection"/&gt;
+   &lt;rdf:type rdf:resource="owl:FunctionalProperty"/&gt;
+   &lt;rdfs:subPropertyOf rdf:resource="#hasConnectedObjects"/&gt;
+   &lt;rdfs:range rdf:resource="#Object"/&gt;
+ &lt;/owl:ObjectProperty&gt;
+</pre>
 
 
 ### groupedBy
    
-**History**
+**groupedBy** is a InverseFunctional Property of ContainsRelation. It is a ObjectProperty holding a reference to an instance of ContainsRelationGroup.
+groupedBy is the inverse of groups.
 
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+
+**History**
+* New in COINS 2.0.
 
 
 **Formal representation in RDF/XML**
-
+<pre> &lt;owl:InverseFunctionalProperty rdf:ID="groupedBy"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;groupedBy&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;groupedBy&lt;/rdfs:comment&gt;
+   &lt;rdfs:domain rdf:resource="#ContainsRelation"/&gt;
+   &lt;rdfs:range rdf:resource="#ContainsRelationGroup"/&gt;
+ &lt;/owl:InverseFunctionalProperty&gt;
+</pre>
 
 
 ### groups
    
-**History**
+**groups** is a property of ContainsRelationGroup. It is a ObjectProperty holding a reference to an instance of ContainsRelation.
+The inverse of groups is groupedBy.
 
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+
+**History**
+* New in COINS 2.0.
 
 
 **Formal representation in RDF/XML**
-
+<pre> &lt;owl:ObjectProperty rdf:ID="groups"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;groups&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;groups&lt;/rdfs:comment&gt;
+   &lt;rdfs:domain rdf:resource="#ContainsRelationGroup"/&gt;
+   &lt;owl:inverseOf rdf:resource="#groupedBy"/&gt;
+   &lt;rdfs:range rdf:resource="#ContainsRelation"/&gt;
+ &lt;/owl:ObjectProperty&gt;
+</pre>
 
 
 ### hasAssembly
    
-**History**
+**hasAssembly** is a property of ContainsRelation. It is a ObjectProperty holding a reference to an instance of Assembly.
+hasAssembly is the inverse of hasContainsRelation.
 
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+
+**History**
+* New in COINS 2.0.
 
 
 **Formal representation in RDF/XML**
-   
+<pre> &lt;owl:InverseFunctionalProperty rdf:ID="hasAssembly"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;hasAssembly&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;has Assembly&lt;/rdfs:comment&gt;
+   &lt;rdfs:domain rdf:resource="#ContainsRelation"/&gt;
+   &lt;owl:inverseOf rdf:resource="#hasContainsRelation"/&gt;
+   &lt;rdfs:range rdf:resource="#Assembly"/&gt;
+ &lt;/owl:InverseFunctionalProperty&gt;
+</pre>   
    
 ### hasConnectedObjects
    
-**History**
+**hasConnectedObjects** is a property of Connection. It is an ObjectProperty holding a reference to an instance of Object.
 
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+hasConnectedObjects is superclass of fromObject and toObject.
+
+
+**History**
+* New in COINS 2.0.
+
+
 
 
 **Formal representation in RDF/XML**
-
+<pre> &lt;owl:ObjectProperty rdf:ID="hasConnectedObjects"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;hasConnectedObjects&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;has connected Objects&lt;/rdfs:comment&gt;
+   &lt;rdfs:domain rdf:resource="#Connection"/&gt;
+   &lt;owl:inverseOf rdf:resource="#hasConnections"/&gt;
+   &lt;rdfs:range rdf:resource="#Object"/&gt;
+ &lt;/owl:ObjectProperty&gt;
+</pre>
 
 
 
 ### hasConnections
    
-**History**
+**hasConnections** is a property of Object. It is a ObjectProperty holding a reference to an instance of Connection.
 
-   
-**Informative representation in UML**
-![Representation in UML](./media/ "Representation in UML")
-   
-**Attributes**
+hasConnections is superclass of hasIncomingConnections and hasOutgoingConnections.
+
+
+**History**
+* New in COINS 2.0. Replaces femaleTerminal and maleTerminal.
 
 
 **Formal representation in RDF/XML**
 
+<pre> &lt;owl:ObjectProperty rdf:ID="hasConnections"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;has Connections&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;has Connections&lt;/rdfs:comment&gt;
+   &lt;rdfs:domain rdf:resource="#Object"/&gt;
+   &lt;rdfs:range rdf:resource="#Connection"/&gt;
+ &lt;/owl:ObjectProperty&gt;
+</pre>
 
 
 
