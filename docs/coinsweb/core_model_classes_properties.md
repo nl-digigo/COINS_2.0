@@ -614,12 +614,11 @@ This image shows the informative representation of the ContainsRelation class.
 
 **Attributes**
    
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
-| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#hasassembly" title="CoinsCore:hasAssembly Property">hasAssembly</a> |	a href="https://bimloket.github.io/COINS_2.0/coinsweb/#assembly" title="CoinsCore:Assembly Class">Assembly</a> |	Reference to exactly 1 instance of Assembly |
-| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#hasassembly" title="CoinsCore:hasPart Property">hasAssembly</a> |  a href="https://bimloket.github.io/COINS_2.0/coinsweb/#haspart" title="CoinsCore:hasPart Property">hasPart</a> |  a href="https://bimloket.github.io/COINS_2.0/coinsweb/#part" title="CoinsCore:Part Class">Part</a> | Reference to exactly 1 instance of Part | 
-| a href="https://bimloket.github.io/COINS_2.0/coinsweb/#groupedby" title="CoinsCore:groupedBy Property">groupedBy</a> | a href="https://bimloket.github.io/COINS_2.0/coinsweb/#containsrelationgroup" title="CoinsCore:ContainsRelationGroup Class">ContainsRelationGroup</a> | ContainsRelations can be grouped in ContainsRelationGroup |
+| :--- | :--- | :--- |
+| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#hasassembly" title="CoinsCore:hasAssembly Property">hasAssembly</a> |	<a href="https://bimloket.github.io/COINS_2.0/coinsweb/#assembly" title="CoinsCore:Assembly Class">Assembly</a> | Reference to exactly 1 instance of Assembly |
+| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#hasassembly" title="CoinsCore:hasPart Property">hasAssembly</a> | <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#haspart" title="CoinsCore:hasPart Property">hasPart</a> | <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#part" title="CoinsCore:Part Class">Part</a> | Reference to exactly 1 instance of Part | 
+| a href="https://bimloket.github.io/COINS_2.0/coinsweb/#groupedby" title="CoinsCore:groupedBy Property">groupedBy</a> | <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#containsrelationgroup" title="CoinsCore:ContainsRelationGroup Class">ContainsRelationGroup</a> | ContainsRelations can be grouped in ContainsRelationGroup |
 
 
 **Formal Representation in RDF/XML**
@@ -687,8 +686,8 @@ This concept gives you the possibility to manage different options of object dec
 | Col1 | Col2 | Col3 |
 | :--- | :--- | :--- |
 | Name | Type |	Description |
-| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#belongstoassembly" title="CoinsCore:belongsToAssembly Property">belongsToAssembly</a> |	<a href="https://bimloket.github.io/COINS_2.0/coinsweb/#assembly" title="CoinsCore:Assembly Class">Assembly</a> | Reference to exactly 1 instance of Assembly |
-| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#hasassembly" title="CoinsCore:hasPart Property">hasAssembly</a> |  <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#groups" title="CoinsCore:groups Property">groups</a> |  <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#containsrelation" title="CoinsCore:ContainsRelation Class">ContainsRelation</a> | Reference to exactly 1 instance of Part
+| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#belongstoassembly" title="CoinsCore:belongsToAssembly Property">belongsToAssembly</a> | <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#assembly" title="CoinsCore:Assembly Class">Assembly</a> | Reference to exactly 1 instance of Assembly |
+| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#hasassembly" title="CoinsCore:hasPart Property">hasAssembly</a> | <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#groups" title="CoinsCore:groups Property">groups</a> | <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#containsrelation" title="CoinsCore:ContainsRelation Class">ContainsRelation</a> | Reference to exactly 1 instance of Part
 
 
 **Formal representation in RDF/XML**
@@ -746,9 +745,8 @@ The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" ti
 ![Representation in UML](./media/Core-DateTimeProperty_Class.png "Representation in UML")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#datatypevalue" title="CoinsCore:datatypeValue Property">datatypeValue</a> |	xsd:dateTime |	Exactly one date-time value. Empty value not allowed. |
 
 **Formal representation in RDF/XML**
@@ -820,9 +818,8 @@ The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" ti
 ![Representation in UML](./media/300px-Core-DirectedConnection_Class.png "Representation in UML")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#fromobject" title="CoinsCore:fromObject Property">fromObject</a> |	<a href="https://bimloket.github.io/COINS_2.0/coinsweb/#object" title="CoinsCore:Object Class">Object</a> |	Exactly 1 source Object |
 | <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#toobject" title="CoinsCore:toObject Property">toObject</a> |	<a href="https://bimloket.github.io/COINS_2.0/coinsweb/#object" title="CoinsCore:Object Class">Object</a> |	Exactly 1 target Object |
 
@@ -885,9 +882,8 @@ This image shows the informative representation of the DocumentProperty class.
 ![Representation in UML](./media/300px-Core-DocumentProperty_Class.png "Representation in UML")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#objectvalue" title="CoinsCore:objectValue Property">objectValue</a> |	<a href="https://bimloket.github.io/COINS_2.0/coinsweb/#documentreference" title="CoinsCore:DocumentReference Class">DocumentReference</a> | Reference to an instance of DocumentReference. |
 
 
@@ -950,12 +946,11 @@ This image shows the informative representation of the DocumentReference class.
 ![Representation in UML](./media/300px-Core-DocumentReference_Class.png "Representation in UML")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
-| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#documenttype" title="CoinsCore:documentType Property">documentType</a> |	<a href="https://bimloket.github.io/COINS_2.0/coinsweb/#stringproperty" title="CoinsCore:StringProperty Class">StringProperty</a> |	The type of the document. |
-| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#documentmimetype" title="CoinsCore:documentMimeType Property">documentMimeType</a> |	<a href="https://bimloket.github.io/COINS_2.0/coinsweb/#stringproperty" title="CoinsCore:StringProperty Class">StringProperty</a> |	The MIME-type of the document |
-| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#documentfragment	" title="CoinsCore:documentFragment	 Property">documentFragment</a> |	<a href="https://bimloket.github.io/COINS_2.0/coinsweb/#stringproperty" title="CoinsCore:StringProperty Class">StringProperty</a> |	The fragment addresses a specific location in the document. |
+| :--- | :--- | :--- |
+| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#documenttype" title="CoinsCore:documentType Property">documentType</a> | <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#stringproperty" title="CoinsCore:StringProperty Class">StringProperty</a> | The type of the document. |
+| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#documentmimetype" title="CoinsCore:documentMimeType Property">documentMimeType</a> |	<a href="https://bimloket.github.io/COINS_2.0/coinsweb/#stringproperty" title="CoinsCore:StringProperty Class">StringProperty</a> | The MIME-type of the document |
+| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#documentfragment " title="CoinsCore:documentFragment Property">documentFragment</a> |	<a href="https://bimloket.github.io/COINS_2.0/coinsweb/#stringproperty" title="CoinsCore:StringProperty Class">StringProperty</a> | The fragment addresses a specific location in the document. |
 
 **Formal representation in RDF/XML**
 <pre> &lt;owl:Class rdf:ID="DocumentReference"&gt;
@@ -1019,9 +1014,8 @@ The nextTrunkVersion is restricted to one.
 ![Representation in UML](./media/300px-Core-Entity_Class.png "Representation in UML")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | userID | xsd:string |	To humans, an unique identification of the individual
 name |
 | name | xsd:string | Name of the individual |
@@ -1141,9 +1135,8 @@ This image shows the informative representation of the EntityProperty class.
 ![Representation in UML](./media/300px-Core-EntityProperty_Class.png "Representation in UML")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | propertyBelongsTo | Entity |	Reference to minimal 1 Entity the Property belongs to |
 
 **Formal representation in RDF/XML**
@@ -1246,9 +1239,8 @@ The nextTrunkVersion is restricted to one other instance of InternalDocumentRefe
 ![Representation in UML](./media/300px-Core-ExternalDocumentReference_Class.png "This image shows the informative representation of the ExternalDocumentReference class.")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | documentUri | StringProperty |	URI of the external document. |
 
 **Formal representation in RDF/XML**
@@ -1307,9 +1299,8 @@ The nextTrunkVersion is restricted to one other instance of FloatProperty.
    
 **Attributes**
 
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | datatypeValue | xsd:float |	Exactly one float value. Empty value not allowed |
 
 **Formal representation in RDF/XML**
@@ -1381,9 +1372,8 @@ The nextTrunkVersion is restricted to one other instance of IntegerProperty.
 ![Representation in UML](./media/Core-IntegerProperty_Class.png "This image shows the informative representation of the IntegerProperty class.")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | datatypeValue | xsd:integer |	Exactly one integer value. Empty value not allowed. |
 
 **Formal representation in RDF/XML**
@@ -1452,9 +1442,8 @@ The nextTrunkVersion is restricted to one other instance of InternalDocumentRefe
 ![Representation in UML](./media/300px-Core-InternalDocumentReference_Class.png "This image shows the informative representation of the InternalDocumentReference class.")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | filePath | StringProperty | The filepath for the internal stored copy of the document in the doc directory within the COINS Container. |
 
 **Formal representation in RDF/XML**
@@ -1558,9 +1547,8 @@ The nextTrunkVersion is restricted to one other instance of LocatorProperty.
 ![Representation in UML](./media/300px-Core-LocatorProperty_Class.png "This image shows the informative representation of the LocatorProperty class.")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | objectValue | Locator | Reference to an instance of Locator. |
 
 **Formal representation in RDF/XML**
@@ -1619,9 +1607,8 @@ The nextTrunkVersion is restricted to one other instance of NumericProperty.
 ![Representation in UML](./media/300px-Core-NumericProperty_Class.png "This image shows the informative representation of the NumericProperty class.")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | unit | rdf:Resource |	unit using QUDT units. |
 
 **Formal representation in RDF/XML**
@@ -1695,9 +1682,8 @@ The nextTrunkVersion is restricted to one other individual of Object.
 ![Representation in UML](./media/ "Representation in UML")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | hasConnections | Connection |	Reference to (undirected) connections with other objects |
 | hasIncomingConnections | Directed Connection | Reference to incoming directed connections from other objects |
 | hasOutgoingConnections | Directed Connection | Reference to outgoing directed connections to other objects |
@@ -1801,9 +1787,8 @@ This image shows the informative representation of the Part class.
 ![Representation in UML](./media/Core-Part_Class_v2.png "Representation in UML")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | partOf | ContainsRelation | Reference to 0, 1 ore more ContainsRelation |
 
 **Formal representation in RDF/XML**
@@ -1998,9 +1983,8 @@ This image shows the informative representation of the SecuredExternalDocumentRe
    
 **Attributes**
 
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | checksumUri | UriProperty | Checksum hash of the URI of the linked document. |
 | checksumUriAlgorithm | StringProperty | The checksum algorithm (e.g. SHA1, MD5, ...) that was used to generate the checksum of the URI of the linked document. |
 
@@ -2075,9 +2059,8 @@ This image shows the informative representation of the SecuredInternalDocumentRe
    
 **Attributes**
 
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | checksumFile | StringProperty | Checksum hash of the attached file. |
 | checksumFileAlgorithm | StringProperty | The checksum algorithm (e.g. SHA1, MD5, ...) that was used to generate the checksum of the attached file. |
 
@@ -2149,9 +2132,8 @@ The nextTrunkVersion is restricted to one other instance of ShapeRepresentation.
 ![Representation in UML](./media/ "Representation in UML")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | IDFieldname | StringProperty | Fieldname (or column name) where the ID of the shape/feature can be found. |
 
 **Formal representation in RDF/XML**
@@ -2201,13 +2183,41 @@ This image shows the informative representation of the ShapeRepresentation class
 ![Representation in UML](./media/Core-ShapeRepresentation_Class.png "Representation in UML")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | objectValue | ShapeRepresentation | Reference to an instance of ShapeRepresentation. |
 
 **Formal representation in RDF/XML**
+<pre> &lt;owl:Class rdf:ID="ShapeRepresentationProperty"&gt;
 
+   &lt;rdfs:label xml:lang="en-GB"&gt;HasShapeRepresentation&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;HasShapeRepresentation&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#DocumentProperty"/&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#objectValue"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="#ShapeRepresentation"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;owl:equivalentClass&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#objectValue"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="#ShapeRepresentation"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/owl:equivalentClass&gt;
+
+   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;false&lt;/isClassAbstract&gt;
+   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
+
+   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
+   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
+   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
 
 
 ### SimpleProperty
@@ -2232,13 +2242,43 @@ This image shows the informative representation of the SimpleProperty class.
    
 **Attributes**
 
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | datatypeValue | xsd:anySimpleType | Exactly one value of any simple type (overridable in extended classes) |
 
 **Formal representation in RDF/XML**
+<pre> &lt;owl:Class rdf:ID="SimpleProperty"&gt;
 
+   &lt;rdfs:label xml:lang="en-GB"&gt;SimpleProperty&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Simple Property&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#EntityProperty"/&gt;
+
+   &lt;owl:disjointWith rdf:resource="#ComplexProperty"/&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#datatypeValue"/&gt;
+       &lt;owl:cardinality rdf:datatype="xsd:nonNegativeInteger"&gt;1&lt;/owl:cardinality&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;false&lt;/isClassAbstract&gt;
+   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#nextTrunkVersion"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="#SimpleProperty"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
+   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
+   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
 
 
 
@@ -2264,13 +2304,59 @@ This image shows the informative representation of the StringProperty class.
 ![Representation in UML](./media/Core-StringProperty_Class.png "Representation in UML")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | datatypeValue | xsd:String | Exactly one string value. Empty string not allowed. |
 
 **Formal representation in RDF/XML**
 
+<pre> &lt;owl:Class rdf:ID="StringProperty"&gt;
+
+   &lt;rdfs:label xml:lang="en-GB"&gt;String Property&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;String Property&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#SimpleProperty"/&gt;
+
+   &lt;owl:disjointWith rdf:resource="#NumericProperty"/&gt;
+   &lt;owl:disjointWith rdf:resource="#BooleanProperty"/&gt;
+   &lt;owl:disjointWith rdf:resource="#DateTimeProperty"/&gt;
+   &lt;owl:disjointWith rdf:resource="#UriProperty"/&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#datatypeValue"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="xsd:string"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;owl:equivalentClass&gt;
+     &lt;owl:Class&gt;
+       &lt;owl:intersectionOf rdf:parseType="Collection"&gt;
+         &lt;rdf:Description rdf:ID="SimpleProperty"/&gt;
+         &lt;owl:Restriction&gt;
+           &lt;owl:onProperty rdf:resource="#datatypeValue"/&gt;
+           &lt;owl:allValuesFrom rdf:resource="xsd:string"/&gt;
+         &lt;/owl:Restriction&gt;
+       &lt;/owl:intersectionOf&gt;
+     &lt;/owl:Class&gt;
+   &lt;/owl:equivalentClass&gt;
+
+   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;false&lt;/isClassAbstract&gt;
+   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#nextTrunkVersion"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="#StringProperty"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
+   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.000&lt;/classCreationDate&gt;
+   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
 
 
 ### UriProperty
@@ -2295,14 +2381,59 @@ The nextTrunkVersion is restricted to one other instance of UriProperty.
 ![Representation in UML](./media/Core-UriProperty_Class.png "Representation in UML")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | datatypeValue | xsd:Uri | Exactly one URI. Empty value not allowed. |
 
 
 **Formal representation in RDF/XML**
+<pre> &lt;owl:Class rdf:ID="UriProperty"&gt;
 
+   &lt;rdfs:label xml:lang="en-GB"&gt;UriProperty&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Uri Property&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#SimpleProperty"/&gt;
+
+   &lt;owl:disjointWith rdf:resource="#StringProperty"/&gt;
+   &lt;owl:disjointWith rdf:resource="#NumericProperty"/&gt;
+   &lt;owl:disjointWith rdf:resource="#BooleanProperty"/&gt;
+   &lt;owl:disjointWith rdf:resource="#DateTimeProperty"/&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#datatypeValue"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="xsd:anyURI"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;owl:equivalentClass&gt;
+     &lt;owl:Class&gt;
+       &lt;owl:intersectionOf rdf:parseType="Collection"&gt;
+         &lt;rdf:Description rdf:ID="SimpleProperty"/&gt;
+         &lt;owl:Restriction&gt;
+           &lt;owl:onProperty rdf:resource="#datatypeValue"/&gt;
+           &lt;owl:allValuesFrom rdf:resource="xsd:anyURI"/&gt;
+         &lt;/owl:Restriction&gt;
+       &lt;/owl:intersectionOf&gt;
+     &lt;/owl:Class&gt;
+   &lt;/owl:equivalentClass&gt;
+
+   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;false&lt;/isClassAbstract&gt;
+   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#nextTrunkVersion"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="#UriProperty"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
+   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.000&lt;/classCreationDate&gt;
+   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
 
 
 ### Vector
@@ -2325,16 +2456,41 @@ The nextTrunkVersion is restricted to one other instance of Vector.
 ![Representation in UML](./media/Core-Vector_Class.png "Representation in UML")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | xCoordinate | FloatProperty | Exactly one value representing the X-coordinate. | 
 | yCoordinate | FloatProperty | Exactly one value representing the Y-coordinate. | 
 | zCoordinate | FloatProperty | Exactly one value representing the Z-coordinate. | 
 
 
 **Formal representation in RDF/XML**
+<pre> &lt;owl:Class rdf:ID="Vector"&gt;
 
+   &lt;rdfs:label xml:lang="en-GB"&gt;Vector&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;3D Vector specifier.&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#ObjectPropertyValue"/&gt;
+
+   &lt;owl:disjointWith rdf:resource="#CartesianLocator"/&gt;
+   &lt;owl:disjointWith rdf:resource="#Party"/&gt;
+   &lt;owl:disjointWith rdf:resource="#CbimProperty"/&gt;
+
+   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;false&lt;/isClassAbstract&gt;
+   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#nextTrunkVersion"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="#Vector"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
+   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.000&lt;/classCreationDate&gt;
+   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
 
 
 
@@ -2354,9 +2510,8 @@ The VersionObject class can be extended.
 ![Representation in UML](./media/Core-VersionObject_Class.png "Representation in UML")
    
 **Attributes**
-| Col1 | Col2 | Col3 |
-| :--- | :--- | :--- |
 | Name | Type |	Description |
+| :--- | :--- | :--- |
 | creationDate | xsd:dateTime	
 | modificationDate | xsd:dateTime |  | 
 | VersionID | xsd:int |  | 	
@@ -2365,7 +2520,22 @@ The VersionObject class can be extended.
 | nextTrunkVersion | VersionObject	0..1 reference to the succesive versio | 
 
 **Formal representation in RDF/XML**
+<pre> &lt;owl:Class rdf:ID="VersionObject"&gt;
 
+   &lt;rdfs:label xml:lang="en-GB"&gt;VersionObject&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;VersionObject enables individuals to specificy their next version.&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#Entity"/&gt;
+
+   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;true&lt;/isClassAbstract&gt;
+   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
+
+   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
+   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.000&lt;/classCreationDate&gt;
+   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
 
 
 
