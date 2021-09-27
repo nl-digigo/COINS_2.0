@@ -80,7 +80,7 @@ The <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#nexttrunkversion" ti
 
    
 **History**
-   * New in COINS 2.0
+* New in COINS 2.0
 
    
 **Informative representation in UML**
