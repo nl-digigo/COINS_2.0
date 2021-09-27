@@ -133,19 +133,14 @@ yml configuration
 The yml contains a reference to the GraphDB sparql endpoint. The default yml file points to [http://localhost:7200](http://localhost:7200) as default sparql endpoint which corresponds with the default endpoint for GraphDB. When your graphDB uses another endpoint then you will need to change the yml accordingly.
 The yml also contains a reference to the Pro-File. The validator comes with a default Pro-File named 'COINSLite.xml'. The yml points to this file. If you would like to use another Pro-File then you change the yml file to point to the other Pro-File.
 The validator can export the results in JSON,xml and in HTML. The following snippet can be addes to the yml file to produce json and xml reports:
-* type: json 
 
- location: 
-
-     type: file 
-
-     path: report.json
-
-* type: xml
-
-location
-
-     type: file
-
-     path: report.xml
+<pre> - type: json <br />
+   location: <br />
+     type: file <br />
+     path: report.json<br />
+ - type: xml<br />
+   location:<br />
+     type: file<br />
+     path: report.xml<br />
+</pre>
 
