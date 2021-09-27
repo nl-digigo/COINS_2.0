@@ -69,7 +69,7 @@ This image shows the informative representation of the Assembly class.
 
 ### BooleanProperty
 
-**BooleanProperty** is disjoined with <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#stringproperty"CoinsCore:StringProperty Class">StringProperty</a>, 
+**BooleanProperty** is disjoined with <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#stringproperty "CoinsCore:StringProperty Class">StringProperty</a>, 
 <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#numericproperty" title="CoinsCore:NumericProperty Class">NumericProperty</a>, 
 <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#datetimeproperty" title="CoinsCore:DateTimeProperty Class">DateTimeProperty</a> and 
 <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#uriproperty" title="CoinsCore:UriProperty Class">UriProperty</a>.
@@ -107,4 +107,53 @@ This image shows the informative representation of the BooleanProperty class
 </table>
 	
 **Formal Representation in RDF/XML**
+	
+	<code>
+<owl:Class rdf:ID="BooleanProperty">
+
+   <rdfs:label xml:lang="en-GB">BooleanProperty</rdfs:label>
+   <rdfs:comment xml:lang="en-GB">BooleanProperty</rdfs:comment>
+
+   <rdfs:subClassOf rdf:resource="#SimpleProperty"/>
+
+   <owl:disjointWith rdf:resource="#StringProperty"/>
+   <owl:disjointWith rdf:resource="#NumericProperty"/>
+   <owl:disjointWith rdf:resource="#DateTimeProperty"/>
+   <owl:disjointWith rdf:resource="#UriProperty"/>
+
+   <owl:equivalentClass>
+     <owl:Class>
+       <owl:intersectionOf rdf:parseType="Collection">
+         <rdf:Description rdf:ID="SimpleProperty"/>
+         <owl:Restriction>
+           <owl:onProperty rdf:resource="#datatypeValue"/>
+           <owl:allValuesFrom rdf:resource="xsd:boolean"/>
+         </owl:Restriction>
+       </owl:intersectionOf>
+     </owl:Class>
+   </owl:equivalentClass>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#datatypeValue"/>
+       <owl:allValuesFrom rdf:resource="xsd:boolean"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <isClassAbstract rdf:datatype="xsd:boolean">false</isClassAbstract>
+   <isClassExtendable rdf:datatype="xsd:boolean">true</isClassExtendable>
+
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty rdf:resource="#nextTrunkVersion"/>
+       <owl:allValuesFrom rdf:resource="#BooleanProperty"/>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+
+   <classCreator rdf:resource="#COINSTechnicalManagementGroup"/>
+   <classCreationDate rdf:datatype="xsd:dateTime">2016-04-04T12:00:00.00</classCreationDate>
+   <classVersionID rdf:datatype="xsd:string">1.0</classVersionID>
+ </owl:Class>
+	</code>
+
 
