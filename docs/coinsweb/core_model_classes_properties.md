@@ -618,7 +618,7 @@ This image shows the informative representation of the ContainsRelation class.
 | :--- | :--- | :--- |
 | Name | Type |	Description |
 | <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#hasassembly" title="CoinsCore:hasAssembly Property">hasAssembly</a> |	a href="https://bimloket.github.io/COINS_2.0/coinsweb/#assembly" title="CoinsCore:Assembly Class">Assembly</a> |	Reference to exactly 1 instance of Assembly |
-| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#hasassembly" title="CoinsCore:hasPart Property">hasAssembly</a> |  a href="https://bimloket.github.io/COINS_2.0/coinsweb/#haspart" title="CoinsCore:hasPart Property">hasPart</a> |  a href="https://bimloket.github.io/COINS_2.0/coinsweb/#part" title="CoinsCore:Part Class">Part</a> | Reference to exactly 1 instance of Part
+| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#hasassembly" title="CoinsCore:hasPart Property">hasAssembly</a> |  a href="https://bimloket.github.io/COINS_2.0/coinsweb/#haspart" title="CoinsCore:hasPart Property">hasPart</a> |  a href="https://bimloket.github.io/COINS_2.0/coinsweb/#part" title="CoinsCore:Part Class">Part</a> | Reference to exactly 1 instance of Part | 
 | a href="https://bimloket.github.io/COINS_2.0/coinsweb/#groupedby" title="CoinsCore:groupedBy Property">groupedBy</a> | a href="https://bimloket.github.io/COINS_2.0/coinsweb/#containsrelationgroup" title="CoinsCore:ContainsRelationGroup Class">ContainsRelationGroup</a> | ContainsRelations can be grouped in ContainsRelationGroup |
 
 
@@ -888,7 +888,7 @@ This image shows the informative representation of the DocumentProperty class.
 | Col1 | Col2 | Col3 |
 | :--- | :--- | :--- |
 | Name | Type |	Description |
-| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#objectvalue" title="CoinsCore:objectValue Property">objectValue</a> |	<a href="https://bimloket.github.io/COINS_2.0/coinsweb/#	documentreference" title="CoinsCore:	DocumentReference Class">	DocumentReference</a> |	Reference to an instance of DocumentReference. |
+| <a href="https://bimloket.github.io/COINS_2.0/coinsweb/#objectvalue" title="CoinsCore:objectValue Property">objectValue</a> |	<a href="https://bimloket.github.io/COINS_2.0/coinsweb/#documentreference" title="CoinsCore:DocumentReference Class">DocumentReference</a> | Reference to an instance of DocumentReference. |
 
 
 **Formal representation in RDF/XML**
@@ -1024,10 +1024,10 @@ The nextTrunkVersion is restricted to one.
 | Name | Type |	Description |
 | userID | xsd:string |	To humans, an unique identification of the individual
 name |
-| name | xsd:string |	Name of the individual |
-| description | xsd:string |	Description of the individual |
-| creator | Party |	Party (0..1) who created this entity |
-| hasProperties | EntityProperty |	Set of custom defined properties |
+| name | xsd:string | Name of the individual |
+| description | xsd:string | Description of the individual |
+| creator | Party | Party (0..1) who created this entity |
+| hasProperties | EntityProperty | Set of custom defined properties |
 
 	
 **Formal representation in RDF/XML**
@@ -1704,7 +1704,38 @@ The nextTrunkVersion is restricted to one other individual of Object.
 
 **Formal representation in RDF/XML**
 
+<pre> &lt;owl:Class rdf:ID="Object"&gt;
 
+   &lt;rdfs:label xml:lang="en-GB"&gt;Object&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Object&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#CbimObject"/&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Class&gt;
+       &lt;owl:unionOf rdf:parseType="Collection"&gt;
+         &lt;rdf:Description rdf:ID="CoinsContainerObject"/&gt;
+         &lt;rdf:Description rdf:ID="CataloguePart"/&gt;
+       &lt;/owl:unionOf&gt;
+     &lt;/owl:Class&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;false&lt;/isClassAbstract&gt;
+   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#nextTrunkVersion"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="#Object"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
+   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
+   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
 
 
 ### Organisation
@@ -1726,7 +1757,31 @@ This image shows the informative representation of the Organisation class.
 
 **Formal representation in RDF/XML**
 
+<pre> &lt;owl:Class rdf:ID="Organisation"&gt;
 
+   &lt;rdfs:label xml:lang="en-GB"&gt;Organisation&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Organisation&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#Party"/&gt;
+
+   &lt;owl:disjointWith rdf:resource="#Person"/&gt;
+
+   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;false&lt;/isClassAbstract&gt;
+   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#nextTrunkVersion"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="#Organisation"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
+   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
+   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
 
 
 
@@ -1753,7 +1808,22 @@ This image shows the informative representation of the Part class.
 
 **Formal representation in RDF/XML**
 
+<pre> &lt;owl:Class rdf:ID="Part"&gt;
 
+   &lt;rdfs:label xml:lang="en-GB"&gt;Part&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Parent&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#Entity"/&gt;
+
+   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;true&lt;/isClassAbstract&gt;
+   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
+
+   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
+   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
+   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
 
 
 ### Party
@@ -1776,10 +1846,42 @@ This image shows the informative representation of the COINS core Party-class.
 
 
 **Formal representation in RDF/XML**
-
+<pre> &lt;owl:Class rdf:ID="Party"&gt;
+ 
+   &lt;rdfs:label xml:lang="en-GB"&gt;Party&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Abstract reference to a LegalEntity.&lt;/rdfs:comment&gt;
+ 
+   &lt;rdfs:subClassOf rdf:resource="#Entity"/&gt;
+ 
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Class&gt;
+       &lt;owl:unionOf rdf:parseType="Collection"&gt;
+         &lt;rdf:Description rdf:ID="Organisation"/&gt;
+         &lt;rdf:Description rdf:ID="Person"/&gt;
+       &lt;/owl:unionOf&gt;
+     &lt;/owl:Class&gt;
+   &lt;/rdfs:subClassOf&gt;
+ 
+   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;true&lt;/isClassAbstract&gt;
+   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;false&lt;/isClassExtendable&gt;
+ 
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#nextTrunkVersion"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="#Party"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+ 
+   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
+   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
+   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
+ 
+ &lt;/owl:Class&gt;
+</pre>
 
 
 ### Person
+
 **Person** is a subclass of Party.
 
 Person is not an abstract class; it can be instantiated directly. The Person class can be extended.
@@ -1796,7 +1898,27 @@ This image shows the informative representation of the Person class.
 
 **Formal representation in RDF/XML**
 
+<pre> &lt;owl:Class rdf:ID="Person"&gt;
 
+   &lt;rdfs:label xml:lang="en-GB"&gt;Person&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Person&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#Party"/&gt;
+
+   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;false&lt;/isClassAbstract&gt;
+   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#nextTrunkVersion"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="#Person"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
+   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
+   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
+</pre>
 
 
 ### SecuredDocumentReference
@@ -1820,7 +1942,37 @@ This image shows the informative representation of the SecuredDocumentReference 
    
 
 **Formal representation in RDF/XML**
+<pre> &lt;owl:Class rdf:ID="SecuredDocumentReference"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;Secured document reference&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Secured document reference&lt;/rdfs:comment&gt;
 
+   &lt;rdfs:subClassOf rdf:resource="#DocumentReference"/&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Class&gt;
+       &lt;owl:unionOf rdf:parseType="Collection"&gt;
+         &lt;rdf:Description rdf:ID="SecuredExternalDocumentReference"/&gt;
+         &lt;rdf:Description rdf:ID="SecuredInternalDocumentReference"/&gt;
+       &lt;/owl:unionOf&gt;
+     &lt;/owl:Class&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;true&lt;/isClassAbstract&gt;
+   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#nextTrunkVersion"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="#SecuredDocumentReference"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
+   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
+   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
 
 
 
@@ -1854,7 +2006,52 @@ This image shows the informative representation of the SecuredExternalDocumentRe
 
 
 **Formal representation in RDF/XML**
+<pre> &lt;owl:Class rdf:ID="SecuredExternalDocumentReference"&gt;
 
+   &lt;rdfs:label xml:lang="en-GB"&gt;External secured document reference&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Exernal secured document reference residing outside the COINS Container&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#SecuredDocumentReference"/&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Class&gt;
+       &lt;owl:intersectionOf rdf:parseType="Collection"&gt;
+         &lt;rdf:Description rdf:ID="ExternalDocumentReference"/&gt;
+         &lt;rdf:Description rdf:ID="SecuredDocumentReference"/&gt;
+       &lt;/owl:intersectionOf&gt;
+     &lt;/owl:Class&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:cardinality rdf:datatype="xsd:nonNegativeInteger"&gt;1&lt;/owl:cardinality&gt;
+       &lt;owl:onProperty rdf:resource="#checksumUri"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:cardinality rdf:datatype="xsd:nonNegativeInteger"&gt;1&lt;/owl:cardinality&gt;
+       &lt;owl:onProperty rdf:resource="#checksumUriAlgorithm"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;false&lt;/isClassAbstract&gt;
+   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#nextTrunkVersion"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="#SecuredExternalDocumentReference"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
+   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
+   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
 
 
 ### SecuredInternalDocumentReference
@@ -1886,7 +2083,52 @@ This image shows the informative representation of the SecuredInternalDocumentRe
 
 
 **Formal representation in RDF/XML**
+<pre> &lt;owl:Class rdf:ID="SecuredInternalDocumentReference"&gt;
 
+   &lt;rdfs:label xml:lang="en-GB"&gt;Secured intern document referentie&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Reference to a secured document within this COINSContainer&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#SecuredDocumentReference"/&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Class&gt;
+       &lt;owl:intersectionOf rdf:parseType="Collection"&gt;
+         &lt;rdf:Description rdf:ID="InternalDocumentReference"/&gt;
+         &lt;rdf:Description rdf:ID="SecuredDocumentReference"/&gt;
+       &lt;/owl:intersectionOf&gt;
+     &lt;/owl:Class&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#checksumFile"/&gt;
+       &lt;owl:cardinality rdf:datatype="xsd:nonNegativeInteger"&gt;1&lt;/owl:cardinality&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#checksumFileAlgorithm"/&gt;
+       &lt;owl:cardinality rdf:datatype="xsd:nonNegativeInteger"&gt;1&lt;/owl:cardinality&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;false&lt;/isClassAbstract&gt;
+   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#nextTrunkVersion"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="#SecuredInternalDocumentReference"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
+   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
+   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
 
 
 ### ShapeRepresentation
@@ -1914,7 +2156,29 @@ The nextTrunkVersion is restricted to one other instance of ShapeRepresentation.
 
 **Formal representation in RDF/XML**
 
+<pre> &lt;owl:Class rdf:ID="ShapeRepresentation"&gt;
 
+   &lt;rdfs:label xml:lang="en-GB"&gt;Shaperepresentation&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Shape document link object.&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#DocumentReference"/&gt;
+
+   &lt;isClassAbstract rdf:datatype="xsd:boolean"&gt;false&lt;/isClassAbstract&gt;
+   &lt;isClassExtendable rdf:datatype="xsd:boolean"&gt;true&lt;/isClassExtendable&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#nextTrunkVersion"/&gt;
+       &lt;owl:allValuesFrom rdf:resource="#ShapeRepresentation"/&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+
+   &lt;classCreator rdf:resource="#COINSTechnicalManagementGroup"/&gt;
+   &lt;classCreationDate rdf:datatype="xsd:dateTime"&gt;2016-04-04T12:00:00.00&lt;/classCreationDate&gt;
+   &lt;classVersionID rdf:datatype="xsd:string"&gt;1.0&lt;/classVersionID&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
 
 
 ### ShapeRepresentationProperty
