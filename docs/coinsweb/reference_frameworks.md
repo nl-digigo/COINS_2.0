@@ -13,7 +13,11 @@ COINS is characterized by flexible schema architecture, based on RDF(S) and OWL.
 From functional point of view, there are two types of frameworks:
 
 “standard” frameworks: for extending the Core Model to specific domains according to commonly accepted standards for that domain, and for implementing management- and control issues like the Window of Authorization
+
+
 “specific” frameworks: containing definitions for specific domains, for use of libraries and/or for project-specific needs.
+
+
 Parties are free to define and use specific reference frameworks, e.g. for in-company usage, or for use in a limited scope during a specific project, providing these have been harmonised with the core model and do not contain any supplements that conflict with this model.
 
 In order to be COINS compatible, software must support the COINS Core Model and the standard reference frameworks. Support of specific frameworks is optional.
@@ -67,7 +71,7 @@ The **Coins Navigator** tool shows the concepts of COINS in an application.
 At this moment the Coins Navigator is developed on base of Coins 2.0.
 
 
-<WARNING: The objective of the COINS Navigator is aimed primarily as a demonstration tool. As a result it performs well with small containers, however, because its architecture as an in-memory application, its use for importing large containers is strongly discouraged. This typically includes all containers that import the Rijkswaterstaat object type library. As a rule of thumb the performance is acceptable for containers with roughly max. 10,000 COINS entity instances, though it may be necessary to increase the heap size of the involved Java runtime engine.>
+**WARNING**: The objective of the COINS Navigator is aimed primarily as a demonstration tool. As a result it performs well with small containers, however, because its architecture as an in-memory application, its use for importing large containers is strongly discouraged. This typically includes all containers that import the Rijkswaterstaat object type library. As a rule of thumb the performance is acceptable for containers with roughly max. 10,000 COINS entity instances, though it may be necessary to increase the heap size of the involved Java runtime engine.
 
 The COINS Navigator 2 can be downloaded from the [Github repository](https://github.com/bimloket/COINS_2.0)
 
