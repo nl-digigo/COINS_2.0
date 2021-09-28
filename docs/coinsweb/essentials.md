@@ -1,8 +1,8 @@
-# Essentials
+# How COINS works
 
 
 
-## Exchange information
+## Exchange information containers
 
 COINS is a formal way of first structuring information and then exchanging this information to another organisation. If you want to exchange information between parties, you have to agree upon what data will be exchanged. This agreement is defined in a neutral model. Then you are able to design a mapping from your own system to this neutral standard and visa versa. COINS is developed according to this simple principle and therefore defines this neutral system in a clear and unambiguously way, called the COINS core model.
 
@@ -28,19 +28,16 @@ The architecture of COINS makes it possible to add extra features and functional
 ![Architecture concept of COINS Core and Reference Frameworks](./media/Architecture.jpg "Architecture concept of COINS Core and Reference frameworks")
 
 
-## COINS 2.0 concept
+* **Core model**: COINS 2.0 has a core model. This core model describes in general the objects, properties, relations, document references and identifications needed for the exchange of information.
 
-COINS 2.0 has a core model. This core model describes in general the objects, properties, relations, document references and identifications needed for the exchange of information.
+* **COINS container**: The COINS container is one of the special elements in the standard.
 
-See also
-COINS container; The COINS container is one of the special elements in the standard.
+* **Reference Frameworks**: The core model can be extended with Reference Frameworks. This principle is further described in this section.
 
-Reference Frameworks; The core model can be extended with Reference Frameworks. This principle is further described in this section.
+* **Ontlogy / ObjectTypeLibrary**: An objecttype library can be developed within Coins or an existing one can be referred to. How does this relate to Coins and how do you maintain this link will be further defined in the section Objecttype libraries.
 
-(Object-) Type libraries; An objecttype library can be developed within Coins or an existing one can be referred to. How does this relate to Coins and how do you maintain this link will be further defined in the section Objecttype libraries.
+* **Reference documents**: documents can be attached to the information in Coins. This mechanism will be clarified on the page Document referencing.
 
-Reference documents; documents can be attached to the information in Coins. This mechanism will be clarified on the page Document referencing.
+* **Data versioning**: It is extremely important to use good versionmanagement when you exchange information between parties. The solution for this according to COINS is described in the section Versioning.
 
-Data versioning; It is extremely important to use good versionmanagement when you exchange information between parties. The solution for this according to COINS is described in the section Versioning.
-
-Window of Authorisation; Besides versionmanagement, COINS is able to use authorisation as well. Receiving a COINS container with a Window of Authorisation clarifies the system what may be edited by the reciever and what not. More information about this concept is given in the Window of Authorization section
+* **Window of Authorisation**: Besides versionmanagement, COINS is able to use authorisation as well. Receiving a COINS container with a Window of Authorisation clarifies the system what may be edited by the reciever and what not. More information about this concept is given in the Window of Authorization section
