@@ -101,17 +101,12 @@ https://github.com/sysunite/coins-2-sdk
 
 ## Presentations and visualisations
 
-* Presentations from the introduction of COINS in 2016 
+* [Presentations](https://github.com/bimloket/COINS_2.0/tree/master/docs/coinsweb/presentaties) from the introduction of COINS in 2016 
 
-https://https://github.com/bimloket/COINS_2.0/tree/master/docs/coinsweb/presentaties
+* Specification of COINS 2.0 core model (overview) in [UML format](https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/presentaties/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf)
 
-* Specification of COINS 2.0 core model (overview) in UML format
+* [Starter kit](https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/presentaties/6_Starter_kit_COINS_2.0_RC19_v0_4_UK.pdf) COINS 2.0, Illustrative examples and exercises
 
-https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/presentaties/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf 
-
-* Starter kit COINS 2.0, Illustrative examples and exercises
-
-https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/presentaties/6_Starter_kit_COINS_2.0_RC19_v0_4_UK.pdf
 
 
 
