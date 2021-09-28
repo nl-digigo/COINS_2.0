@@ -2555,6 +2555,14 @@ Description of core model Properties
 
 **Formal Representation in RDF/XML**
 
+<pre> &lt;owl:FunctionalProperty rdf:ID="belongsToAssembly"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;belongsToAssembly&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;belongsToAssembly&lt;/rdfs:comment&gt;
+   &lt;rdfs:domain rdf:resource="#ContainsRelationGroup"/&gt;
+   &lt;rdf:type rdf:resource="owl:ObjectProperty"/&gt;
+   &lt;rdfs:range rdf:resource="#Assembly"/&gt;
+ &lt;/owl:FunctionalProperty&gt;
+</pre>
 	
 
 
@@ -2572,6 +2580,15 @@ checksumFile is a subProperty of hasProperties.
 
 **Formal Representation in RDF/XML**
 
+<pre> &lt;owl:ObjectProperty rdf:ID="checksumFile"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;checksum file&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Checksum hash of the attached file.&lt;/rdfs:comment&gt;
+   &lt;rdfs:domain rdf:resource="#SecuredInternalDocumentReference"/&gt;
+   &lt;rdf:type rdf:resource="owl:FunctionalProperty"/&gt;
+   &lt;rdfs:subPropertyOf rdf:resource="#hasProperties"/&gt;
+   &lt;rdfs:range rdf:resource="#StringProperty"/&gt;
+ &lt;/owl:ObjectProperty&gt;
+</pre>
 
 
 ### checksumFileAlgorithm
@@ -2587,6 +2604,15 @@ checksumFileAlgorithm is a subProperty of hasProperties.
 
 **Formal Representation in RDF/XML**
 
+<pre> &lt;owl:ObjectProperty rdf:ID="checksumFileAlgorithm"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;checksum file algorithm&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;The checksum algorithm (e.g. SHA1, MD5, ...) that was used to generate the checksum of the attached file.&lt;/rdfs:comment&gt;
+   &lt;rdfs:domain rdf:resource="#SecuredInternalDocumentReference"/&gt;
+   &lt;rdf:type rdf:resource="owl:FunctionalProperty"/&gt;
+   &lt;rdfs:subPropertyOf rdf:resource="#hasProperties"/&gt;
+   &lt;rdfs:range rdf:resource="#StringProperty"/&gt;
+ &lt;/owl:ObjectProperty&gt;
+</pre>
 	
 
 
@@ -2604,6 +2630,15 @@ checksumFile is a subProperty of hasProperties.
 
 **Formal Representation in RDF/XML**
 
+<pre> &lt;owl:ObjectProperty rdf:ID="checksumUri"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;checksumUri&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Checksum hash of the URI linked document.&lt;/rdfs:comment&gt;
+   &lt;rdfs:domain rdf:resource="#SecuredExternalDocumentReference"/&gt;
+   &lt;rdf:type rdf:resource="owl:FunctionalProperty"/&gt;
+   &lt;rdfs:subPropertyOf rdf:resource="#hasProperties"/&gt;
+   &lt;rdfs:range rdf:resource="#UriProperty"/&gt;
+ &lt;/owl:ObjectProperty&gt;
+</pre>
 
 
 ### checksumUriAlgorithm
