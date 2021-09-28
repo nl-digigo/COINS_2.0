@@ -28,12 +28,14 @@ Based on these experiences, the standard was evaluated in workpackage3 “Rethin
 
 This resulted in a specification for Coins 2.0. It has been documented in "Rethinking COINS" (15th of June, 2014) The important specifications are:
 
-Coins 2.0 should not impose a working method, it must focus on exchange of information
-In Coins 1.0 it was possible to create just one type of relations between objects. With Coins 2.0 multiple relations between objects can be created.
-The concept of information exchange must not be limited to the maintain phase of a project. It mus be used through the whole life-cycle (design, built, operate and maintain, demolish)
-The implementation of Coins 2.0 must be simplified. Besides, Coins must be independent of language and sustainable
-The 'core model' of Coins 2.0 must be configurable and extensible (e.g. by using Reference Frameworks), without changing the core itself
-The definition (semantics) of the exchanged information must be unambiguously by using references to Reference Frameworks or accepted objecttype libraries.
+* Coins 2.0 should not impose a working method, it must focus on exchange of information
+* In Coins 1.0 it was possible to create just one type of relations between objects. With Coins 2.0 multiple relations between objects can be created.
+* The concept of information exchange must not be limited to the maintain phase of a project. It mus be used through the whole life-cycle (design, built, operate and maintain, demolish)
+* The implementation of Coins 2.0 must be simplified. Besides, Coins must be independent of language and sustainable
+* The 'core model' of Coins 2.0 must be configurable and extensible (e.g. by using Reference Frameworks), without changing the core itself
+* The definition (semantics) of the exchanged information must be unambiguously by using references to Reference Frameworks or accepted objecttype libraries.
+
+
 The document "Rethinking COINS" resulted in a number of reports:
 
 * Concepts of collaboration; principles of how and when we want to exchange information.
