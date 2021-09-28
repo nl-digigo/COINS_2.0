@@ -75,10 +75,6 @@ Its main characteristics are summarized:
 
 Materials are now available to give a good idea of the specification of 2.0 COINS. This can be found in:
 
-1 - Specification of COINS 2.0 core model (overview) in UML format,
-follow this link: 
-https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf 
-
 1a – Specification of COINS 2.0 core model (detailed), follow this link:
 http://www.buildingbits.nl/coins/2.0/uml/
 
@@ -96,25 +92,26 @@ https://github.com/bimloket/COINS_2.0/blob/master/COINSWOA.rdf
 follow this link:
 https://github.com/bimloket/COINS_2.0/blob/master/units-2.0.rdf
 
-5 - Presentation sheets Introduction COINS 2.0,
-follow this link: 
-https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/5_Introduction_COIN_standard_V5_Nov2015.pdf
-
-6 - Starter kit COINS 2.0, Illustrative examples and exercises,
-follow this link: 
-https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/6_Starter_kit_COINS_2.0_RC19_v0_4_UK.pdf
-
-7 - COINS Navigator, a reference implementation to demonstrate the principles, follow this link:
+5 - COINS Navigator, a reference implementation to demonstrate the principles, follow this link:
 http://www.https://github.com/bimloket/COINS_2.0/blob/master/COINS_2.0_Navigator.jar
 
-8 – COINS 2.0 API Software development kit for Java and .NET, follow this link:
+6 – COINS 2.0 API Software development kit for Java and .NET, follow this link:
 https://github.com/sysunite/coins-2-sdk
 
 
-## Presentations
+## Presentations and visualisations
 
-See for presentations from the introduction of COINS in 2016
-https://https://github.com/bimloket/COINS_2.0/tree/master/docs/coinsweb/presentaties_introductie_COINS_2016
+* Presentations from the introduction of COINS in 2016 
+
+https://https://github.com/bimloket/COINS_2.0/tree/master/docs/coinsweb/presentaties
+
+* Specification of COINS 2.0 core model (overview) in UML format
+
+https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/presentaties/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf 
+
+* Starter kit COINS 2.0, Illustrative examples and exercises
+
+https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/presentaties/6_Starter_kit_COINS_2.0_RC19_v0_4_UK.pdf
 
 
 
