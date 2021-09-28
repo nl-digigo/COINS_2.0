@@ -1,7 +1,7 @@
 # Introduction 
 
 
-## Information containers for building information management
+## building information management
 
 Building information modelling provides a digital technology for describing and displaying information required in the planning, design, construction and operation of constructed facilities. Increasingly, this modelling approach is expanding to encompass all aspects of the built environment, including civil infrastructure, utilities and public space and all disciplines. These are collectively referred to as construction processes. This approach to managing information brings together the diverse sets of information used during the life cycle of the built environment into a common information environment - reducing, and often eliminating, the need for the many types of paper documentation currently in use.
 This approach is commonly referred to as BIM (building information modelling, reflecting its initial application in the architectural domain), while the same acronym is used to refer to the product of the process, the information model itself, or BIM (Building Information Model).
@@ -69,6 +69,9 @@ Its main characteristics are summarized:
 **Integration with off-line transaction-based information exchange** - COINS information exchange can be integrated with transaction-based information exchange as for instance supported by the IDM part 2 standard for process modelling
 
 **Version management** - COINS offers features to record the history of the BIM
+
+
+# Specifications
 
 
 ## Specifications
