@@ -15,11 +15,11 @@ location; this green area describes the relations and classes needed for modelli
 ![UML-scheme of the COINS CORE model](./media/600px-UML-schema_1280x888.jpg "UML-scheme of the COINS CORE model")
 
 Or follow this link: 
-https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf
+https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/presentaties/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf
 
 ## Overview
 
-[COINS](https://bimloket.github.io/COINS_2.0/coinsweb/#dfn-coins) is characterized by a flexible schema architecture, based on RDF(S)) and OWL.
+COINS is characterized by a flexible schema architecture, based on RDF(S)) and OWL.
 
 The Coins Core Model is an extension of the OWL Ontology Structure and is formally represented in a COINS entity model, expressed in RDF/XML. The model can be serialised in XML, JSON, NTriples or CSV.
 
@@ -33,10 +33,16 @@ The Core Model can be extended by defining Reference Frameworks. These Framework
 From functional point of view, there are two types of frameworks:
 
 “standard” frameworks; for implementing management- and control issues like the Window of Authorization framework (WoA)
+
+
 “specific” frameworks; containing definitions for specific domains, for use of libraries and/or for project-specific needs.
+
+
 Parties are free to define and use specific reference frameworks, e.g. for in-company usage, or for use in a limited scope during a specific project, providing these have been harmonised with the core model and do not contain any supplements that conflict with this model. This architecture enables a commonly accepted specific framework to migrate to a standard reference framework.
 
+
 In order to be COINS compatible, software must support the COINS Core Model and the standard reference frameworks. Support of specific frameworks is optional
+
 
 ## Relations between COINS objects
 With COINS it is possible to relate objects in two ways:
