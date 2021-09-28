@@ -1,4 +1,4 @@
-# <a>Versions and differences</a> 
+# Versions and differences
 
 
 ## COINS 2.0
