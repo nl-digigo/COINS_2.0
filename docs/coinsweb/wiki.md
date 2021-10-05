@@ -80,37 +80,30 @@ Its main characteristics are summarized:
 
 Materials are now available to give a good idea of the specification of 2.0 COINS. This can be found in:
 
-1a – Specification of COINS 2.0 core model (detailed), follow this link:
-http://www.buildingbits.nl/coins/2.0/uml/
+* **Core model** - specification in OWL format, follow [this link](https://github.com/bimloket/COINS_2.0/blob/master/cbim-2.0.1.rdf)
 
-1 b – Visualization of COINS 2.0 core model based on WebVOWL, follow this link:
-http://www.buildingbits.nl/coins/2.0
+3 - **Window of authoristion** - specification in OWL format, follow [this link](https://github.com/bimloket/COINS_2.0/blob/master/COINSWOA.rdf)
 
-2 - Specification of COINS 2.0 core model in OWL format, follow this link: 
-https://github.com/bimloket/COINS_2.0/blob/master/cbim-2.0.1.rdf
+4 - **Units Ontlogy** - specification in OWL format,follow [this link](https://github.com/bimloket/COINS_2.0/blob/master/units-2.0.rdf)
 
-3 - Specification of Window of Autorization file in OWL format,
-follow this link: 
-https://github.com/bimloket/COINS_2.0/blob/master/COINSWOA.rdf
+5 - **COINS Navigator**, a reference implementation to demonstrate the principles, follow [this link](http://www.https://github.com/bimloket/COINS_2.0/blob/master/COINS_2.0_Navigator.jar)
 
-4 - Specification of Units Ontlogy in OWL format,
-follow this link:
-https://github.com/bimloket/COINS_2.0/blob/master/units-2.0.rdf
-
-5 - COINS Navigator, a reference implementation to demonstrate the principles, follow this link:
-http://www.https://github.com/bimloket/COINS_2.0/blob/master/COINS_2.0_Navigator.jar
-
-6 – COINS 2.0 API Software development kit for Java and .NET, follow this link:
-https://github.com/sysunite/coins-2-sdk
+6 – **API Software development kit** for Java and .NET, follow [this link](https://github.com/sysunite/coins-2-sdk)
 
 
 ## Presentations and visualisations
 
-* [Presentations](https://github.com/bimloket/COINS_2.0/tree/master/docs/coinsweb/presentaties) from the introduction of COINS in 2016 
+* [**Presentations**](https://github.com/bimloket/COINS_2.0/tree/master/docs/coinsweb/presentaties) from the introduction of COINS in 2016 
 
-* Specification of COINS 2.0 core model (overview) in [UML format](https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/presentaties/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf)
+* **UML-visualisation** of COINS 2.0 core model (overview) in [UML format](https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/presentaties/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf)
 
-* [Starter kit](https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/presentaties/6_Starter_kit_COINS_2.0_RC19_v0_4_UK.pdf) COINS 2.0, Illustrative examples and exercises
+* [**Starter kit**](https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/presentaties/6_Starter_kit_COINS_2.0_RC19_v0_4_UK.pdf) COINS 2.0, Illustrative examples and exercises
+
+* **Detailed visualisation** of COINS 2.0 core model (detailed), follow this link:
+http://www.buildingbits.nl/coins/2.0/uml/
+
+* **Visualization** of COINS 2.0 core model based on WebVOWL, follow this link:
+http://www.buildingbits.nl/coins/2.0
 
 
 
