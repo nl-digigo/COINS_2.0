@@ -64,6 +64,244 @@ Note
 A Reference framework for adding Systems Engineering functionalities is being developed. This framework will contain definitions for requirements, verifications and so on.
 
 
+## Reference framework: Units
+
+Units is a Reference framework containing an ontology based on the Quantities, Units, Dimensions and Data Types Ontologies, as developed by NASA and TopQuadrant (see [qudt.org](http://qudt.org/).
+
+The Units reference framework contains the qudt:Unit class, referred to by the Unit-property of the NumericProperty class.
+
+It has subclasses for units based on the SI-system, units derived there from, as well as additional units like financial, science- and engineering, physical and dimension-less units.
+The framework also supplies instances (listings) for these classes.
+
+To facilitate an “easy” picklist, the CoinsUnitSelection class is added. From the available units, it contains a selection of mostly used units. This selection can be customized for own purposes.
+
+![Informative representation in UML](./media/600px-Units_-_UML.png "Informative representation of Units in UML")
+
+
+units derived there from => units derived therefrom
+
+
+
+### Unit Class
+
+
+![TopBraid_Units](./media/TopBraid_Units.png "Informative representation of the Unit inheritance graph (Topbraid Composer)")
+
+**Formal Representation in RDF/XML**
+
+<pre> &lt;owl:Class rdf:about="qudt:Unit"&gt;
+
+   &lt;rdfs:label xml:lang="en-GB"&gt;Unit&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Unit&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="owl:Thing"/&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
+
+
+
+### CoinsUnitSelection Class
+
+
+![Informative listing of the selected Units (Topbraid Composer)](./media/TopBraid_Units_individuals.png "Informative listing of the selected units (Topbraid Composer)")
+
+
+**Formal Representation in RDF/XML**
+
+<pre> &lt;owl:Class rdf:about="cbim-2.0.rdf#CoinsUnitSelection"&gt;
+   &lt;rdfs:subClassOf rdf:resource="<a rel="nofollow" class="external free" href="http://qudt.org/schema/qudt#Unit">http://qudt.org/schema/qudt#Unit</a>"/&gt;
+ &lt;/owl:Class&gt;
+</pre>
+
+
+### Reference framework: Generic
+ntb
+
+
+
+
+
+
+# Window of Authorization framework
+
+
+## Intorduction
+
+The Window of Authorization is a standard Reference Framework of Coins for defining permissions to read, write or restrict access to information supplied in the information model. The framework contains classes which specify the permissions for accessing members of the Coins 2.0 Object class. These permissions are subclasses of the ObjectPermissions class.
+Permissions are:
+
+NoAcces; members of this class can not be accessed (neither for reading nor for writing)
+ReadAccess; members of this class can be accessed for reading but not for writing)
+WriteAccess; members of this class can be accessed for reading and writing.
+This figure gives an illustrative representation of how implementation of the Window of Authorszation reflects in a Building Information Model: - the red elements are not visible because they are typed as NotAccess - the blue elements are visible, but not editable (ReadAccess) - the green elements are visible and editable (WriteAccess)
+
+Permissions for a member of the Coins 2.0 Object class are set by typing it also as a member of the applicable Permission class. This Permission class is available in this Reference Framework.
+
+The ObjectPermission class has two additional attributes:
+
+layerDepth; property for defining the number of levels the permission is valid (following the linkAccess properties)
+linkAccess; defines the objecttype property to use for determining the layer depth.
+The Window of Authorization file is called COINSWOA.rdf.
+
+![Acces Permissions](./media/WoA.png "Acces permissions"]
+
+## Details
+
+
+**Informative representation of WoA in UML**
+
+This image shows an informative representation of the Window of Authorization classes in UML.
+
+![Informative representation of WoA in UML](./media/WoA_-_UML.png "Informative representation of WoA in UML")
+
+### PermissionClass
+
+PermissionClass is a subclass of owl:Thing. It serves as superclass for all permission classes. The Permission class has no further attributes.
+
+**Formal Representation in RDF/XML**
+
+<pre> &lt;owl:Class rdf:ID="PermissionClass"&gt;
+
+   &lt;rdfs:label xml:lang="en-GB"&gt;PermissionClass&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Specifies the modification rights for this object&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="owl:Thing"/&gt;
+
+   &lt;rdf:type rdf:resource="cbim-2.0.rdf#COINSClass"/&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
+
+
+### ObjectPermissions
+
+ObjectPermissions is a subclass of PermissionClass. It serves as superclass for all permissions pertaining to members of Cbim-2.0:Object. The ObjectPermissions class has a property for the layerDepth, defining the number of levels the permission is valid, following the object defined in the linkAccess property.
+
+
+**Attributes**
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| layerDepth | xsd:integer | number of levels the permission is valid | 
+| linkAccess | ObjectProperty | the property path to folow for determining the layer depth | 
+
+**Formal Representation in RDF/XML**
+
+<pre> &lt;cbim-2.0:COINSClass rdf:ID="ObjectPermissions"&gt;
+ 
+   &lt;rdfs:label xml:lang="en-GB"&gt;ObjectPermission&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Specifies the rights for this Object&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#PermissionClass"/&gt;
+   &lt;rdfs:subClassOf rdf:resource="cbim-2.0.rdf#Object"/&gt;
+
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#layerdepth"/&gt;
+       &lt;owl:cardinality rdf:datatype="xml:nonNegativeInteger"&gt;1&lt;/owl:cardinality&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+ 
+   &lt;rdfs:subClassOf&gt;
+     &lt;owl:Restriction&gt;
+       &lt;owl:onProperty rdf:resource="#linkAccess"/&gt;
+       &lt;owl:cardinality rdf:datatype="xml:nonNegativeInteger"&gt;1&lt;/owl:cardinality&gt;
+     &lt;/owl:Restriction&gt;
+   &lt;/rdfs:subClassOf&gt;
+   &lt;rdf:type rdf:resource="owl:Class"/&gt;
+
+ &lt;/cbim-2.0:COINSClass&gt;
+
+</pre>
+
+<p><br /> 
+</p>
+<pre> &lt;owl:DatatypeProperty rdf:ID="layerdepth"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;layerdepth&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;determines the layerdepth via the linkAccess relation on which this permission applies&lt;/rdfs:comment&gt;
+   &lt;rdf:type rdf:resource="owl:FunctionalProperty"/&gt;
+   &lt;rdfs:domain rdf:resource="#ObjectPermissions"/&gt;
+   &lt;rdfs:range rdf:resource="xsd:integer"/&gt;
+ &lt;/owl:DatatypeProperty&gt;
+
+</pre>
+<p><br /> 
+</p>
+<pre> &lt;owl:ObjectProperty rdf:ID="linkAccess"&gt;
+   &lt;rdfs:label xml:lang="en-GB"&gt;linkAccess&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;specifies the objecttype property used by the layerdepth&lt;/rdfs:comment&gt;
+   &lt;rdf:type rdf:resource="owl:FunctionalProperty"/&gt;
+   &lt;rdfs:domain rdf:resource="#ObjectPermissions"/&gt;
+   &lt;rdfs:range rdf:resource="owl:ObjectProperty"/&gt;
+ &lt;/owl:ObjectProperty&gt;
+</pre>
+
+### NoAccess
+NoAccess is a subclass of ObjectPermissions. Members of this class may not be accessed, nor for reading neither for writing.
+
+**Formal Representation in RDF/XML**
+
+<pre> &lt;cbim-2.0:COINSClass rdf:ID="NoAccess"&gt;
+
+   &lt;rdfs:label xml:lang="en-GB"&gt;NoAccess&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;No Access for this Object&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#ObjectPermissions"/&gt;
+
+   &lt;rdf:type rdf:resource="owl:Class"/&gt;
+
+ &lt;/cbim-2.0:COINSClass&gt;
+</pre>
+
+
+### ReadAcces
+
+ReadAccess is a subclass of ObjectPermissions. Members of this class may be accessed for display (reading) but not for modifying (writing).
+
+
+**Formal Representation in RDF/XML**
+
+<pre> &lt;cbim-2.0:COINSClass rdf:ID="ReadAccess"&gt;
+
+   &lt;rdfs:label xml:lang="en-GB"&gt;ReadAccess&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;ReadAccess for this Object&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#ObjectPermissions"/&gt;
+
+   &lt;rdf:type rdf:resource="owl:Class"/&gt;
+
+ &lt;/cbim-2.0:COINSClass&gt;
+</pre>
+
+### WriteAccess
+
+WriteAccess is a subclass of ObjectPermissions. Members of this class may be accessed for display (reading) and for modifying (writing).
+
+**Formal Representation in RDF/XML**
+
+<pre> &lt;cbim-2.0:COINSClass rdf:ID="WriteAccess"&gt;
+
+   &lt;rdfs:label xml:lang="en-GB"&gt;WriteAccess&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Writeaccess for this Object&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="#ObjectPermissions"/&gt;
+
+   &lt;rdf:type rdf:resource="owl:Class"/&gt;
+
+ &lt;/cbim-2.0:COINSClass&gt;
+</pre>
+
+
+
+## Example
+
+
+This figure shows an element, typed as a Cbim-2.0:Object with ReadAccess.
+Since the properties for layerDepth and linkAccess (inherited from the ObjectPermission class) are set, the permission applies to 3 levels following ContainsRelation.
+
+![WoA Example](./media/WoA_-_Example.png "Example of WoA")
+
+
 # COINS Navigator
 
 The **Coins Navigator** tool shows the concepts of COINS in an application.
@@ -910,182 +1148,3 @@ Open a new object form, select the static type, give it a name, check the "Part"
 * Ready.
 
 ![Ready.](./media/CN2-End.png "Ready.")
-
-
-# Window of Authorization framework
-
-
-## Intorduction
-
-The Window of Authorization is a standard Reference Framework of Coins for defining permissions to read, write or restrict access to information supplied in the information model. The framework contains classes which specify the permissions for accessing members of the Coins 2.0 Object class. These permissions are subclasses of the ObjectPermissions class.
-Permissions are:
-
-NoAcces; members of this class can not be accessed (neither for reading nor for writing)
-ReadAccess; members of this class can be accessed for reading but not for writing)
-WriteAccess; members of this class can be accessed for reading and writing.
-This figure gives an illustrative representation of how implementation of the Window of Authorszation reflects in a Building Information Model: - the red elements are not visible because they are typed as NotAccess - the blue elements are visible, but not editable (ReadAccess) - the green elements are visible and editable (WriteAccess)
-
-Permissions for a member of the Coins 2.0 Object class are set by typing it also as a member of the applicable Permission class. This Permission class is available in this Reference Framework.
-
-The ObjectPermission class has two additional attributes:
-
-layerDepth; property for defining the number of levels the permission is valid (following the linkAccess properties)
-linkAccess; defines the objecttype property to use for determining the layer depth.
-The Window of Authorization file is called COINSWOA.rdf.
-
-![Acces Permissions](./media/WoA.png "Acces permissions"]
-
-## Details
-
-
-**Informative representation of WoA in UML**
-
-This image shows an informative representation of the Window of Authorization classes in UML.
-
-![Informative representation of WoA in UML](./media/WoA_-_UML.png "Informative representation of WoA in UML")
-
-### PermissionClass
-
-PermissionClass is a subclass of owl:Thing. It serves as superclass for all permission classes. The Permission class has no further attributes.
-
-**Formal Representation in RDF/XML**
-
-<pre> &lt;owl:Class rdf:ID="PermissionClass"&gt;
-
-   &lt;rdfs:label xml:lang="en-GB"&gt;PermissionClass&lt;/rdfs:label&gt;
-   &lt;rdfs:comment xml:lang="en-GB"&gt;Specifies the modification rights for this object&lt;/rdfs:comment&gt;
-
-   &lt;rdfs:subClassOf rdf:resource="owl:Thing"/&gt;
-
-   &lt;rdf:type rdf:resource="cbim-2.0.rdf#COINSClass"/&gt;
-
- &lt;/owl:Class&gt;
-</pre>
-
-
-### ObjectPermissions
-
-ObjectPermissions is a subclass of PermissionClass. It serves as superclass for all permissions pertaining to members of Cbim-2.0:Object. The ObjectPermissions class has a property for the layerDepth, defining the number of levels the permission is valid, following the object defined in the linkAccess property.
-
-
-**Attributes**
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| layerDepth | xsd:integer | number of levels the permission is valid | 
-| linkAccess | ObjectProperty | the property path to folow for determining the layer depth | 
-
-**Formal Representation in RDF/XML**
-
-<pre> &lt;cbim-2.0:COINSClass rdf:ID="ObjectPermissions"&gt;
- 
-   &lt;rdfs:label xml:lang="en-GB"&gt;ObjectPermission&lt;/rdfs:label&gt;
-   &lt;rdfs:comment xml:lang="en-GB"&gt;Specifies the rights for this Object&lt;/rdfs:comment&gt;
-
-   &lt;rdfs:subClassOf rdf:resource="#PermissionClass"/&gt;
-   &lt;rdfs:subClassOf rdf:resource="cbim-2.0.rdf#Object"/&gt;
-
-   &lt;rdfs:subClassOf&gt;
-     &lt;owl:Restriction&gt;
-       &lt;owl:onProperty rdf:resource="#layerdepth"/&gt;
-       &lt;owl:cardinality rdf:datatype="xml:nonNegativeInteger"&gt;1&lt;/owl:cardinality&gt;
-     &lt;/owl:Restriction&gt;
-   &lt;/rdfs:subClassOf&gt;
- 
-   &lt;rdfs:subClassOf&gt;
-     &lt;owl:Restriction&gt;
-       &lt;owl:onProperty rdf:resource="#linkAccess"/&gt;
-       &lt;owl:cardinality rdf:datatype="xml:nonNegativeInteger"&gt;1&lt;/owl:cardinality&gt;
-     &lt;/owl:Restriction&gt;
-   &lt;/rdfs:subClassOf&gt;
-   &lt;rdf:type rdf:resource="owl:Class"/&gt;
-
- &lt;/cbim-2.0:COINSClass&gt;
-
-</pre>
-
-<p><br /> 
-</p>
-<pre> &lt;owl:DatatypeProperty rdf:ID="layerdepth"&gt;
-   &lt;rdfs:label xml:lang="en-GB"&gt;layerdepth&lt;/rdfs:label&gt;
-   &lt;rdfs:comment xml:lang="en-GB"&gt;determines the layerdepth via the linkAccess relation on which this permission applies&lt;/rdfs:comment&gt;
-   &lt;rdf:type rdf:resource="owl:FunctionalProperty"/&gt;
-   &lt;rdfs:domain rdf:resource="#ObjectPermissions"/&gt;
-   &lt;rdfs:range rdf:resource="xsd:integer"/&gt;
- &lt;/owl:DatatypeProperty&gt;
-
-</pre>
-<p><br /> 
-</p>
-<pre> &lt;owl:ObjectProperty rdf:ID="linkAccess"&gt;
-   &lt;rdfs:label xml:lang="en-GB"&gt;linkAccess&lt;/rdfs:label&gt;
-   &lt;rdfs:comment xml:lang="en-GB"&gt;specifies the objecttype property used by the layerdepth&lt;/rdfs:comment&gt;
-   &lt;rdf:type rdf:resource="owl:FunctionalProperty"/&gt;
-   &lt;rdfs:domain rdf:resource="#ObjectPermissions"/&gt;
-   &lt;rdfs:range rdf:resource="owl:ObjectProperty"/&gt;
- &lt;/owl:ObjectProperty&gt;
-</pre>
-
-### NoAccess
-NoAccess is a subclass of ObjectPermissions. Members of this class may not be accessed, nor for reading neither for writing.
-
-**Formal Representation in RDF/XML**
-
-<pre> &lt;cbim-2.0:COINSClass rdf:ID="NoAccess"&gt;
-
-   &lt;rdfs:label xml:lang="en-GB"&gt;NoAccess&lt;/rdfs:label&gt;
-   &lt;rdfs:comment xml:lang="en-GB"&gt;No Access for this Object&lt;/rdfs:comment&gt;
-
-   &lt;rdfs:subClassOf rdf:resource="#ObjectPermissions"/&gt;
-
-   &lt;rdf:type rdf:resource="owl:Class"/&gt;
-
- &lt;/cbim-2.0:COINSClass&gt;
-</pre>
-
-
-### ReadAcces
-
-ReadAccess is a subclass of ObjectPermissions. Members of this class may be accessed for display (reading) but not for modifying (writing).
-
-
-**Formal Representation in RDF/XML**
-
-<pre> &lt;cbim-2.0:COINSClass rdf:ID="ReadAccess"&gt;
-
-   &lt;rdfs:label xml:lang="en-GB"&gt;ReadAccess&lt;/rdfs:label&gt;
-   &lt;rdfs:comment xml:lang="en-GB"&gt;ReadAccess for this Object&lt;/rdfs:comment&gt;
-
-   &lt;rdfs:subClassOf rdf:resource="#ObjectPermissions"/&gt;
-
-   &lt;rdf:type rdf:resource="owl:Class"/&gt;
-
- &lt;/cbim-2.0:COINSClass&gt;
-</pre>
-
-### WriteAccess
-
-WriteAccess is a subclass of ObjectPermissions. Members of this class may be accessed for display (reading) and for modifying (writing).
-
-**Formal Representation in RDF/XML**
-
-<pre> &lt;cbim-2.0:COINSClass rdf:ID="WriteAccess"&gt;
-
-   &lt;rdfs:label xml:lang="en-GB"&gt;WriteAccess&lt;/rdfs:label&gt;
-   &lt;rdfs:comment xml:lang="en-GB"&gt;Writeaccess for this Object&lt;/rdfs:comment&gt;
-
-   &lt;rdfs:subClassOf rdf:resource="#ObjectPermissions"/&gt;
-
-   &lt;rdf:type rdf:resource="owl:Class"/&gt;
-
- &lt;/cbim-2.0:COINSClass&gt;
-</pre>
-
-
-
-## Example
-
-
-This figure shows an element, typed as a Cbim-2.0:Object with ReadAccess.
-Since the properties for layerDepth and linkAccess (inherited from the ObjectPermission class) are set, the permission applies to 3 levels following ContainsRelation.
-
-![WoA Example](./media/WoA_-_Example.png "Example of WoA")
