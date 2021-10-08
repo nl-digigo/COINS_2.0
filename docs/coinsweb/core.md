@@ -14,8 +14,7 @@ location; this green area describes the relations and classes needed for modelli
 
 ![UML-scheme of the COINS CORE model](./media/600px-UML-schema_1280x888.jpg "UML-scheme of the COINS CORE model")
 
-Or follow this link: 
-https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/presentaties/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf
+Or follow [this link](https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/presentaties/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf)
 
 ## Overview
 
