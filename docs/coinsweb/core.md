@@ -73,7 +73,7 @@ Changes within the application are not a part of Coins.
 
 ### Version levels
 
-IMAGE!!
+![Version levels](./media/220px-Versionlevels.png "Version levels")
 
 Versioning can be schematised by the following image. A number of things can be distinguished:
 
@@ -86,3 +86,20 @@ Within the Coins core model the TrunkVersioning principle is defined. A referenc
 
 Between these TrunkVersionObjects there is a relation defined called the nextTrunkVersion (the green arrow from object 1 to 4 and from 4 to 9). When an object gets a nextTrunkVersion it must be classified as an ExpiredEntity, also. In this way, Coins is able to capture all the changes and makes it possible to return to a certain situation. In this way you can follow the changes back to its origin.
 
+### Versioning
+
+Versioning can be schematised by the following image. A number of things can be distinguished:
+
+All squares are versions of an information item.
+the green squares are the external versions. They specify the Trunk of this version principle. Therefore they are called TrunkVersions.
+the yellow squares are the internal versions. They are called BranchVersions. They make it possible to follow the changes within the internal processes of a party.
+a purple squares means this VersionObject is expired but this object has no successor.
+the current version is number 9.
+Within the Coins core model the TrunkVersioning principle is defined. A reference framework is developed for adding the BranchVersioning functionalities (internal versions).
+
+Between these TrunkVersionObjects there is a relation defined called the nextTrunkVersion (the green arrow from object 1 to 4 and from 4 to 9). When an object gets a nextTrunkVersion it must be classified as an ExpiredEntity, also. In this way, Coins is able to capture all the changes and makes it possible to return to a certain situation. In this way you can follow the changes back to its origin.
+
+
+![Versioning](./media/Versioning.png "Versioning")
+
+See also: Reference Framework Branch versioning
