@@ -54,3 +54,35 @@ Contains relation; this relation specifies that an object is defined by its part
 ![Visualisation of relations in COINS CORE model](./media/ContainsRelation.jpg "Contains relation for defining structures")
 
 
+## Versioning
+
+
+### Version Levels
+
+Versionmanagement can be definend on two different levels:
+* Application level,
+* Information level.
+At application level each software system (like CAD, GIS, Planning, etc.) has its own way of managing changes in the data. This makes it very difficult to exchange this information to other systems. In Coins we need an open and transparant way of versioning that is not dependent of such a software system. Therefore the versioning in Coins is managed on Information level.
+
+Coins distinguishes 2 version types, external and internal versions.
+
+* External versions are used when the information is exchanged between client and contractor. These versions are mandatory within Coins.
+* Internal versions are used within the internal processes of a party. These versions are optional within Coins
+
+Changes within the application are not a part of Coins.
+
+### Version levels
+
+IMAGE!!
+
+Versioning can be schematised by the following image. A number of things can be distinguished:
+
+All squares are versions of an information item.
+the green squares are the external versions. They specify the Trunk of this version principle. Therefore they are called TrunkVersions.
+the yellow squares are the internal versions. They are called BranchVersions. They make it possible to follow the changes within the internal processes of a party.
+a purple squares means this VersionObject is expired but this object has no successor.
+the current version is number 9.
+Within the Coins core model the TrunkVersioning principle is defined. A reference framework is developed for adding the BranchVersioning functionalities (internal versions).
+
+Between these TrunkVersionObjects there is a relation defined called the nextTrunkVersion (the green arrow from object 1 to 4 and from 4 to 9). When an object gets a nextTrunkVersion it must be classified as an ExpiredEntity, also. In this way, Coins is able to capture all the changes and makes it possible to return to a certain situation. In this way you can follow the changes back to its origin.
+
