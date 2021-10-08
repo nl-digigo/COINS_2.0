@@ -28,6 +28,8 @@ In order to be COINS compatible, software must support the COINS Core Model and 
 Coins Container folder structure
 From a technical point of view, a Reference Framework is a file containing the additional ontology, defining extensions to the classes of the COINS Core Model. This file is “included” (referenced) in the OWL-file containing the data model (building information model). To parties involved, Reference Frameworks should be made available through their internet location (URL). When information models are exchanged through a Coins Container, Reference Frameworks can be included in the container by placing them in the Repository folder. The Repository folder is a subfolder of the BIM folder, where the information model is located. The Reference Framework for authorizations (the Window of Autorization) is an exception to this location; this file is placed in the WOA-folder.
 
+![Coins Container folder structure](./media/218px-Coins_Container_-_folder_structure.PNG "Coins Container folder structure")
+
 
 ## Example
 
@@ -47,86 +49,28 @@ In the following example, the Reference Frameworks “Units-2.0.rdf” and “CO
 
 ## Available Frameworks
 
-Standard Frameworks
+
+**Standard Frameworks**
 The following standard frameworks are available:
 
-Window of Authorization (WoA): this framework makes it possible to specify the access rights for a part of the model
+1. Window of Authorization (WoA): this framework makes it possible to specify the access rights for a part of the model
 
 
-## Specific Frameworks
+**Specific Frameworks**
 
 The following standard frameworks are available:
 
-Units (based on QUDT), this framework extends Coins with the ontology for a lot of units that are needed
-BranchVersioning, this framework creates an extra versioning principle next to the default Versioning in the Coins core model
+1. Units (based on QUDT), this framework extends Coins with the ontology for a lot of units that are needed
+2. BranchVersioning, this framework creates an extra versioning principle next to the default Versioning in the Coins core model
 
 Note
 A Reference framework for adding Systems Engineering functionalities is being developed. This framework will contain definitions for requirements, verifications and so on.
 
 
-## Reference framework: Units
-
-Units is a Reference framework containing an ontology based on the Quantities, Units, Dimensions and Data Types Ontologies, as developed by NASA and TopQuadrant, see [qudt.org](http://qudt.org/).
-
-The Units reference framework contains the qudt:Unit class, referred to by the Unit-property of the NumericProperty class.
-
-It has subclasses for units based on the SI-system, units derived there from, as well as additional units like financial, science- and engineering, physical and dimension-less units.
-The framework also supplies instances (listings) for these classes.
-
-To facilitate an “easy” picklist, the CoinsUnitSelection class is added. From the available units, it contains a selection of mostly used units. This selection can be customized for own purposes.
-
-![Informative representation in UML](./media/600px-Units_-_UML.png "Informative representation of Units in UML")
+## Window of Authorization framework
 
 
-units derived there from => units derived therefrom
-
-
-
-### Unit Class
-
-
-![TopBraid_Units](./media/TopBraid_Units.png "Informative representation of the Unit inheritance graph")
-
-
-**Formal Representation in RDF/XML**
-
-<pre> &lt;owl:Class rdf:about="qudt:Unit"&gt;
-
-   &lt;rdfs:label xml:lang="en-GB"&gt;Unit&lt;/rdfs:label&gt;
-   &lt;rdfs:comment xml:lang="en-GB"&gt;Unit&lt;/rdfs:comment&gt;
-
-   &lt;rdfs:subClassOf rdf:resource="owl:Thing"/&gt;
-
- &lt;/owl:Class&gt;
-</pre>
-
-
-
-### CoinsUnitSelection Class
-
-
-![Informative listing of the selected Units (Topbraid Composer)](./media/TopBraid_Units_individuals.png "Informative listing of the selected units (Topbraid Composer)")
-
-
-**Formal Representation in RDF/XML**
-
-<pre> &lt;owl:Class rdf:about="cbim-2.0.rdf#CoinsUnitSelection"&gt;
-   &lt;rdfs:subClassOf rdf:resource="<a rel="nofollow" class="external free" href="http://qudt.org/schema/qudt#Unit">http://qudt.org/schema/qudt#Unit</a>"/&gt;
- &lt;/owl:Class&gt;
-</pre>
-
-
-### Reference framework: Generic
-ntb
-
-
-
-
-
-# Window of Authorization framework
-
-
-## Introduction
+### Introduction
 
 The Window of Authorization is a standard Reference Framework of Coins for defining permissions to read, write or restrict access to information supplied in the information model. The framework contains classes which specify the permissions for accessing members of the Coins 2.0 Object class. These permissions are subclasses of the ObjectPermissions class.
 Permissions are:
@@ -147,7 +91,7 @@ The Window of Authorization file is called COINSWOA.rdf.
 ![Access Permissions](./media/WoA.png "Access permissions")
 
 
-## Details
+### Details
 
 
 **Informative representation of WoA in UML**
@@ -298,13 +242,71 @@ WriteAccess is a subclass of ObjectPermissions. Members of this class may be acc
 
 
 
-## Example
+### Example
 
 
 This figure shows an element, typed as a Cbim-2.0:Object with ReadAccess.
 Since the properties for layerDepth and linkAccess (inherited from the ObjectPermission class) are set, the permission applies to 3 levels following ContainsRelation.
 
 ![WoA Example](./media/WoA_-_Example.png "Example of WoA")
+
+
+## Reference framework: Units
+
+Units is a Reference framework containing an ontology based on the Quantities, Units, Dimensions and Data Types Ontologies, as developed by NASA and TopQuadrant, see [qudt.org](http://qudt.org/).
+
+The Units reference framework contains the qudt:Unit class, referred to by the Unit-property of the NumericProperty class.
+
+It has subclasses for units based on the SI-system, units derived there from, as well as additional units like financial, science- and engineering, physical and dimension-less units.
+The framework also supplies instances (listings) for these classes.
+
+To facilitate an “easy” picklist, the CoinsUnitSelection class is added. From the available units, it contains a selection of mostly used units. This selection can be customized for own purposes.
+
+![Informative representation in UML](./media/600px-Units_-_UML.png "Informative representation of Units in UML")
+
+
+units derived there from => units derived therefrom
+
+
+
+### Unit Class
+
+
+![TopBraid_Units](./media/TopBraid_Units.png "Informative representation of the Unit inheritance graph")
+
+
+**Formal Representation in RDF/XML**
+
+<pre> &lt;owl:Class rdf:about="qudt:Unit"&gt;
+
+   &lt;rdfs:label xml:lang="en-GB"&gt;Unit&lt;/rdfs:label&gt;
+   &lt;rdfs:comment xml:lang="en-GB"&gt;Unit&lt;/rdfs:comment&gt;
+
+   &lt;rdfs:subClassOf rdf:resource="owl:Thing"/&gt;
+
+ &lt;/owl:Class&gt;
+</pre>
+
+
+
+### CoinsUnitSelection Class
+
+
+![Informative listing of the selected Units (Topbraid Composer)](./media/TopBraid_Units_individuals.png "Informative listing of the selected units (Topbraid Composer)")
+
+
+**Formal Representation in RDF/XML**
+
+<pre> &lt;owl:Class rdf:about="cbim-2.0.rdf#CoinsUnitSelection"&gt;
+   &lt;rdfs:subClassOf rdf:resource="<a rel="nofollow" class="external free" href="http://qudt.org/schema/qudt#Unit">http://qudt.org/schema/qudt#Unit</a>"/&gt;
+ &lt;/owl:Class&gt;
+</pre>
+
+
+## Reference framework: Branch Versioning
+ntb
+
+
 
 
 # COINS Navigator
