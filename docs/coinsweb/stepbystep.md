@@ -1,9 +1,7 @@
-# COINS instructions
-
-The implementation contains the following steps, roughly:
+# Implementation guideline
 
 
-## Exporting data to the <a>COINS</a> format
+## Exporting data to the COINS format
 
 1. define the data within your system that you need to exchange
 2. create a mapping between the [COINS Core model ](https://bimloket.github.io/COINS_2.0/coinsweb/#core-model) and the data model of your system
@@ -12,7 +10,7 @@ The implementation contains the following steps, roughly:
 5. transmit this <a>COINS</a> Container to your client
 6. optional, validate the <a>COINS</a> container before sending it to your client
 
-## Importing data from the <a>COINS</a> format
+## Importing data from the COINS format
 
 1. define the locations within your system in which <a>COINS</a> data will be imported
 2. create a mapping between the [COINS Core model ](https://bimloket.github.io/COINS_2.0/coinsweb/#core-model) and the data model of your system
@@ -20,11 +18,11 @@ The implementation contains the following steps, roughly:
 4. validate the <a>COINS</a> data in the Container
 5. import the <a>COINS</a> data into your system
 
-## Exporting data smaples
+## Exporting data samples
 1. Create a COINS container with one object
 2. Create a COINS Container for a simple Bench with subobjects, the Coins Contains Relation.
 
-### Creating a Coins container
+## Creating a Coins container
 This page describes the most basic steps to make for exporting a Coins Container via programming. The code samples are made in C#. It is also possible to use other Microsoft DotNet languges. It is also possible to use the COINS 2.0 API from Java.
 
 
@@ -219,7 +217,58 @@ Here you have to tell the RunTimeCoinsObject that it is a cbim-2.0:Object. In th
 
 When you view the contents of the exported file (see Bestand:Bench1b.ccr) you will find the information about the bench in the BIM folder. In the "content.rdf" file all the information is stored.
 
+### Example: Bench
+
+This page shows how to use the Coins-api.dll and cbim.dll for creating a Coins Contains Relation.
+This sample uses the same bench as in the previous sample. In this example the bench contains of three subobjects:
+
+support-left
+support-right
+beam
+
+![Sample Bench](./media/220px-Bench.png "Sample Bench")
+
+We have to tell the bench that it is both an Object and an Assembly. We call this Multi-Typing. Therefore, you can use the method addType.
+
+<pre>bench.addType(typeof(Assembly));
+</pre>
+
+Multiple typed objects can be cast to the preferred type in order to have access to functions/methods belonging to this type. The next code snippet casts a Bench object to an Assembly.
 
 
+<pre>Assembly benchAsAssembly = (Assembly)bench.@as(typeof(Assembly));
+</pre>
 
+Below, the relations has been programmed for the support-left only. This support-left is both an object and a part. Via the ContainsRelation the bench and the support-left are connected to each other.:
+
+<pre>// Start container
+JenaModelFactory factory = new JenaModelFactory();
+JenaCoinsContainer ccr = new JenaCoinsContainer(factory, "<a rel="nofollow" class="external free" href="http://demo.nl#">http://demo.nl#</a>");
+
+// Create individual
+nl.coinsweb.cbim.Object bench = new nl.coinsweb.cbim.Object(ccr);
+nl.coinsweb.cbim.Object supportLeft = new nl.coinsweb.cbim.Object(ccr);
+ContainsRelation crel = new ContainsRelation(ccr);
+
+// Individual with multiple types
+bench.addType(typeof(Assembly));
+Assembly benchAsAssembly = (Assembly)bench.@as(typeof(Assembly));
+supportLeft.addType(typeof(Part));
+
+// Configure ContainsRelation
+crel.setHasPart((Part)supportLeft.@as(typeof(Part)));
+benchAsAssembly.addHasContainsRelation(crel);  
+   
+// Set property
+bench.setName("Couch");
+supportLeft.setName("Support Left Side");
+
+// Export container
+ccr.export("D:\\assembly.ccr");
+</pre>
+<p>All Coins objects that are put into a Coins Container, must be typed CoinsContainerObject.
+Therefore, this line of code is needed: <br />
+</p>
+<pre>ccr.batchAddCoinsContainerObjectType()
+</pre>
 
