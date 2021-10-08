@@ -73,7 +73,7 @@ Changes within the application are not a part of Coins.
 
 ### Version levels
 
-![Version levels](./media/220px-Versionlevels.png "Version levels")
+![Version levels](./media/220px-Versionlevels.jpg "Version levels")
 
 Versioning can be schematised by the following image. A number of things can be distinguished:
 
@@ -85,6 +85,6 @@ Versioning can be schematised by the following image. A number of things can be 
 
 Between these TrunkVersionObjects there is a relation defined called the nextTrunkVersion (the green arrow from object 1 to 4 and from 4 to 9). When an object gets a nextTrunkVersion it must be classified as an ExpiredEntity, also. In this way, Coins is able to capture all the changes and makes it possible to return to a certain situation. In this way you can follow the changes back to its origin.
 
-![Versioning](./media/Versioning.png "Versioning")
+![Versioning](./media/Versioning.jpg "Versioning")
 
 See also: Reference Framework Branch versioning
