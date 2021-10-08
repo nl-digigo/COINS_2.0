@@ -66,7 +66,7 @@ A Reference framework for adding Systems Engineering functionalities is being de
 
 ## Reference framework: Units
 
-Units is a Reference framework containing an ontology based on the Quantities, Units, Dimensions and Data Types Ontologies, as developed by NASA and TopQuadrant (see [qudt.org](http://qudt.org/).
+Units is a Reference framework containing an ontology based on the Quantities, Units, Dimensions and Data Types Ontologies, as developed by NASA and TopQuadrant, see [qudt.org](http://qudt.org/).
 
 The Units reference framework contains the qudt:Unit class, referred to by the Unit-property of the NumericProperty class.
 
@@ -85,7 +85,8 @@ units derived there from => units derived therefrom
 ### Unit Class
 
 
-![TopBraid_Units](./media/TopBraid_Units.png "Informative representation of the Unit inheritance graph (Topbraid Composer)")
+![TopBraid_Units](./media/TopBraid_Units.png "Informative representation of the Unit inheritance graph")
+
 
 **Formal Representation in RDF/XML**
 
@@ -122,11 +123,10 @@ ntb
 
 
 
-
 # Window of Authorization framework
 
 
-## Intorduction
+## Introduction
 
 The Window of Authorization is a standard Reference Framework of Coins for defining permissions to read, write or restrict access to information supplied in the information model. The framework contains classes which specify the permissions for accessing members of the Coins 2.0 Object class. These permissions are subclasses of the ObjectPermissions class.
 Permissions are:
@@ -145,6 +145,7 @@ linkAccess; defines the objecttype property to use for determining the layer dep
 The Window of Authorization file is called COINSWOA.rdf.
 
 ![Acces Permissions](./media/WoA.png "Acces permissions"]
+
 
 ## Details
 
@@ -180,10 +181,13 @@ ObjectPermissions is a subclass of PermissionClass. It serves as superclass for 
 
 
 **Attributes**
+
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | layerDepth | xsd:integer | number of levels the permission is valid | 
 | linkAccess | ObjectProperty | the property path to folow for determining the layer depth | 
+
+
 
 **Formal Representation in RDF/XML**
 
@@ -214,8 +218,8 @@ ObjectPermissions is a subclass of PermissionClass. It serves as superclass for 
 
 </pre>
 
-<p><br /> 
-</p>
+
+
 <pre> &lt;owl:DatatypeProperty rdf:ID="layerdepth"&gt;
    &lt;rdfs:label xml:lang="en-GB"&gt;layerdepth&lt;/rdfs:label&gt;
    &lt;rdfs:comment xml:lang="en-GB"&gt;determines the layerdepth via the linkAccess relation on which this permission applies&lt;/rdfs:comment&gt;
@@ -225,8 +229,9 @@ ObjectPermissions is a subclass of PermissionClass. It serves as superclass for 
  &lt;/owl:DatatypeProperty&gt;
 
 </pre>
-<p><br /> 
-</p>
+
+
+
 <pre> &lt;owl:ObjectProperty rdf:ID="linkAccess"&gt;
    &lt;rdfs:label xml:lang="en-GB"&gt;linkAccess&lt;/rdfs:label&gt;
    &lt;rdfs:comment xml:lang="en-GB"&gt;specifies the objecttype property used by the layerdepth&lt;/rdfs:comment&gt;
