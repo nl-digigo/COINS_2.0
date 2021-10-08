@@ -144,7 +144,7 @@ layerDepth; property for defining the number of levels the permission is valid (
 linkAccess; defines the objecttype property to use for determining the layer depth.
 The Window of Authorization file is called COINSWOA.rdf.
 
-![Acces Permissions](./media/WoA.png "Acces permissions"]
+![Access Permissions](./media/WoA.png "Access permissions")
 
 
 ## Details
