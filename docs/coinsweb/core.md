@@ -14,8 +14,7 @@ location; this green area describes the relations and classes needed for modelli
 
 ![UML-scheme of the COINS CORE model](./media/600px-UML-schema_1280x888.jpg "UML-scheme of the COINS CORE model")
 
-Or follow this link: 
-https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/presentaties/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf
+Or follow [this link](https://github.com/bimloket/COINS_2.0/blob/master/docs/coinsweb/presentaties/UML_Cbim-2.0_DEFINITIEF_v1.0.pdf)
 
 ## Overview
 
@@ -57,7 +56,7 @@ Contains relation; this relation specifies that an object is defined by its part
 ## Versioning
 
 
-### Version Levels
+### Version Management
 
 Versionmanagement can be definend on two different levels:
 * Application level,
@@ -73,33 +72,18 @@ Changes within the application are not a part of Coins.
 
 ### Version levels
 
-![Version levels](./media/220px-Versionlevels.png "Version levels")
+![Version levels](./media/220px-Versionlevels.jpg "Version levels")
 
 Versioning can be schematised by the following image. A number of things can be distinguished:
 
-All squares are versions of an information item.
-the green squares are the external versions. They specify the Trunk of this version principle. Therefore they are called TrunkVersions.
-the yellow squares are the internal versions. They are called BranchVersions. They make it possible to follow the changes within the internal processes of a party.
-a purple squares means this VersionObject is expired but this object has no successor.
-the current version is number 9.
-Within the Coins core model the TrunkVersioning principle is defined. A reference framework is developed for adding the BranchVersioning functionalities (internal versions).
+* All squares are versions of an information item.
+* the green squares are the external versions. They specify the Trunk of this version principle. Therefore they are called TrunkVersions.
+* the yellow squares are the internal versions. They are called BranchVersions. They make it possible to follow the changes within the internal processes of a party.
+* a purple squares means this VersionObject is expired but this object has no successor. the current version is number 9.
+* Within the Coins core model the TrunkVersioning principle is defined. A reference framework is developed for adding the BranchVersioning functionalities (internal versions).
 
 Between these TrunkVersionObjects there is a relation defined called the nextTrunkVersion (the green arrow from object 1 to 4 and from 4 to 9). When an object gets a nextTrunkVersion it must be classified as an ExpiredEntity, also. In this way, Coins is able to capture all the changes and makes it possible to return to a certain situation. In this way you can follow the changes back to its origin.
 
-### Versioning
-
-Versioning can be schematised by the following image. A number of things can be distinguished:
-
-All squares are versions of an information item.
-the green squares are the external versions. They specify the Trunk of this version principle. Therefore they are called TrunkVersions.
-the yellow squares are the internal versions. They are called BranchVersions. They make it possible to follow the changes within the internal processes of a party.
-a purple squares means this VersionObject is expired but this object has no successor.
-the current version is number 9.
-Within the Coins core model the TrunkVersioning principle is defined. A reference framework is developed for adding the BranchVersioning functionalities (internal versions).
-
-Between these TrunkVersionObjects there is a relation defined called the nextTrunkVersion (the green arrow from object 1 to 4 and from 4 to 9). When an object gets a nextTrunkVersion it must be classified as an ExpiredEntity, also. In this way, Coins is able to capture all the changes and makes it possible to return to a certain situation. In this way you can follow the changes back to its origin.
-
-
-![Versioning](./media/Versioning.png "Versioning")
+![Versioning](./media/Versioning.jpg "Versioning")
 
 See also: Reference Framework Branch versioning
