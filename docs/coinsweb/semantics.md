@@ -82,10 +82,51 @@ When extensions of COINS2 such as OTL's and reference models are compliant with 
 This chapter describes the validations that can executed using the COINS-Lite Pro-File. A validationreport will have hyperlinks to these pages.
 
 
-* COINS-minCar  : minimum cardinality check
-* COINS-maxCar  : maximum cardinality check
-* COINS-carex  : exact cardinality check
-* COINS-QCREx  : exact qualitative cardinality check
+### COINS-minCar
+
+minimum cardinality check
+
+COINS-minCar: minimum cardinality check
+This rule validates if individuals conform to the minimum cardinality contraints. RDF/OWL enables the creation of a Restriction Class with a predicate minimumCardinality. See picture for a minimum cardinality constraint.
+Coins-minCar.png
+
+This rule is triggered by this construct and tests if data complies to this constraint. Properties (datatype and objecttype) can have a minimum cardinality constraint via owl:minCardinality. This validation assesses the propertyvalues and determines if they comply with the minimum. If an individual has less propertyvalues then demanded then this will be reported. The exact amount of propertyvalues and the minimum demand will we reported.
+
+![COINS-minCar](media/600px-Coins-minCar.png)
+
+## COINS-maxCar
+
+maximum cardinality check
+
+This rule validates if individuals conform to the maximum cardinality contraints. RDF/OWL enables the creation of a Restriction Class with a predicate maximumCardinality. See picture for a maximum cardinality constraint.
+Coins-maxCar.png
+
+This rule is triggered by this construct and tests if data complies to this constraint. Properties (datatype and objecttype) can have a maximum cardinality constraint via owl:maxCardinality. This validation assesses the propertyvalues and determines if they comply with the maximum. If an individual has more propertyvalues then demanded then this will be reported. The exact amount of propertyvalues and the maximum demand will we reported.
+
+![COINS-maxCar](media/600px-Coins-maxCar.png)
+
+## COINS-carex
+
+exactly cardinality check
+
+This rule validates if individuals conform to the exactly cardinality contraints. RDF/OWL enables the creation of a Restriction Class with a predicate cardinality. See picture for a minimum cardinality constraint.
+Coins-carex.png
+
+This rule is triggered by this construct and tests if data complies to this constraint. Properties (datatype and objecttype) can have a exactly cardinality constraint via owl:cardinality. This validation assesses the propertyvalues and determines if they comply. If an individual has more or less propertyvalues then demanded then this will be reported. The exact amount of propertyvalues and the demand will we reported.
+
+![COINS-carex](media/600px-Coins-carex.png)
+
+## COINS-QCREx
+
+exact qualitative cardinality check
+
+This rule validates if individuals conform to the specific cardinality constraints for objectproperties. ObjectProperties can be constraint with a cardinality constraint on a certain type. For example a Bridge can be constraint to have connections with exactly 2 Abutments. So the amount (2) is constraint and the type of object is constraints (Abutment).
+COINS-CQREx.png
+
+This rule counts the amounts of the correct values and validates this against the demanded cardinality. If the counted value differs from the demanded amount then this will be reported
+
+![COINS-QCREx](media/600px-COINS-CQREx.png)
+
 * COINS-QCRMax  : maxiumum qualitative cardinality check
 * COINS-QCRMin  : minimum qualitative cardinality check
 * COINS-FUP  : functional property check
