@@ -1,7 +1,7 @@
 # COINS_2.0
-Documentatie horend bij COINS 2.0 Let op, voor nieuwe projecten is COINS 2.0 niet meer actueel. Voor informatiecontainers geldt [ICDD](https://github.com/bimloket/ICDD-NL), voor ontologiën en semantische datauitwisseling geldt in de bouwsector de NEN 2660-2 als uitgangspunt.
+Documentatie horend bij COINS 2.0 Let op, voor nieuwe projecten is COINS 2.0 niet meer actueel. Voor informatiecontainers geldt [ICDD](https://github.com/bimloket/ICDD-NL).
 
-De documentatie is in 'respec'format te lezen op:  https://bimloket.github.io/COINS_2.0/
+De documentatie is in 'respec'format te lezen: [COINS 2.0](https://bimloket.github.io/COINS_2.0/) en [Archief 1.0](https://bimloket.github.io/COINS_2.0/coinsarchive/)
 
 COINS 2.0 bestaat uit 2 onderdelen:  
 
@@ -9,7 +9,7 @@ Een ‘container’ waarin je bestanden of datasets aan elkaar linkt, zodat je d
 
 Een datamodel voor de gegevens in een dataset. 
 
-COINS 2.0 staat nu nog op de ‘Pas-toe-of-leg-uit’-lijst van Forum voor Standaardisatie. We raden nieuwe gebruikers aan om deze niet meer toe te passen, omdat er inmiddels een internationale opvolger is voor deel 1: “ISO 21597-1:2020. Information container for linked document delivery — Exchange specification — Part 1: Container.” Afgekort: ICDD. Ook voor het tweede onderdeel is inmiddels een opvolger: de NTA 8035. Deze kunnen nog niet op de “Pas-toe-of-leg-uit”-lijst komen, omdat daarvoor eerst Nederlandse gebruikers de normen moeten toepassen. 
+COINS 2.0 staat nu nog op de ‘Pas-toe-of-leg-uit’-lijst van Forum voor Standaardisatie. We raden nieuwe gebruikers aan om deze niet meer toe te passen, omdat er inmiddels een internationale opvolger is voor deel 1: “ISO 21597-1:2020. Information container for linked document delivery — Exchange specification — Part 1: Container.” Afgekort: ICDD, de handleidingen van BIM loket staan hier: [ICDD](https://github.com/bimloket/ICDD-NL). Ook voor het tweede onderdeel is inmiddels een opvolger: voor ontologiën en semantische datauitwisseling geldt in de bouwsector de NEN 2660-2 als uitgangspunt.
 
 Wanneer wordt COINS 2.0 nog gebruikt? 
 
