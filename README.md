@@ -1,5 +1,5 @@
 # COINS_2.0
-Documentatie horend bij COINS 2.0 Let op, voor nieuwe projecten is COINS 2.0 niet meer actueel.
+Documentatie horend bij COINS 2.0 Let op, voor nieuwe projecten is COINS 2.0 niet meer actueel. Voor informatiecontainers geldt [ICDD](https://github.com/bimloket/ICDD-NL), voor ontologiën en semantische datauitwisseling geldt in de bouwsector de NEN 2660-2 als uitgangspunt.
 
 De documentatie is in 'respec'format te lezen op:  https://bimloket.github.io/COINS_2.0/
 
