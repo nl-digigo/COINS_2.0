@@ -45,7 +45,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:baseline object
+## Cbim:BaselineObject
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The domain baseline that owns the range object.
 
@@ -62,7 +62,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:catalogue part
+## Cbim:CataloguePart
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The domain amount quantity that is typed by the range catalogue part.
 
@@ -78,7 +78,7 @@ cbim:isAffectedBy
 **[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**  cbim:propertyType
 
 
-## Cbim:child
+## Cbim:Child
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The range child function fulfiller of the domain parent function fulfiller.
 
@@ -95,7 +95,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:contains
+## Cbim:Contains
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The range amount quantity owned by the domain physical object or catalogue part.
 
@@ -111,7 +111,7 @@ cbim:isAffectedBy
 **[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)** cbim:propertyValue
 
 
-## Cbim:creator
+## Cbim:Creator
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The range person or organisation is creator of the domain object.
 
@@ -124,7 +124,7 @@ cbim:isAffectedBy
 **[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:PersonOrOrganisation 
 
 
-## Cbim:current state
+## Cbim:CurrentState
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The range state is the current state of the domain function fulfiller.
 
@@ -136,7 +136,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:document
+## Cbim:Document
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The domain object references the range document.
 
@@ -148,7 +148,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:document URI
+## Cbim:DocumentURI
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**   The URI of the document or identifiable object inside the document. 
 
@@ -161,7 +161,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:female terminal
+## Cbim:FemaleTerminal
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**   The domain connection attaches the range female terminal.
 
@@ -175,7 +175,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:first parameter
+## Cbim:FirstParameter
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The domain explicit 3D representation points to the range parameter as first parameter.
 
@@ -187,7 +187,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:fulfills
+## Cbim:Fulfills
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The domain function fulfiller fulfills the range function.
 
@@ -201,7 +201,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:is affected by
+## Cbim:IsAffectedBy
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**   The domain function fulfiller or state is transformed by the range task.
 
@@ -215,7 +215,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:is fulfilled by
+## Cbim:IsFulfilledBy
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The domain function is fulfilled by the range function fulfiller.
  
@@ -230,7 +230,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:is situated in
+## Cbim:IsSituatedIn
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The domain physical object is situated in the range space.
 
@@ -245,7 +245,7 @@ cbim:isAffectedBy
 **[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**  cbim:situates
 
 
-## Cbim:locator
+## Cbim:Locator
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**   The domain amount, function fulfiller or terminal specify a range locator as subreference frame.
 
@@ -258,7 +258,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:male terminal
+## Cbim:MaleTerminal
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**   The domain connection attaches the range male terminal.
 
@@ -285,7 +285,7 @@ cbim:isAffectedBy
 **[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:Vector
 
 
-## Cbim:min bounding box
+## Cbim:MinBoundingBox
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**   The domain locator specifies the range vector as minimum corner location.
 
@@ -297,7 +297,7 @@ cbim:isAffectedBy
 
 **[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:Vector
 
-## Cbim:modifier
+## Cbim:mMdifier
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**   The range person or organisation is modifier of the domain object.
 
@@ -309,7 +309,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:next parameter
+## Cbim:NextParameter
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**   The domain parameter points to the range parameter as next parameter.
 
@@ -322,7 +322,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:next version
+## Cbim:NextVersion
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The domain C-BIM object points to the range C-BIM object as its next version.
 
@@ -334,7 +334,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:parent
+## Cbim:Parent
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The range parent function fulfiller of the domain child function fulfiller.
 
@@ -350,7 +350,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:performance
+## Cbim:Performance
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The range performance that characterizes the domain function fulfiller or state.
 
@@ -365,7 +365,7 @@ cbim:isAffectedBy
 **[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**  cbim:performanceOf
 
 
-## Cbim:performance of
+## Cbim:PerformanceOf
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The range function fulfiller or state that is characterized by the domain performance.
 
@@ -380,7 +380,7 @@ cbim:isAffectedBy
 
 
 
-## Cbim:physical child
+## Cbim:PhysicalChild
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The range child physical object of the domain parent physical object.
 
@@ -398,7 +398,7 @@ cbim:isAffectedBy
 **[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**  cbim:child
 
 
-## Cbim:physical parent
+## Cbim:PhysicalParent
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The range parent physical object of the domain child physical object.
 
@@ -416,7 +416,7 @@ cbim:isAffectedBy
 **[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**  cbim:parent
 
 
-## Cbim:previous state
+## Cbim:PreviousState
 
 **[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The range state is the previous state of the domain state.
 
@@ -427,297 +427,259 @@ cbim:isAffectedBy
 **[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:State
 
 
-## Cbim:primary orientation
+## Cbim:PrimaryOrientation
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The range vector that specifies the primary orientation of the domain locator.
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	 	cbim:Locator
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:Vector
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
 
-## Cbim:property type
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
+## Cbim:PropertyType
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The range type of the domain property value.
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:PropertyValue
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)** cbim:PropertyType
 
-## Cbim:property value
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
+## Cbim:PropertyValue
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**   The range property value owned by the domain amount or catalogue part or parameter.
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:Amount or cbim:CataloguePart or cbim:Parameter
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
 
-## Cbim:requirement
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:PropertyValue
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+## Cbim:Requirement
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**   The range requirement that characterizes the domain function.
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**		cbim:Function
 
-## Cbim:requirement of
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:Requirement
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
+**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**  cbim:requirementOf
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+## Cbim:RequirementOf
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The range function that is characterized by the domain requirement.
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:Requirement
 
-## Cbim:secondary orientation
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:Function
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
+**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**  cbim:requirementOf
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
+## Cbim:SecondaryOrientation
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**   The range vector that specifies the secondary orientation of the domain locator.
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:Locator
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:Vector
 
-## Cbim:shape
+## Cbim:Shape
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The range explicit 3D representation that specifies the 3D shape of the domain function fulfiller or terminal or catalog part or state.
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)**  [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:FunctionFulfiller or cbim:Terminal or cbim:CataloguePart or cbim:State
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:Explicit3DRepresentation
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
 
-## Cbim:situates
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
+## Cbim:Situates
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The domain space situates the range physical object.
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)**  [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:Space
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:PhysicalObject
 
-## Cbim:spatial child
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
+**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**  cbim:IsSituatedIn
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+## Cbim:SpatialChild
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The range child space of the domain parent space.
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** [owl:TransitiveProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:Space
 
-## Cbim:spatial parent
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  	cbim:Space
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
+**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**  cbim:spatialParent
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
+**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**  cbim:child
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+## Cbim:SpatialParent
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The range parent space of the domain child space.
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** [owl:TransitiveProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:Space
 
-## Cbim:state of
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  	cbim:Space
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
+**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**  cbim:spatialChild
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
+**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**  cbim:parent
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+## Cbim:StateOf
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The range function fulfiller is the container of the domain state.
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**		cbim:State
 
-## Cbim:supertype
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:FunctionFulfiller
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
+## Cbim:Supertype
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The range catalogue part is the supertype of the domain catalogue part.
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:CataloguePart
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:CataloguePart
 
-## Cbim:task type
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
+## Cbim:TaskType
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The range task type is the type of the domain task.
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:Task
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
 
-## Cbim:terminal
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:TaskType
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+## Cbim:Terminal
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The range terminal that is attached to the domain function fulfiller.
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)**  [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**		cbim:FunctionFulfiller
 
-## Cbim:terminal of
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:Terminal
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
+**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**  cbim:terminalOf
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+## Cbim:TerminalOf
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**  The range function fulfiller that is attached by the domain terminal.
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)**  [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-## Cbim:translation
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**		cbim:Terminal
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:FunctionFulfiller  
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
+**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**  cbim:terminal
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+## Cbim:Translation
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**   The range vector that specifies the translation of the domain locator.
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)**  [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:Locator
 
-## Cbim:value domain
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:Vector
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+## Cbim:ValueDomain
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**   The value domain of the property type.
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)**  [owl:FunctionalProperty](http://www.w3.org/2002/07/owl#FunctionalProperty)
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	 cbim:PropertyType
 
-## Cbim:value domain resource
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:ValueDomain
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
+## Cbim:ValueDomainResource
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The value domain resource of the value domain.
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** [owl:FunctionalProperty](http://www.w3.org/2002/07/owl#FunctionalProperty)
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:ValueDomain
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  rdfs:Resource
 
-## Cbim:verification function fulfiller
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
+## Cbim:VerificationFunctionFulfiller
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)**   The range function fulfiller that identifies the domain verification.
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)**    [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:Verification
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:FunctionFulfiller
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
 
+## Cbim:VerificationPerformer
 
-## Cbim:verification performer
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The range person or organisation that performs the domain verification.
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)**   [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:Verification
 
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:PersonOrOrganisation
 
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
+## Cbim:VerificationRequirement
 
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
+**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** The range requirement that identifies the domain verification.
 
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)**   [owl:ObjectProperty](http://www.w3.org/2002/07/owl#ObjectProperty)
 
-## Cbim:verification requirement
+**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	cbim:Verification
 
-**[rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)** 
-
-**[rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)** 
-
-**[rdfs:domain](http://www.w3.org/2000/01/rdf-schema#domain)**	
-
-**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**
-
-**[owl:inbverseOf](http://www.w3.org/2000/01/rdf-schema#inverseOf)**
-
-**[rdfs:subPropertyOf](http://www.w3.org/2000/01/rdf-schema#subPropertyOf)**
+**[rdfs:range](http://www.w3.org/2000/01/rdf-schema#range)**  cbim:Requirement
