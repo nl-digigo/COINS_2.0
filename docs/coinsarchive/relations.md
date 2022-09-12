@@ -788,10 +788,10 @@ Those rules are:
 </li></ul>
 
 
-#### individual object
+### individual object
 Besides the specification method based on object tree access individual CBIM objects can declared explicitly to reside in an authorization class. This possibility is sometimes needed to overrule the standard propagation rules or when, in an early model stage, the object tree is not available yet.
 
-#### transaction
+### transaction
 
 The WoA specification XML file should be part of a COINS container. By convention, it is stored in a folder named woa.
 
@@ -881,7 +881,7 @@ The serialization of the WoA specification is in XML format. The XML Schema is s
 &lt;/xs:schema&gt;
 </pre>
 
-#### WoA Checking
+### WoA Checking
 
 There are two ways to check on violations of the WoA specification:
 
@@ -894,7 +894,7 @@ Before the actual merge operation a final check is done. The COINS Building Info
 
 As a rule, more than one transaction will stand out at an arbitrary point in time. The BIM manager should have an overview of all those transactions and their corresponding WoA's. In principle, write access areas should not overlap. This will prevent update clashes. The WoA specification offers fine tuning in updating the relationships giving write access for relation type A (for example updating parent/child relations) while blocking write access for relation type B (for example attaching planning objects).
 
-#### Navigator
+### Navigator
 
 ![Window of Authorization pop-up menu.](./media/NavigatorWoAPopupMenu.png "Window of Authorization pop-up menu.") 
 
@@ -913,7 +913,7 @@ A Window of Authorization can be specified using the object tree panel. Selectin
 </li><li> <i>Reset WoA</i><br />Remove the current WoA specification.
 </li></ul>
 
-#### Colour coding
+### Colour coding
 
 ![Example colour coding in the object tree panel.](./media/NavigatorColourCoding.png "Example colour coding in the object tree panel.") 
 
@@ -932,8 +932,7 @@ No access.
 
 The red colour code (no access rights) can only be observed in a CBIS environment. During the generation of a COINS Container the no-access information objects are simply skipped.
 
-
-#### Violation messages
+### Violation messages
 
 
 ![Window of Authorization violation warning.](./media/NavigatorWoAWarning.png "Window of Authorization violation warning.") 
@@ -941,6 +940,1633 @@ The red colour code (no access rights) can only be observed in a CBIS environmen
 
 The COINS Navigator actively checks all changes to a CBIM object. If a violation is detected a warning message is issued.
 The COINS Navigator offers the option to ignore the WoA specification. The reason is that during the execution of the assignment it may turn out that the WoA was defined to restrictively. In that case it could be very cumbersome to generate a new COINS Container and restart the transaction. Then it could be handy to circumvent the authorization. Still there is a final check during the merge operation with the central BIM. At that point in the transaction this violation will be detected and must be approved or rejected.
+
+
+
+## Document linking
+
+he COINS Building Information Model (CBIM) is of course object based. However, until the ultimate goal that all available information is object based we have to deal with document oriented information. CBIM has a Document class to link to external documents which enables any CBIM object to attach a document even Document objects itself.
+
+
+
+![UML Class diagram of the Document class and its subclasses.](./media/Document-1.1.png "UML Class diagram of the Document class and its subclasses.") 
+
+The Document class may specify a file path or a file URI or both to address the indicated document. If both options are used the container document copy precedes the weblink document copy.
+If a document file URI is specified the user has to decide when the model is exported into a COINS Container if the document should be physically stored or only virtually as a hyperlink.
+The Document class has several specializations:
+
+* Explicit 3D Representation
+Used for 3D shape related documents.
+* Visi Message
+Used to attach meta-data how this particular object showed up in the model.
+* Library Reference
+Used to link to an object definition in an object library.
+
+
+### 3D representation
+
+
+![UML Class diagram of the Explicit 3D Representation class.](./media/Explicit3DRepresentation-1.1.png "UML Class diagram of the Explicit 3D Representation class.") 
+
+Explicit 3D representation objects are typically addressed by a subset of the CBIM classes:
+
+* FunctionFulfiller
+* State
+* Terminal
+* CataloguePart
+
+To distinguish these specific shape related documents they are specified using the shape relation.
+
+If the shape document contains object based information where objects have unique addressable ID's an Explicit 3D Representation object may use a fragment identifier to deep link to an object inside the shape document.
+
+
+![UML Instance diagram of an Explicit 3D Representation object linking to an internal shape document or deep linking a shape object within an internal shape document.](./media/File-ShapeDeepLink-1.1.png "UML Instance diagram of an Explicit 3D Representation object linking to an internal shape document or deep linking a shape object within an internal shape document.") 
+
+
+![UML Instance diagram of an Explicit 3D Representation object linking to an external shape document or deep linking a shape object within an external shape document.](./media/URL-ShapeDeepLink-1.1.png "UML Instance diagram of an Explicit 3D Representation object linking to an external shape document or deep linking a shape object within an external shape document.") 
+
+If a FunctionFulfiller specifies States shape links can be discriminated to a certain state (e.g. early design, detail design, as-built, etc.). More generally a shape relation may address more than one Explicit 3D Representation. The recommended semantics is that in that case various representations of the same shape are intended. However, in case of deep linking in the same shape document the various shape objects are supposed to form one representation.
+
+If the shape document/object publishes parameters that can be valued from outside an Explicit 3D Representation may specify parameter objects to specify specific values for specific parameters.
+
+
+
+![UML Class diagram of the Parameter class and its subclasses.](./media/UML-Parameter.png "UML Class diagram of the Parameter class and its subclasses.") 
+
+![UML Instance diagram of an Explicit 3D representation object that specifies parameter values for a linked parametrized shape object. By convention the parameter object name is identical to the parameter name of the shape object.](./media/UML-Parameters.png "UML Instance diagram of an Explicit 3D representation object that specifies parameter values for a linked parametrized shape object. By convention the parameter object name is identical to the parameter name of the shape object.") 
+
+### VISI message
+
+![UML Class diagram of the VISI Message class and its subclasses.](./media/UML-VisiMessage.png "UML Class diagram of the VISI Message class and its subclasses.") 
+
+A Visi Message object is a document link that attaches a meta-data document to the object that specifies the link. In spite of the class name the referenced document could be any document and not necessarily a VISI message. The link is typically created during a merge operation of a COINS Container into a COINS Building Information System. New, updated or expired COINS objects will reference a meta-date object that clarifies the origin of their current state. In case of a VISI message the meta-data could contain:
+
+* the transaction involved
+* the executioner
+* the persons in role
+* message specific data
+
+### Library reference
+
+![UML Class diagram of the Library Reference class and its subclasses.](./media/UML-LibraryReference.png "UML Class diagram of the Library Reference class and its subclasses.") 
+
+A Library Reference object is a document link that addresses a definition in an external object library. Typical examples are:
+
+* IFD Library
+* Cheobs
+* []TIM/2BA](https://www.etim-international.com/)
+
+However, a library reference could also link to company or project object library.
+
+## COINS-IO API
+
+
+The COINS-IO API is a platform independent interface to facilitate application programmers with functions to read and write CBIM model files and importing and exporting COINS containers. To fulfill the platform independence requirement the implementation of the IO functions is realized in Java. The API actually publishes two different interfaces:
+
+a tightly coupling
+which is gained by direct calling of the Java functions (by a Java application or using a generated DLL (eg. IKVM).
+
+a loosely coupling
+which uses a SOAP protocol in a service oriented architecture.
+
+![CoinsIO_Architecture](./media/CoinsIO_Architecture.png "CoinsIO_Architecture") 
+
+The SOAP protocol offers the opportunity to install COINS-IO as a client-server architecture where the server may or may not run on the same platform. This choice has some influence on the behaviour of some of the API functions. For example if the server does not run on the same platform local files need to be uploaded before the load or importContainer functions can be invoked. However, if these files can be retrieved from the web the location of the server is not relevant anymore.
+
+Software to implement a COINS-IO interface yourself is available, see #Software.
+
+### API definition
+
+Let op, de linkjes in deze tabel werken niet meer
+
+<table class="wikitable" width="90%" border="1" cellpadding="5" cellspacing="0" align="center">
+
+<tr valign="top">
+<th colspan="3">
+<div>API definition</div>
+</th></tr>
+<tr valign="top">
+<th>  Function call
+</th><th>  Return value
+</th><th>  Description
+</th></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php?title=API_addAttributeFloatValue&amp;action=edit" class="new" title="API addAttributeFloatValue">addAttributeFloatValue(String, int, Float)</a>
+</td><td> void
+</td><td> <b>postponed</b> Since there are no multiple valued attributes in CBIM
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php?title=API_addAttributeIntValue&amp;action=edit" class="new" title="API addAttributeIntValue">addAttributeIntValue(String, int, Integer)</a>
+</td><td> void
+</td><td> <b>postponed</b> Since there are no multiple valued attributes in CBIM
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php?title=API_addAttributeStringValue&amp;action=edit" class="new" title="API addAttributeStringValue">addAttributeStringValue(String, int, String)</a>
+</td><td> void
+</td><td> <b>postponed</b> Since there are no multiple valued attributes in CBIM
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_addObject" title="API addObject">addObject(int, String, String)</a>
+</td><td> String
+</td><td> Create and add a new object to the model.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_addObjectWithId" title="API addObjectWithId">addObjectWithID(int, String, String, String)</a>
+</td><td> void
+</td><td> Create and add object with ID to the model.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_addOntology" title="API addOntology">addOntology(int, String)</a>
+</td><td> void
+</td><td> Add an imported ontology to the model.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_addRelationTargetObject" title="API addRelationTargetObject">addRelationTargetObject(String, String, String)</a>
+</td><td> void
+</td><td> Add the relation target object.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_cloneAttributeValues" title="API cloneAttributeValues">cloneAttributeValues(String, String)</a>
+</td><td> void
+</td><td> Clone the attribute values.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_cloneRelations" title="API cloneRelations">cloneRelations(String, String)</a>
+</td><td> void
+</td><td> Clone the relations.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_compareAttributeValues" title="API compareAttributeValues">compareAttributeValues(String, String)</a>
+</td><td> String[]
+</td><td> Compare the attribute values.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_compareRelations" title="API compareRelations">compareRelations(String, String)</a>
+</td><td> String[]
+</td><td> Compare the relations.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_create" title="API create">create(String)</a>
+</td><td> int
+</td><td> Create a new Coins model.
+</td></tr>
+<tr valign="top">
+<td> export(String, String, int)
+</td><td> void
+</td><td> <b>obsolete</b> see <a href="/wiki/index.php/API_exportContainer" title="API exportContainer">exportContainer(int, String)</a>
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_exportContainer" title="API exportContainer">exportContainer(int, String)</a>
+</td><td> void
+</td><td> Exports a <a href="/wiki/index.php/Coins-container" title="Coins-container">COINS container</a> from a given model.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getAttributeBooleanValue" title="API getAttributeBooleanValue">getAttributeBooleanValue(String, String)</a>
+</td><td> boolean
+</td><td> Return the boolean typed attribute value.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getAttributeDateValue" title="API getAttributeDateValue">getAttributeDateValue(String, String)</a>
+</td><td> long
+</td><td> Return the date typed attribute value.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getAttributeDomain" title="API getAttributeDomain">getAttributeDomain(int, String)</a>
+</td><td> String
+</td><td> Get the domain class of an attribute type.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getAttributeFloatValue" title="API getAttributeFloatValue">getAttributeFloatValue(String, String)</a>
+</td><td> float
+</td><td> Return the float typed attribute value.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php?title=API_getAttributeFloatValues&amp;action=edit" class="new" title="API getAttributeFloatValues">getAttributeFloatValues(String, String)</a>
+</td><td> float[]
+</td><td> <b>postponed</b> Since there are no multiple valued attributes in CBIM
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getAttributeIntegerValue" title="API getAttributeIntegerValue">getAttributeIntegerValue(String, String)</a>
+</td><td> int
+</td><td> Return the integer typed attribute value.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php?title=API_getAttributeIntegerValues&amp;action=edit" class="new" title="API getAttributeIntegerValues">getAttributeIntegerValues(String, String)</a>
+</td><td> int[]
+</td><td> <b>postponed</b> Since there are no multiple valued attributes in CBIM
+</td></tr>
+<tr valign="top">
+<td> getAttributeName(int)
+</td><td> String
+</td><td> <b>obsolete</b> see <a href="/wiki/index.php/API_getAttributes" title="API getAttributes">getAttributes</a>
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getAttributeRange" title="API getAttributeRange">getAttributeRange(int, String)</a>
+</td><td> String
+</td><td> Return the literal range of an attribute type.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getAttributes" title="API getAttributes">getAttributes(int)</a>
+</td><td> String[]
+</td><td> Return the attribute type ID's of this model (plus imported models).
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getAttributeStringValue" title="API getAttributeStringValue">getAttributeStringValue(String, String)</a>
+</td><td> String
+</td><td> Return the string typed attribute value.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php?title=API_getAttributeStringValues&amp;action=edit" class="new" title="API getAttributeStringValues">getAttributeStringValues(String, String)</a>
+</td><td> String[]
+</td><td> <b>postponed</b> Since there are no multiple valued attributes in CBIM
+</td></tr>
+<tr valign="top">
+<td> getAttributeUri(int)
+</td><td> String
+</td><td> <b>obsolete</b> see <a href="/wiki/index.php/API_getAttributes" title="API getAttributes">getAttributes</a>
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php?title=API_getAttributeValuesCount&amp;action=edit" class="new" title="API getAttributeValuesCount">getAttributeValuesCount(String, int)</a>
+</td><td> int
+</td><td> <b>postponed</b> Since there are no multiple valued attributes in CBIM
+</td></tr>
+<tr valign="top">
+<td> getClassAttributeCount(int)
+</td><td> int
+</td><td> <b>obsolete</b> see <a href="/wiki/index.php/API_getClassAttributes" title="API getClassAttributes">getClassAttributes</a>
+</td></tr>
+<tr valign="top">
+<td> getClassAttributeID(int, int)
+</td><td> int
+</td><td> <b>obsolete</b> see <a href="/wiki/index.php/API_getClassAttributes" title="API getClassAttributes">getClassAttributes</a>
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getClassAttributes" title="API getClassAttributes">getClassAttributes(int, String)</a>
+</td><td> String[]
+</td><td> Return the attributeID's of a class.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getClasses" title="API getClasses">getClasses(int)</a>
+</td><td> String[]
+</td><td> Return the class ID's of this model (plus imported models).
+</td></tr>
+<tr valign="top">
+<td> getClassName(int)
+</td><td> String
+</td><td> <b>obsolete</b> see <a href="/wiki/index.php/API_getClasses" title="API getClasses">getClasses</a>
+</td></tr>
+<tr valign="top">
+<td> getClassRelationCount(int)
+</td><td> int
+</td><td> <b>obsolete</b> see <a href="/wiki/index.php/API_getClassRelations" title="API getClassRelations">getClassRelations</a>
+</td></tr>
+<tr valign="top">
+<td> getClassRelationID(int, int)
+</td><td> int
+</td><td> <b>obsolete</b> see <a href="/wiki/index.php/API_getClassRelations" title="API getClassRelations">getClassRelations</a>
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getClassRelations" title="API getClassRelations">getClassRelations(int, String)</a>
+</td><td> String[]
+</td><td> Return the relationID's of a class.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getInverse" title="API getInverse">getInverse(String)</a>
+</td><td> String
+</td><td> Get the URI of the inverse of the specified relation or null.
+</td></tr>
+<tr valign="top">
+<td> getInverseName(int)
+</td><td> String
+</td><td> <b>obsolete</b> see <a href="/wiki/index.php/API_getInverse" title="API getInverse">getInverse(String)</a>
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getModelUri" title="API getModelUri">getModelUri(int)</a>
+</td><td> String
+</td><td> Get the URI of the model.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getObjectClass" title="API getObjectClass">getObjectClass(String)</a>
+</td><td> String
+</td><td> Return the class of an object.
+</td></tr>
+<tr valign="top">
+<td> getObjectID(int, int)
+</td><td> String
+</td><td> <b>obsolete</b> see <a href="/wiki/index.php/API_getObjectIDs" title="API getObjectIDs">getObjectIDs</a>
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getObjectIDs" title="API getObjectIDs">getObjectIDs(int)</a>
+</td><td> String[]
+</td><td> Return the objectID's in this model.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getObjectsCount" title="API getObjectsCount">getObjectsCount(int)</a>
+</td><td> int
+</td><td> Return the number of objects in the model.
+</td></tr>
+<tr valign="top">
+<td> getObjectUri(String)
+</td><td> String
+</td><td> <b>obsolete</b> see <a href="/wiki/index.php/API_getObjectIDs" title="API getObjectIDs">getObjectIDs</a>
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getOntologies" title="API getOntologies">getOntologies(int)</a>
+</td><td> String[]
+</td><td> List all imported ontologies.
+</td></tr>
+<tr valign="top">
+<td> getRelationName(int)
+</td><td> String
+</td><td> <b>obsolete</b> see <a href="/wiki/index.php/API_getRelations" title="API getRelations">getRelations</a>
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getRelations" title="API getRelations">getRelations(int)</a>
+</td><td> String[]
+</td><td> Get the relation type ID's of this model (plus imported models).
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getRelationsCount" title="API getRelationsCount">getRelationsCount(String, String)</a>
+</td><td> int
+</td><td> Return the number of instances of this relation.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getRelationTargetObject" title="API getRelationTargetObject">getRelationTargetObject(String, String)</a>
+</td><td> String
+</td><td> Return the ID of the target object of the relation.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_getRelationTargetObjects" title="API getRelationTargetObjects">getRelationTargetObjects(String, String)</a>
+</td><td> String[]
+</td><td> Return the ID's of the target objects of the relation.
+</td></tr>
+<tr valign="top">
+<td> getRelationUri(int)
+</td><td> String
+</td><td> <b>obsolete</b> see <a href="/wiki/index.php/API_getRelations" title="API getRelations">getRelations</a>
+</td></tr>
+<tr valign="top">
+<td> getValueType(int)
+</td><td> int
+</td><td> <b>obsolete</b> see <a href="/wiki/index.php/API_getAttributeRange" title="API getAttributeRange">getAttributeRange</a>
+</td></tr>
+<tr valign="top">
+<td> import(String, String)
+</td><td> int
+</td><td> <b>renamed</b> (because of Java reserved word clash) see <a href="/wiki/index.php/API_importContainer" title="API importContainer">importContainer</a>
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_importContainer" title="API importContainer">importContainer(String, String)</a>
+</td><td> int
+</td><td> Imports a model from a given <a href="/wiki/index.php/Coins-container" title="Coins-container">COINS container</a>.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_isAttributeNull" title="API isAttributeNull">isAttributeNull(String, String)</a>
+</td><td> boolean
+</td><td> Test if the attribute value for the specified object is set?
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_isMultiple" title="API isMultiple">isMultiple(String, String)</a>
+</td><td> boolean
+</td><td> Has the specified relation type used in the specified class a max cardinality of more than one?
+</td></tr>
+<tr valign="top">
+<td> isRelation(int)
+</td><td> boolean
+</td><td> <b>obsolete</b> Relations (object properties) and attributes (datatype properties) are discriminated through out the whole API.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_load" title="API load">load(String)</a>
+</td><td> int
+</td><td> Load a Coins model. The uri may refer to a web file (uri: "http:// ... /[Coins model file name].owl") or a local file in case client and server run on the same platform.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_removeAttributeValue" title="API removeAttributeValue">removeAttributeValue(String, String)</a>
+</td><td> void
+</td><td> Remove (or unset) the attribute value of the specified object
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php?title=Postponed_API_removeAttributeValue&amp;action=edit" class="new" title="Postponed API removeAttributeValue">removeAttributeValue(String, int, String)</a>
+</td><td> void
+</td><td> <b>postponed</b> Since there are no multiple valued attributes in CBIM
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_removeObject" title="API removeObject">removeObject(int, String)</a>
+</td><td> void
+</td><td> Remove an object from the model and remove also all relations with this object.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_removeRelationTargetObject" title="API removeRelationTargetObject">removeRelationTargetObject(String, String, String)</a>
+</td><td> void
+</td><td> Remove an object from the relations set.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_reset" title="API reset">reset()</a>
+</td><td> void
+</td><td> Reset the current session and forget all previously loaded models.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_save" title="API save">save(int, String)</a>
+</td><td> void
+</td><td> Save the model as a local file. This function will only work if the server is installed as local host.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_setAttributeBooleanValue" title="API setAttributeBooleanValue">setAttributeBooleanValue(String, String, boolean)</a>
+</td><td> void
+</td><td> (Re)Set the boolean typed attribute value.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_setAttributeDateValue" title="API setAttributeDateValue">setAttributeDateValue(String, String, long)</a>
+</td><td> void
+</td><td> (Re)Set the date typed attribute value.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_setAttributeFloatValue" title="API setAttributeFloatValue">setAttributeFloatValue(String, String, float)</a>
+</td><td> void
+</td><td> (Re)Set the float typed attribute value.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_setAttributeIntegerValue" title="API setAttributeIntegerValue">setAttributeIntegerValue(String, String, int)</a>
+</td><td> void
+</td><td> (Re)Set the integer typed attribute value.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_setAttributeStringValue" title="API setAttributeStringValue">setAttributeStringValue(String, String, String)</a>
+</td><td> void
+</td><td> (Re)Set the string typed attribute value.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_setRelationTargetObject" title="API setRelationTargetObject">setRelationTargetObject(String, String, String)</a>
+</td><td> void
+</td><td> (Re)Set the relation target object.
+</td></tr>
+<tr valign="top">
+<td> <a href="/wiki/index.php/API_upload" title="API upload">upload(String, String, byte[])</a>
+</td><td> void
+</td><td> Upload a file to the server.
+</td></tr></table>
+
+## WSDL script
+
+
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;wsdl:definitions xmlns:wsdl="<a href="http://schemas.xmlsoap.org/wsdl/" class='external free' title="http://schemas.xmlsoap.org/wsdl/" rel="nofollow">http://schemas.xmlsoap.org/wsdl/</a>" xmlns:ns1="<a href="http://org.apache.axis2/xsd" class='external free' title="http://org.apache.axis2/xsd" rel="nofollow">http://org.apache.axis2/xsd</a>"
+ xmlns:ns="<a href="http://api.cbim.coinsweb.nl" class='external free' title="http://api.cbim.coinsweb.nl" rel="nofollow">http://api.cbim.coinsweb.nl</a>" xmlns:wsaw="<a href="http://www.w3.org/2006/05/addressing/wsdl" class='external free' title="http://www.w3.org/2006/05/addressing/wsdl" rel="nofollow">http://www.w3.org/2006/05/addressing/wsdl</a>"
+ xmlns:http="<a href="http://schemas.xmlsoap.org/wsdl/http/" class='external free' title="http://schemas.xmlsoap.org/wsdl/http/" rel="nofollow">http://schemas.xmlsoap.org/wsdl/http/</a>" xmlns:xs="<a href="http://www.w3.org/2001/XMLSchema" class='external free' title="http://www.w3.org/2001/XMLSchema" rel="nofollow">http://www.w3.org/2001/XMLSchema</a>"
+ xmlns:mime="<a href="http://schemas.xmlsoap.org/wsdl/mime/" class='external free' title="http://schemas.xmlsoap.org/wsdl/mime/" rel="nofollow">http://schemas.xmlsoap.org/wsdl/mime/</a>" xmlns:soap="<a href="http://schemas.xmlsoap.org/wsdl/soap/" class='external free' title="http://schemas.xmlsoap.org/wsdl/soap/" rel="nofollow">http://schemas.xmlsoap.org/wsdl/soap/</a>"
+ xmlns:soap12="<a href="http://schemas.xmlsoap.org/wsdl/soap12/" class='external free' title="http://schemas.xmlsoap.org/wsdl/soap12/" rel="nofollow">http://schemas.xmlsoap.org/wsdl/soap12/</a>" targetNamespace="<a href="http://api.cbim.coinsweb.nl" class='external free' title="http://api.cbim.coinsweb.nl" rel="nofollow">http://api.cbim.coinsweb.nl</a>"&gt;
+   &lt;wsdl:documentation&gt;Please Type your service description here&lt;/wsdl:documentation&gt;
+   &lt;wsdl:types&gt;
+       &lt;xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" 
+        targetNamespace="<a href="http://api.cbim.coinsweb.nl" class='external free' title="http://api.cbim.coinsweb.nl" rel="nofollow">http://api.cbim.coinsweb.nl</a>"&gt;
+           &lt;xs:element name="upload"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="filename" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="binary" nillable="true" type="xs:base64Binary"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="setRelationTargetObject"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="sourceObjectID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="relationID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="targetObjectID" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="setAttributeStringValue"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="objectID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="attributeID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="value" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="setAttributeIntegerValue"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="objectID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="attributeID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="value" type="xs:int"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="setAttributeFloatValue"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="objectID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="attributeID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="value" type="xs:float"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="setAttributeDateValue"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="objectID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="attributeID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="value" type="xs:long"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="setAttributeBooleanValue"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="objectID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="attributeID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="value" type="xs:boolean"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="save"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="file" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="modelID" type="xs:int"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="load"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="uri" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="loadResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="return" type="xs:int"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getRelationsCount"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="sourceObjectID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="relationID" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getRelationsCountResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="return" type="xs:int"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getRelationTargetObjects"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="sourceObjectID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="relationID" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getRelationTargetObjectsResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getRelationTargetObject"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="sourceObjectID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="relationID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="index" type="xs:int"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getRelationTargetObjectResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getObjectsCount"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="modelID" type="xs:int"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getObjectsCountResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="return" type="xs:int"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getObjectIDs"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="modelID" type="xs:int"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getObjectIDsResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getObjectClass"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="objectID" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getObjectClassResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getAttributes"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="modelID" type="xs:int"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getAttributesResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getAttributeStringValue"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="objectID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="attributeID" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getAttributeStringValueResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getAttributeIntegerValue"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="objectID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="attributeID" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getAttributeIntegerValueResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="return" type="xs:int"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getAttributeFloatValue"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="objectID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="attributeID" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getAttributeFloatValueResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="return" type="xs:float"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getAttributeDateValue"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="objectID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="attributeID" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getAttributeDateValueResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="return" type="xs:long"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getAttributeBooleanValue"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="objectID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="attributeID" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="getAttributeBooleanValueResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="return" type="xs:boolean"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="echo"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="string" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="echoResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="create"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="uri" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="createResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="return" type="xs:int"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="addRelationTargetObject"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="sourceObjectID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="relationID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="targetObjectID" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="addObject"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="modelID" type="xs:int"/&gt;
+                       &lt;xs:element minOccurs="0" name="classID" nillable="true" type="xs:string"/&gt;
+                       &lt;xs:element minOccurs="0" name="objectName" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+           &lt;xs:element name="addObjectResponse"&gt;
+               &lt;xs:complexType&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/&gt;
+                   &lt;/xs:sequence&gt;
+               &lt;/xs:complexType&gt;
+           &lt;/xs:element&gt;
+       &lt;/xs:schema&gt;
+   &lt;/wsdl:types&gt;
+   &lt;wsdl:message name="createRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:create"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="createResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:createResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="setAttributeFloatValueRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:setAttributeFloatValue"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getObjectIDsRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getObjectIDs"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getObjectIDsResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getObjectIDsResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="addObjectRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:addObject"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="addObjectResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:addObjectResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getObjectClassRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getObjectClass"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getObjectClassResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getObjectClassResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="saveRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:save"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getAttributesRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getAttributes"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getAttributesResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getAttributesResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getAttributeIntegerValueRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getAttributeIntegerValue"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getAttributeIntegerValueResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getAttributeIntegerValueResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getAttributeFloatValueRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getAttributeFloatValue"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getAttributeFloatValueResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getAttributeFloatValueResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="setAttributeBooleanValueRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:setAttributeBooleanValue"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="setRelationTargetObjectRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:setRelationTargetObject"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getRelationsCountRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getRelationsCount"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getRelationsCountResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getRelationsCountResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="setAttributeIntegerValueRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:setAttributeIntegerValue"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getAttributeDateValueRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getAttributeDateValue"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getAttributeDateValueResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getAttributeDateValueResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getAttributeStringValueRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getAttributeStringValue"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getAttributeStringValueResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getAttributeStringValueResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getAttributeBooleanValueRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getAttributeBooleanValue"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getAttributeBooleanValueResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getAttributeBooleanValueResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getRelationTargetObjectRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getRelationTargetObject"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getRelationTargetObjectResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getRelationTargetObjectResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getRelationTargetObjectsRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getRelationTargetObjects"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getRelationTargetObjectsResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getRelationTargetObjectsResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="setAttributeStringValueRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:setAttributeStringValue"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="addRelationTargetObjectRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:addRelationTargetObject"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="echoRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:echo"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="echoResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:echoResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="uploadRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:upload"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="setAttributeDateValueRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:setAttributeDateValue"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getObjectsCountRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getObjectsCount"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="getObjectsCountResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:getObjectsCountResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="loadRequest"&gt;
+       &lt;wsdl:part name="parameters" element="ns:load"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:message name="loadResponse"&gt;
+       &lt;wsdl:part name="parameters" element="ns:loadResponse"/&gt;
+   &lt;/wsdl:message&gt;
+   &lt;wsdl:portType name="CoinsIOPortType"&gt;
+       &lt;wsdl:operation name="create"&gt;
+           &lt;wsdl:input message="ns:createRequest" wsaw:Action="urn:create"/&gt;
+           &lt;wsdl:output message="ns:createResponse" wsaw:Action="urn:createResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeFloatValue"&gt;
+           &lt;wsdl:input message="ns:setAttributeFloatValueRequest" wsaw:Action="urn:setAttributeFloatValue"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getObjectIDs"&gt;
+           &lt;wsdl:input message="ns:getObjectIDsRequest" wsaw:Action="urn:getObjectIDs"/&gt;
+           &lt;wsdl:output message="ns:getObjectIDsResponse" wsaw:Action="urn:getObjectIDsResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="addObject"&gt;
+           &lt;wsdl:input message="ns:addObjectRequest" wsaw:Action="urn:addObject"/&gt;
+           &lt;wsdl:output message="ns:addObjectResponse" wsaw:Action="urn:addObjectResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getObjectClass"&gt;
+           &lt;wsdl:input message="ns:getObjectClassRequest" wsaw:Action="urn:getObjectClass"/&gt;
+           &lt;wsdl:output message="ns:getObjectClassResponse" wsaw:Action="urn:getObjectClassResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="save"&gt;
+           &lt;wsdl:input message="ns:saveRequest" wsaw:Action="urn:save"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributes"&gt;
+           &lt;wsdl:input message="ns:getAttributesRequest" wsaw:Action="urn:getAttributes"/&gt;
+           &lt;wsdl:output message="ns:getAttributesResponse" wsaw:Action="urn:getAttributesResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeIntegerValue"&gt;
+           &lt;wsdl:input message="ns:getAttributeIntegerValueRequest" wsaw:Action="urn:getAttributeIntegerValue"/&gt;
+           &lt;wsdl:output message="ns:getAttributeIntegerValueResponse" wsaw:Action="urn:getAttributeIntegerValueResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeFloatValue"&gt;
+           &lt;wsdl:input message="ns:getAttributeFloatValueRequest" wsaw:Action="urn:getAttributeFloatValue"/&gt;
+           &lt;wsdl:output message="ns:getAttributeFloatValueResponse" wsaw:Action="urn:getAttributeFloatValueResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeBooleanValue"&gt;
+           &lt;wsdl:input message="ns:setAttributeBooleanValueRequest" wsaw:Action="urn:setAttributeBooleanValue"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setRelationTargetObject"&gt;
+           &lt;wsdl:input message="ns:setRelationTargetObjectRequest" wsaw:Action="urn:setRelationTargetObject"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getRelationsCount"&gt;
+           &lt;wsdl:input message="ns:getRelationsCountRequest" wsaw:Action="urn:getRelationsCount"/&gt;
+           &lt;wsdl:output message="ns:getRelationsCountResponse" wsaw:Action="urn:getRelationsCountResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeIntegerValue"&gt;
+           &lt;wsdl:input message="ns:setAttributeIntegerValueRequest" wsaw:Action="urn:setAttributeIntegerValue"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeDateValue"&gt;
+           &lt;wsdl:input message="ns:getAttributeDateValueRequest" wsaw:Action="urn:getAttributeDateValue"/&gt;
+           &lt;wsdl:output message="ns:getAttributeDateValueResponse" wsaw:Action="urn:getAttributeDateValueResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeStringValue"&gt;
+           &lt;wsdl:input message="ns:getAttributeStringValueRequest" wsaw:Action="urn:getAttributeStringValue"/&gt;
+           &lt;wsdl:output message="ns:getAttributeStringValueResponse" wsaw:Action="urn:getAttributeStringValueResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeBooleanValue"&gt;
+           &lt;wsdl:input message="ns:getAttributeBooleanValueRequest" wsaw:Action="urn:getAttributeBooleanValue"/&gt;
+           &lt;wsdl:output message="ns:getAttributeBooleanValueResponse" wsaw:Action="urn:getAttributeBooleanValueResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getRelationTargetObject"&gt;
+           &lt;wsdl:input message="ns:getRelationTargetObjectRequest" wsaw:Action="urn:getRelationTargetObject"/&gt;
+           &lt;wsdl:output message="ns:getRelationTargetObjectResponse" wsaw:Action="urn:getRelationTargetObjectResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getRelationTargetObjects"&gt;
+           &lt;wsdl:input message="ns:getRelationTargetObjectsRequest" wsaw:Action="urn:getRelationTargetObjects"/&gt;
+           &lt;wsdl:output message="ns:getRelationTargetObjectsResponse" wsaw:Action="urn:getRelationTargetObjectsResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeStringValue"&gt;
+           &lt;wsdl:input message="ns:setAttributeStringValueRequest" wsaw:Action="urn:setAttributeStringValue"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="addRelationTargetObject"&gt;
+           &lt;wsdl:input message="ns:addRelationTargetObjectRequest" wsaw:Action="urn:addRelationTargetObject"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="echo"&gt;
+           &lt;wsdl:input message="ns:echoRequest" wsaw:Action="urn:echo"/&gt;
+           &lt;wsdl:output message="ns:echoResponse" wsaw:Action="urn:echoResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="upload"&gt;
+           &lt;wsdl:input message="ns:uploadRequest" wsaw:Action="urn:upload"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeDateValue"&gt;
+           &lt;wsdl:input message="ns:setAttributeDateValueRequest" wsaw:Action="urn:setAttributeDateValue"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getObjectsCount"&gt;
+           &lt;wsdl:input message="ns:getObjectsCountRequest" wsaw:Action="urn:getObjectsCount"/&gt;
+           &lt;wsdl:output message="ns:getObjectsCountResponse" wsaw:Action="urn:getObjectsCountResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="load"&gt;
+           &lt;wsdl:input message="ns:loadRequest" wsaw:Action="urn:load"/&gt;
+           &lt;wsdl:output message="ns:loadResponse" wsaw:Action="urn:loadResponse"/&gt;
+       &lt;/wsdl:operation&gt;
+   &lt;/wsdl:portType&gt;
+   &lt;wsdl:binding name="CoinsIOSoap11Binding" type="ns:CoinsIOPortType"&gt;
+       &lt;soap:binding transport="<a href="http://schemas.xmlsoap.org/soap/http" class='external free' title="http://schemas.xmlsoap.org/soap/http" rel="nofollow">http://schemas.xmlsoap.org/soap/http</a>" style="document"/&gt;
+       &lt;wsdl:operation name="create"&gt;
+           &lt;soap:operation soapAction="urn:create" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getObjectClass"&gt;
+           &lt;soap:operation soapAction="urn:getObjectClass" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="addObject"&gt;
+           &lt;soap:operation soapAction="urn:addObject" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeFloatValue"&gt;
+           &lt;soap:operation soapAction="urn:setAttributeFloatValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getObjectIDs"&gt;
+           &lt;soap:operation soapAction="urn:getObjectIDs" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="save"&gt;
+           &lt;soap:operation soapAction="urn:save" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributes"&gt;
+           &lt;soap:operation soapAction="urn:getAttributes" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeIntegerValue"&gt;
+           &lt;soap:operation soapAction="urn:getAttributeIntegerValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeBooleanValue"&gt;
+           &lt;soap:operation soapAction="urn:setAttributeBooleanValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setRelationTargetObject"&gt;
+           &lt;soap:operation soapAction="urn:setRelationTargetObject" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeFloatValue"&gt;
+           &lt;soap:operation soapAction="urn:getAttributeFloatValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getRelationsCount"&gt;
+           &lt;soap:operation soapAction="urn:getRelationsCount" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeIntegerValue"&gt;
+           &lt;soap:operation soapAction="urn:setAttributeIntegerValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeStringValue"&gt;
+           &lt;soap:operation soapAction="urn:getAttributeStringValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeDateValue"&gt;
+           &lt;soap:operation soapAction="urn:getAttributeDateValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeBooleanValue"&gt;
+           &lt;soap:operation soapAction="urn:getAttributeBooleanValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeStringValue"&gt;
+           &lt;soap:operation soapAction="urn:setAttributeStringValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getRelationTargetObjects"&gt;
+           &lt;soap:operation soapAction="urn:getRelationTargetObjects" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getRelationTargetObject"&gt;
+           &lt;soap:operation soapAction="urn:getRelationTargetObject" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="addRelationTargetObject"&gt;
+           &lt;soap:operation soapAction="urn:addRelationTargetObject" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="echo"&gt;
+           &lt;soap:operation soapAction="urn:echo" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="upload"&gt;
+           &lt;soap:operation soapAction="urn:upload" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeDateValue"&gt;
+           &lt;soap:operation soapAction="urn:setAttributeDateValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getObjectsCount"&gt;
+           &lt;soap:operation soapAction="urn:getObjectsCount" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="load"&gt;
+           &lt;soap:operation soapAction="urn:load" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+   &lt;/wsdl:binding&gt;
+   &lt;wsdl:binding name="CoinsIOSoap12Binding" type="ns:CoinsIOPortType"&gt;
+       &lt;soap12:binding transport="<a href="http://schemas.xmlsoap.org/soap/http" class='external free' title="http://schemas.xmlsoap.org/soap/http" rel="nofollow">http://schemas.xmlsoap.org/soap/http</a>" style="document"/&gt;
+       &lt;wsdl:operation name="create"&gt;
+           &lt;soap12:operation soapAction="urn:create" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getObjectClass"&gt;
+           &lt;soap12:operation soapAction="urn:getObjectClass" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="addObject"&gt;
+           &lt;soap12:operation soapAction="urn:addObject" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeFloatValue"&gt;
+           &lt;soap12:operation soapAction="urn:setAttributeFloatValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getObjectIDs"&gt;
+           &lt;soap12:operation soapAction="urn:getObjectIDs" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="save"&gt;
+           &lt;soap12:operation soapAction="urn:save" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributes"&gt;
+           &lt;soap12:operation soapAction="urn:getAttributes" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeIntegerValue"&gt;
+           &lt;soap12:operation soapAction="urn:getAttributeIntegerValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeBooleanValue"&gt;
+           &lt;soap12:operation soapAction="urn:setAttributeBooleanValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setRelationTargetObject"&gt;
+           &lt;soap12:operation soapAction="urn:setRelationTargetObject" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeFloatValue"&gt;
+           &lt;soap12:operation soapAction="urn:getAttributeFloatValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getRelationsCount"&gt;
+           &lt;soap12:operation soapAction="urn:getRelationsCount" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeIntegerValue"&gt;
+           &lt;soap12:operation soapAction="urn:setAttributeIntegerValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeStringValue"&gt;
+           &lt;soap12:operation soapAction="urn:getAttributeStringValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeDateValue"&gt;
+           &lt;soap12:operation soapAction="urn:getAttributeDateValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeBooleanValue"&gt;
+           &lt;soap12:operation soapAction="urn:getAttributeBooleanValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeStringValue"&gt;
+           &lt;soap12:operation soapAction="urn:setAttributeStringValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getRelationTargetObjects"&gt;
+           &lt;soap12:operation soapAction="urn:getRelationTargetObjects" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getRelationTargetObject"&gt;
+           &lt;soap12:operation soapAction="urn:getRelationTargetObject" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="addRelationTargetObject"&gt;
+           &lt;soap12:operation soapAction="urn:addRelationTargetObject" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="echo"&gt;
+           &lt;soap12:operation soapAction="urn:echo" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="upload"&gt;
+           &lt;soap12:operation soapAction="urn:upload" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeDateValue"&gt;
+           &lt;soap12:operation soapAction="urn:setAttributeDateValue" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getObjectsCount"&gt;
+           &lt;soap12:operation soapAction="urn:getObjectsCount" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="load"&gt;
+           &lt;soap12:operation soapAction="urn:load" style="document"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;soap12:body use="literal"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+   &lt;/wsdl:binding&gt;
+   &lt;wsdl:binding name="CoinsIOHttpBinding" type="ns:CoinsIOPortType"&gt;
+       &lt;http:binding verb="POST"/&gt;
+       &lt;wsdl:operation name="create"&gt;
+           &lt;http:operation location="CoinsIO/create"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="create"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="create"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getObjectClass"&gt;
+           &lt;http:operation location="CoinsIO/getObjectClass"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="getObjectClass"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="getObjectClass"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="addObject"&gt;
+           &lt;http:operation location="CoinsIO/addObject"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="addObject"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="addObject"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeFloatValue"&gt;
+           &lt;http:operation location="CoinsIO/setAttributeFloatValue"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="setAttributeFloatValue"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getObjectIDs"&gt;
+           &lt;http:operation location="CoinsIO/getObjectIDs"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="getObjectIDs"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="getObjectIDs"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="save"&gt;
+           &lt;http:operation location="CoinsIO/save"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="save"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributes"&gt;
+           &lt;http:operation location="CoinsIO/getAttributes"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="getAttributes"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="getAttributes"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeIntegerValue"&gt;
+           &lt;http:operation location="CoinsIO/getAttributeIntegerValue"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="getAttributeIntegerValue"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="getAttributeIntegerValue"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeBooleanValue"&gt;
+           &lt;http:operation location="CoinsIO/setAttributeBooleanValue"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="setAttributeBooleanValue"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setRelationTargetObject"&gt;
+           &lt;http:operation location="CoinsIO/setRelationTargetObject"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="setRelationTargetObject"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeFloatValue"&gt;
+           &lt;http:operation location="CoinsIO/getAttributeFloatValue"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="getAttributeFloatValue"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="getAttributeFloatValue"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getRelationsCount"&gt;
+           &lt;http:operation location="CoinsIO/getRelationsCount"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="getRelationsCount"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="getRelationsCount"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeIntegerValue"&gt;
+           &lt;http:operation location="CoinsIO/setAttributeIntegerValue"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="setAttributeIntegerValue"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeStringValue"&gt;
+           &lt;http:operation location="CoinsIO/getAttributeStringValue"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="getAttributeStringValue"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="getAttributeStringValue"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeDateValue"&gt;
+           &lt;http:operation location="CoinsIO/getAttributeDateValue"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="getAttributeDateValue"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="getAttributeDateValue"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getAttributeBooleanValue"&gt;
+           &lt;http:operation location="CoinsIO/getAttributeBooleanValue"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="getAttributeBooleanValue"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="getAttributeBooleanValue"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeStringValue"&gt;
+           &lt;http:operation location="CoinsIO/setAttributeStringValue"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="setAttributeStringValue"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getRelationTargetObjects"&gt;
+           &lt;http:operation location="CoinsIO/getRelationTargetObjects"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="getRelationTargetObjects"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="getRelationTargetObjects"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getRelationTargetObject"&gt;
+           &lt;http:operation location="CoinsIO/getRelationTargetObject"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="getRelationTargetObject"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="getRelationTargetObject"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="addRelationTargetObject"&gt;
+           &lt;http:operation location="CoinsIO/addRelationTargetObject"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="addRelationTargetObject"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="echo"&gt;
+           &lt;http:operation location="CoinsIO/echo"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="echo"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="echo"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="upload"&gt;
+           &lt;http:operation location="CoinsIO/upload"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="upload"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="setAttributeDateValue"&gt;
+           &lt;http:operation location="CoinsIO/setAttributeDateValue"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="setAttributeDateValue"/&gt;
+           &lt;/wsdl:input&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="getObjectsCount"&gt;
+           &lt;http:operation location="CoinsIO/getObjectsCount"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="getObjectsCount"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="getObjectsCount"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+       &lt;wsdl:operation name="load"&gt;
+           &lt;http:operation location="CoinsIO/load"/&gt;
+           &lt;wsdl:input&gt;
+               &lt;mime:content type="text/xml" part="load"/&gt;
+           &lt;/wsdl:input&gt;
+           &lt;wsdl:output&gt;
+               &lt;mime:content type="text/xml" part="load"/&gt;
+           &lt;/wsdl:output&gt;
+       &lt;/wsdl:operation&gt;
+   &lt;/wsdl:binding&gt;
+   &lt;wsdl:service name="CoinsIO"&gt;
+       &lt;wsdl:port name="CoinsIOHttpSoap11Endpoint" binding="ns:CoinsIOSoap11Binding"&gt;
+           &lt;soap:address location="<a href="http://localhost:8080/CoinsIO/services/CoinsIO.CoinsIOHttpSoap11Endpoint/" class='external free' title="http://localhost:8080/CoinsIO/services/CoinsIO.CoinsIOHttpSoap11Endpoint/" rel="nofollow">http://localhost:8080/CoinsIO/services/CoinsIO.CoinsIOHttpSoap11Endpoint/</a>"/&gt;
+       &lt;/wsdl:port&gt;
+       &lt;wsdl:port name="CoinsIOHttpSoap12Endpoint" binding="ns:CoinsIOSoap12Binding"&gt;
+           &lt;soap12:address location="<a href="http://localhost:8080/CoinsIO/services/CoinsIO.CoinsIOHttpSoap12Endpoint/" class='external free' title="http://localhost:8080/CoinsIO/services/CoinsIO.CoinsIOHttpSoap12Endpoint/" rel="nofollow">http://localhost:8080/CoinsIO/services/CoinsIO.CoinsIOHttpSoap12Endpoint/</a>"/&gt;
+       &lt;/wsdl:port&gt;
+       &lt;wsdl:port name="CoinsIOHttpEndpoint" binding="ns:CoinsIOHttpBinding"&gt;
+           &lt;http:address location="<a href="http://localhost:8080/CoinsIO/services/CoinsIO.CoinsIOHttpEndpoint/" class='external free' title="http://localhost:8080/CoinsIO/services/CoinsIO.CoinsIOHttpEndpoint/" rel="nofollow">http://localhost:8080/CoinsIO/services/CoinsIO.CoinsIOHttpEndpoint/</a>"/&gt;
+       &lt;/wsdl:port&gt;
+   &lt;/wsdl:service&gt;
+&lt;/wsdl:definitions&gt;
+</pre>
 
 
 
